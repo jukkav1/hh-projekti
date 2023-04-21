@@ -20,12 +20,12 @@ class MainWindow(GridLayout):
         """superia kutsutaan, jotta perusluokan (LoginScreen vai GridLayout?) toiminnot eivät ylikirjoitu kokonaan, me vaan tehdään oma init -konstruktori [lähde: kivy.org/doc/stable/guide/basic.html]"""
         super(MainWindow, self).__init__(**kwargs)
         self.cols = 3
-        self.add_widget(Label(text="Nimi"))
-        self.username = TextInput(multiline=False)
-        self.add_widget(self.username)
-        self.add_widget(Label(text="salakala"))
-        self.password = TextInput(password=True, multiline=False)
-        self.add_widget(self.password)
+        # self.add_widget(Label(text="Nimi"))
+        # self.username = TextInput(multiline=False)
+        # self.add_widget(self.username)
+        # self.add_widget(Label(text="salakala"))
+        # self.password = TextInput(password=True, multiline=False)
+        # self.add_widget(self.password)
 
         self.nappula1 = Button(text="click heres")
         self.nappula1.bind(on_release=self.callback)
@@ -39,7 +39,7 @@ class MainWindow(GridLayout):
         self.nappula3.bind(on_release=self.callback)
         self.add_widget(self.nappula3)
 
-        # Quit -nappula toimii jo
+        # Quit -nappula toimii jo. Quit on punainen
         self.nappula4 = Button(text="Quit", background_color="#FF2020")
         self.nappula4.bind(on_release=exit)
         self.add_widget(self.nappula4)
