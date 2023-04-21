@@ -1,0 +1,6 @@
+21.4.
+-aloituspalsu
+-kirjoiteltiin general ideaa muistioon
+-Pystytettiin github hh-projektille
+-t suunnitteli grafiikoita
+-j tutustui gridlayoutilla nappuloihin
