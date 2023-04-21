@@ -9,27 +9,30 @@ from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
 
 
 class MainWindow(GridLayout):
-    def callback(self, nappi):
-        print("%s sanoo ouch!" % nappi.text)
+    def callback(self, kv):
+        self.label1.text = "Painoit %s" % kv.text
 
     def __init__(self, **kwargs):
         """superia kutsutaan, jotta perusluokan (LoginScreen vai GridLayout?) toiminnot eivät ylikirjoitu kokonaan, me vaan tehdään oma init -konstruktori [lähde: kivy.org/doc/stable/guide/basic.html]"""
         super(MainWindow, self).__init__(**kwargs)
+        self.rows = 2
         self.cols = 3
 
-        self.nappula1 = Button(text="click heres")
+        self.label1 = Label(text="Velkam", color="#0000BB")
+        self.add_widget(self.label1)
+
+        self.nappula1 = Button(text="Merkinnät", background_color="#AAAA00")
         self.nappula1.bind(on_release=self.callback)
         self.add_widget(self.nappula1)
 
-        self.nappula2 = Button(text="click heres")
+        self.nappula2 = Button(text="Alkuun")
         self.nappula2.bind(on_release=self.callback)
         self.add_widget(self.nappula2)
 
-        self.nappula3 = Button(text="click heres")
+        self.nappula3 = Button(text="Harjoitteet", background_color="#00AA00")
         self.nappula3.bind(on_release=self.callback)
         self.add_widget(self.nappula3)
 
