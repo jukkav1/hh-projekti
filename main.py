@@ -7,6 +7,8 @@ kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 # otetaan hyödyllisiä luokkia käyttöön
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.widget import Widget
+from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 
@@ -40,6 +42,11 @@ class MainWindow(GridLayout):
         self.nappula4 = Button(text="Quit", background_color="#FF2020")
         self.nappula4.bind(on_release=exit)
         self.add_widget(self.nappula4)
+
+class MainBackground(Widget):
+    def __init__(self, **kwargs):
+        super(MainBackground, self).__init__(**kwargs)
+        pass
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
