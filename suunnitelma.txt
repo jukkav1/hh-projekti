@@ -1,0 +1,20 @@
+﻿Tarulle lammas ; graafinen puoli, animointi, design
+Pohjana taskuterapeutti-tyylinen
+
+etusivu, kolme nappulaa alas “pv-kirja, home, harjoitteet
+
+yksi musiikki, merkintäsysteemi;
+
+3 tabia; merkintä, musiikki,
+
+Harjoituksia, päiväkirjamerkinnät tmv.
+
+Pv-kirja alkuun muistiotyyppinen;
+
+Jukka alkaa väsätä nappien kanssa ja teen niistä “toimivat”
+
+muutujat ja funktion nimet pienellä, monisanaiset underscore,
+luokat ym. Isolla alkukirjaimella. Käytetään Black Formatter -muotoilijaa jotta koodi säilyy yhtenäisenä ja luettavana (pep8 standardi, jos kiinnostaa enemmän).
+
+
+Käytetään alkuun devel -haaraa; sitten toimiva koodi testing -haaraan ja testattu lopulta mainiin.
