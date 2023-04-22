@@ -6,3 +6,5 @@
 -j tutustui gridlayoutilla nappuloihin
 -j sai aikaan ensimmäisen raakileen, missä tekstikenttä, quit, kolme nappulaa ja nappuloista jopa tapahtuu jotain.
 
+22.4.
+-j väsäili koodikäytäntöjä, kommentteja ja ohjelman peruslayoutin kanssa.
