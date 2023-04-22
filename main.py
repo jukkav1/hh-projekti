@@ -14,16 +14,25 @@ from kivy.uix.button import Button
 
 
 class MainWindow(GridLayout):
+    """GridLayout -tyyppinen pääikkuna (luokka)"""
+
     def callback(self, kv):
+        """painikkeen tapahtumat"""
         self.label1.text = "Painoit %s" % kv.text
 
     def __init__(self, **kwargs):
-        """superia kutsutaan, jotta perusluokan (LoginScreen vai GridLayout?) toiminnot eivät ylikirjoitu kokonaan, me vaan tehdään oma init -konstruktori [lähde: kivy.org/doc/stable/guide/basic.html]"""
+        """ikkunan päätaso"""
+        # superia kutsutaan, jotta perusluokan (LoginScreen vai GridLayout?) toiminnot eivät ylikirjoitu kokonaan, me vaan tehdään oma init -konstruktori [lähde: kivy.org/doc/stable/guide/basic.html]
         super(MainWindow, self).__init__(**kwargs)
-        self.label1 = Label(text="Velkam", color="#0000BB")
-        self.add_widget(self.label1)
+
+        # päätasolla on vain yksi "sarake"
         self.cols = 1
 
+        # tila ohjelman "näkymälle", lammas tähän?
+        self.label1 = Label(text="Tervetuloa", color="#0000BB")
+        self.add_widget(self.label1)
+
+        # Tehdään uusi 3-sarakkeinen GridLayout päätason sisään
         self.bottomgrid = GridLayout()
         self.bottomgrid.cols = 3
 
