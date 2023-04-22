@@ -4,3 +4,5 @@
 -Pystytettiin github hh-projektille
 -t suunnitteli grafiikoita
 -j tutustui gridlayoutilla nappuloihin
+-j sai aikaan ensimmäisen raakileen, missä tekstikenttä, quit, kolme nappulaa ja nappuloista jopa tapahtuu jotain.
+
