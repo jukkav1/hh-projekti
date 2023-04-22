@@ -33,27 +33,31 @@ class MainWindow(GridLayout):
         self.add_widget(self.label1)
 
         # Tehdään uusi 3-sarakkeinen GridLayout päätason sisään
-        self.bottomgrid = GridLayout()
-        self.bottomgrid.cols = 3
+        self.bottom_grid = GridLayout()
+        self.bottom_grid.size_hint_y = None
+        self.bottom_grid.height = 90
+        self.bottom_grid.cols = 3
 
+        # layoutin rakennuslogiikkaa, järjestystä etc on syytä parantaa erim. for-loopilla tms.
         self.nappula1 = Button(text="Merkinnät", background_color="#AAAA00")
         self.nappula1.bind(on_release=self.callback)
-        self.bottomgrid.add_widget(self.nappula1)
+        self.bottom_grid.add_widget(self.nappula1)
 
         self.nappula2 = Button(text="Alkuun")
         self.nappula2.bind(on_release=self.callback)
-        self.bottomgrid.add_widget(self.nappula2)
+        self.bottom_grid.add_widget(self.nappula2)
 
         self.nappula3 = Button(text="Harjoitteet", background_color="#00AA00")
         self.nappula3.bind(on_release=self.callback)
-        self.bottomgrid.add_widget(self.nappula3)
+        self.bottom_grid.add_widget(self.nappula3)
 
         # Quit -nappula toimii jo. Quit on punainen
-        self.nappula4 = Button(text="Quit", background_color="#FF2020")
+        self.nappula4 = Button(text="X", background_color="#FF2020", font_size=80)
         self.nappula4.bind(on_release=exit)
         self.add_widget(self.nappula4)
 
-        self.add_widget(self.bottomgrid)
+        # lopuksi liimataan itse bottomgrid -widget pääikkunan gridiin
+        self.add_widget(self.bottom_grid)
 
 
 class MainBackground(Widget):
