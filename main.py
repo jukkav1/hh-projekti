@@ -14,7 +14,7 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 
 
-class MainWindow(GridLayout):
+class MainWindow(Widget):
     """GridLayout -tyyppinen pääikkuna (luokka)"""
 
     Window.size = (300, 700)  # Onko hyvä määritellä tässä vai jossain muualla?
@@ -64,12 +64,6 @@ class MainWindow(GridLayout):
 
         # lopuksi liimataan itse bottomgrid -widget pääikkunan gridiin
         self.add_widget(self.bottom_grid)
-
-
-class MainBackground(Widget):
-    def __init__(self, **kwargs):
-        super(MainBackground, self).__init__(**kwargs)
-        pass
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
