@@ -1,22 +1,31 @@
-﻿[x] Tarulle lammas ; graafinen puoli, animointi, design
+﻿[x] Tarulle graafinen puoli, animointi, design
 Pohjana taskuterapeutti-tyylinen
 
-etusivu,
-[x] kolme nappulaa alas “pv-kirja, home, harjoitteet
+Ulkonäkö
+[x] maskotti (taru)
+[x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
+[ ] tabit nappuloiden toiminnoille (taru)
+[ ] tabit yhdistetään navigointiin
 
-yksi musiikki, merkintäsysteemi;
+Toiminnallisuus
+[ ] musiikki / ääniraita 
+[ ] merkintäsysteemi
 
-[x] 3 tabia: päiväkirja, mainmenu, harjoitukset
 
 Pv-kirja alkuun muistiotyyppinen;
 
-Jukka alkaa väsätä nappien kanssa ja teen niistä “toimivat”
+##
+Sovittuja käytäntöjä
 
-muutujat ja funktion nimet pienellä, monisanaiset underscore,
-luokat ym. Isolla alkukirjaimella. Käytetään Black Formatter -muotoilijaa jotta koodi säilyy yhtenäisenä ja luettavana (pep8 standardi, jos kiinnostaa enemmän).
-
-
-Käytetään alkuun devel -haaraa; sitten toimiva koodi testing -haaraan ja testattu lopulta mainiin.
+- koodi Englanniksi ; stringit ja kommentit Suomeksi.
+- muuttujat ja funktion nimet pienellä, monisanaiset underscorella.
+- käytetään yksiselitteisiä muuttuja/funktionimiä.
+- alaviiva (_) ym. yksimerkkiset muuttujat varataan silmukan iteraattoreiksi.
+- luokat ym. Isolla alkukirjaimella. 
+- Käytetään Black Formatter -muotoilijaa, jotta koodi säilyy yhtenäisenä ja luettavana (pep8 standardi, jos kiinnostaa enemmän).
+- Käytetään alkuun jukan devel -haaraa, jonne molemmat pushaa.
+- Raakilekoodi testing -haaraan ja perusteellisemmin testattu lopulta mainiin.
+- jukan main on lukittu.
 
 
 Tarulle:
