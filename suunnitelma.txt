@@ -1,13 +1,12 @@
-﻿Tarulle lammas ; graafinen puoli, animointi, design
+﻿[x] Tarulle lammas ; graafinen puoli, animointi, design
 Pohjana taskuterapeutti-tyylinen
 
-etusivu, kolme nappulaa alas “pv-kirja, home, harjoitteet
+etusivu,
+[x] kolme nappulaa alas “pv-kirja, home, harjoitteet
 
 yksi musiikki, merkintäsysteemi;
 
-3 tabia; merkintä, musiikki,
-
-Harjoituksia, päiväkirjamerkinnät tmv.
+[x] 3 tabia: päiväkirja, mainmenu, harjoitukset
 
 Pv-kirja alkuun muistiotyyppinen;
 
@@ -18,3 +17,10 @@ luokat ym. Isolla alkukirjaimella. Käytetään Black Formatter -muotoilijaa jot
 
 
 Käytetään alkuun devel -haaraa; sitten toimiva koodi testing -haaraan ja testattu lopulta mainiin.
+
+
+Tarulle:
+Välilehdet, image size etc; layout
+
+Jukalle:
+Toimivat nappulat; paina nappia -> vaihda screeniä
