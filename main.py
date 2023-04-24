@@ -14,10 +14,10 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 
 
-class MainWindow(Widget):
+class MainWindow(GridLayout):
     """GridLayout -tyyppinen pääikkuna (luokka)"""
 
-    Window.size = (300, 700)  # Onko hyvä määritellä tässä vai jossain muualla?
+    Window.size = (280, 650)  # Onko hyvä määritellä tässä vai jossain muualla?
 
     def callback(self, kv):
         """painikkeen tapahtumat"""
@@ -57,10 +57,10 @@ class MainWindow(Widget):
         self.nappula3.bind(on_release=self.callback)
         self.bottom_grid.add_widget(self.nappula3)
 
-        # Quit -nappula toimii jo. Quit on punainen
-        self.nappula4 = Button(text="X", background_color="#FF2020", font_size=80)
-        self.nappula4.bind(on_release=exit)
-        self.add_widget(self.nappula4)
+        # # Quit -nappula toimii jo. Quit on punainen
+        # self.nappula4 = Button(text="X", background_color="#FF2020", font_size=80)
+        # self.nappula4.bind(on_release=exit)
+        # self.add_widget(self.nappula4)
 
         # lopuksi liimataan itse bottomgrid -widget pääikkunan gridiin
         self.add_widget(self.bottom_grid)
