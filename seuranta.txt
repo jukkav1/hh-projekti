@@ -8,3 +8,7 @@
 
 22.4.
 -j väsäili koodikäytäntöjä, kommentteja ja ohjelman peruslayoutin kanssa.
+
+24.4.
+-Saatiin kallelta ja kerttulilta hyväksyntä projektille ;)
+-saatiin taustakuva näkyviin nykyiseen koodiin
