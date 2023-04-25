@@ -10,9 +10,19 @@ WindowManager: # mitä ikkunoita meillä on
         source:"images/testi.png"
         allow_stretch:True
         keep_ratio:False
-
+    
+    #täytyykö olla jonkulainen gridlayot jonne napit tulee ja jossa ne asetellaan? 
     Button:
         text:"päiväkirja"
+        size_hint:0.3, 0.3
+        pos_hint:{"x":0,"top":1}
+        on_release:
+            app.root.current="diary"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" # miten sinne siirrytään
+    Button:
+        text:"päiväkirja"
+        size_hint:0.3, 0.3      #kuvan koko, ilmeisesti suhteessa muuhun appiin, ehkä siksi gridlayot mihin verrata? 
+        pos_hint:{"x":0,"bottom":1} #kuvan sijainti, oletuksena ilmeisesti x,y akseli, jota muutellaan?
         on_release:
             app.root.current="diary"    #minne mennään kun nappia painetaan
             root.manager.transition.direction="left" # miten sinne siirrytään
