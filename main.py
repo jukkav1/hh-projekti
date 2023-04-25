@@ -22,30 +22,22 @@ from kivy.lang import Builder
 class MainWindow(Screen):
     """pääikkuna"""
 
-    # Onko hyvä määritellä tässä vai jossain muualla?
+    # Onko hyvä määritelläself tässä vai jossain muualla?
     Window.size = (280, 650)
-    pass
 
 
 class Diary(Screen):
     """päivyri"""
 
-    pass
-
 
 class Exercise(Screen):
     """harjoitukset"""
-
-    pass
 
 
 class WindowManager(ScreenManager):
     """ikkunoiden määrittämistä varten"""
 
-    pass
-
-
-# rakennetaan objekti tiedoston perusteella
+    # rakennetaan objekti tiedoston perusteella
 kv = Builder.load_file("hh.kv")
 
 
