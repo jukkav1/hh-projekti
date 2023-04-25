@@ -7,11 +7,12 @@ kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 # otetaan hyödyllisiä kirjastoja käyttöön
 from kivy.app import App
 from kivy.core.window import Window
-from kivy.uix.screenmanager import (
-    ScreenManager,
-    Screen,
-)  # tämä tuodaan välilehtiä varte
-from kivy.lang import Builder  # tämä tuodaan, jotta kv tiedosto saadaan luettua
+
+# Välilehtiä varten
+from kivy.uix.screenmanager import ScreenManager, Screen
+
+# jotta kv tiedosto saadaan luettua
+from kivy.lang import Builder
 
 # vanha grid -tyylinen layout; error:
 # ScreenManager accepts only Screen widget.
@@ -19,31 +20,43 @@ from kivy.lang import Builder  # tämä tuodaan, jotta kv tiedosto saadaan luett
 
 
 class MainWindow(Screen):
-    Window.size = (280, 650)  # Onko hyvä määritellä tässä vai jossain muualla?
+    """pääikkuna"""
+
+    # Onko hyvä määritellä tässä vai jossain muualla?
+    Window.size = (280, 650)
     pass
 
 
 class Diary(Screen):
+    """päivyri"""
+
     pass
 
 
 class Exercise(Screen):
+    """harjoitukset"""
+
     pass
 
 
-class WindowManager(ScreenManager):  # ikkunoiden  määrittämistä varten
+class WindowManager(ScreenManager):
+    """ikkunoiden määrittämistä varten"""
+
     pass
 
 
-kv = Builder.load_file("hh.kv")  # ladataan kv tiedosto
+# rakennetaan objekti tiedoston perusteella
+kv = Builder.load_file("hh.kv")
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(App):
+    """PääAppi"""
+
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever
     def build(self):
-        # palautetaan MainWindow
-        return kv  # aikaisemmin return MainWindow()
+        # palautetaan kv:sta rakennettu objektiköntsä (siis koko ikkunamöhkäle)
+        return kv
 
 
 if __name__ == "__main__":
