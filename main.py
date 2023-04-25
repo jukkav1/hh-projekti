@@ -18,7 +18,7 @@ from kivy.lang import Builder  # tämä tuodaan, jotta kv tiedosto saadaan luett
 
 
 class MainWindow(Screen):  # aikasemmin GridLayout:
-    pass
+    Window.size = (280, 650)  # Onko hyvä määritellä tässä vai jossain muualla?
 
 
 #    """GridLayout -tyyppinen pääikkuna (luokka)"""
@@ -70,6 +70,7 @@ class MainWindow(Screen):  # aikasemmin GridLayout:
 #
 #        # lopuksi liimataan itse bottomgrid -widget pääikkunan gridiin
 #        self.add_widget(self.bottom_grid)
+pass
 
 
 class Diary(Screen):
