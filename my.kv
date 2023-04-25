@@ -1,0 +1,35 @@
+WindowManager: # what screens are insade of WindowManager
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    size:280,650
+    
+    name: "main"
+    
+    Image:
+        source:"images/testi.png"
+        allow_stretch: True
+        keep_ratio: False
+
+    Button:
+        text: "Next"
+        on_release:
+            app.root.current = "second" #where to go when button is pressed
+            root.manager.transition.direction="left" # how to transition between screens
+            
+<SecondWindow>:
+    name: "second"
+    
+    Image:
+        source:"images/testi.png"
+        allow_stretch: True
+        keep_ratio: False
+
+    Button:
+        text: "Go Back"
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction="right"
+
+            
