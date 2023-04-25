@@ -1,7 +1,48 @@
-<MainWindow>
+WindowManager: # mitä ikkunoita meillä on
+    MainWindow:
+    Diary:
+    Exercise:
+
+<MainWindow>:
+    name:"main"     #annetaan ikkunalle nimi, jota käytetään siirtymisessä
+    
+    Image:          #kuva taustalle
+        source:"images/testi.png"
+        allow_stretch:True
+        keep_ratio:False
+
+    Button:
+        text:"päiväkirja"
+        on_release:
+            app.root.current="diary"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" # miten sinne siirrytään
+
+<Diary>:
+    name:"diary"
+
     Image:
         source:"images/testi.png"
-        size: root.width, root.height
-        allow_stretch: True
-        keep_ratio: False
-        
+        allow_stretch:True
+        keep_ratio:False
+
+    Button:
+        text:"harjoitteet"
+        on_release:
+            app.root.current="exercise"
+            root.manager.transition.direction="left"
+
+<Exercise>:
+    name:"exercise"
+
+    Image:
+        source:"images/testi.png"
+        allow_stretch:True
+        keep_ratio:False
+
+    Button:
+        text:"koti"
+        on_release:
+            app.root.current="main"
+            root.manager.transition.direction="left"
+
+
