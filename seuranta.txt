@@ -16,3 +16,6 @@
 25.4.
 -Taru keuli painikkeiden ja siirtymän kanssa
 -RIP Jukan convoluted nappulahässäkkä, kivyllä selkeämpi ja erillään pääohjelmasta
+
+26.4.
+-J ensimmäinen ääninäytteen toisto
