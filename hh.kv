@@ -43,7 +43,16 @@ WindowManager: # mitä ikkunoita meillä on
         keep_ratio:False
 
     Button:
+        text:"ääni"
+        size_hint:0.3, 0.3
+        pos_hint:{"x":0,"top":1}
+        on_release:
+            app.root.play_sound()
+
+    Button:
         text:"koti"
+        size_hint:0.3, 0.3
+        pos_hint:{"x":0,"bottom":1}
         on_release:
             app.root.current="main"
             root.manager.transition.direction="left"
