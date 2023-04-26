@@ -14,6 +14,9 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 # jotta kv tiedosto saadaan luettua
 from kivy.lang import Builder
 
+# äänien toistoa varten
+from kivy.core.audio import SoundLoader
+
 # vanha grid -tyylinen layout; error:
 # ScreenManager accepts only Screen widget.
 # from layoutgrid import *
@@ -37,7 +40,17 @@ class Exercise(Screen):
 class WindowManager(ScreenManager):
     """ikkunoiden määrittämistä varten"""
 
-    # rakennetaan objekti tiedoston perusteella
+    # Tämä soittaa äänen kutsuttaessa; kts. hh.kv
+    def play_sound(self):
+        """Äänen toistofunktio"""
+        sound = SoundLoader.load("sounds/test.ogg")
+        if sound:
+            sound.play()
+        else:
+            print("äänen toisto ei onnistu T_T")
+
+
+# rakennetaan objekti tiedoston perusteella
 kv = Builder.load_file("hh.kv")
 
 
