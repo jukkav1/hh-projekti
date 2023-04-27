@@ -6,33 +6,62 @@ WindowManager: # mitä ikkunoita meillä on
 <MainWindow>:
     name:"main"     #annetaan ikkunalle nimi, jota käytetään siirtymisessä
     
-    Image:          #kuva taustalle
-        source:"images/testi.png"
+    Image:
+        source:"images/testi2.png"
         allow_stretch:True
         keep_ratio:False
     
-    #täytyykö olla jonkulainen gridlayout jonne napit tulee ja jossa ne asetellaan? 
     Button:
         text:"päiväkirja"
-        size_hint:0.3, 0.3      #kuvan koko, ilmeisesti suhteessa muuhun appiin, ehkä siksi gridlayot mihin verrata? 
-        pos_hint:{"x":0,"bottom":1} #kuvan sijainti, oletuksena ilmeisesti x,y akseli, jota muutellaan?
+        size_hint:0.35, 0.2 #kuvan koko 
+        pos_hint:{"x":0,"bottom":1} # kuvan sijainti
         on_release:
             app.root.current="diary"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" 
+
+    Button:
+        text:"harjoitteet"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0.35,"bottom":1}
+        on_release:
+            app.root.current="exercise"    #minne mennään kun nappia painetaan
             root.manager.transition.direction="left" # miten sinne siirrytään
+    Button:
+        text:"sulje"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0.7,"bottom":1}
+        on_press:
+            app.stop()
 
 <Diary>:
     name:"diary"
 
     Image:
-        source:"images/testi.png"
+        source:"images/testi3.png"
         allow_stretch:True
         keep_ratio:False
+    
+    Button:
+        text:"koti"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0,"bottom":1}
+        on_release:
+            app.root.current="main"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" # miten sinne siirrytään
 
     Button:
         text:"harjoitteet"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0.35,"bottom":1}
         on_release:
-            app.root.current="exercise"
-            root.manager.transition.direction="left"
+            app.root.current="exercise"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" # miten sinne siirrytään
+    Button:
+        text:"sulje"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0.7,"bottom":1}
+        on_press:
+            app.stop()
 
 <Exercise>:
     name:"exercise"
@@ -44,17 +73,33 @@ WindowManager: # mitä ikkunoita meillä on
 
     Button:
         text:"ääni"
-        size_hint:0.3, 0.3
-        pos_hint:{"x":0,"top":1}
+        size_hint:0.5, 0.1
+        pos_hint:{"x":0.5,"top":1}
         on_release:
             app.root.play_sound()
-
+    
     Button:
         text:"koti"
-        size_hint:0.3, 0.3
+        size_hint:0.35, 0.2
         pos_hint:{"x":0,"bottom":1}
         on_release:
-            app.root.current="main"
-            root.manager.transition.direction="left"
+            app.root.current="main"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" # miten sinne siirrytään
+
+    Button:
+        text:"päiväkirja"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0.35,"bottom":1}
+        on_release:
+            app.root.current="diary"    #minne mennään kun nappia painetaan
+            root.manager.transition.direction="left" # miten sinne siirrytään
+    Button:
+        text:"sulje"
+        size_hint:0.35, 0.2
+        pos_hint:{"x":0.7,"bottom":1}
+        on_press:
+            app.stop()
+
+
 
 

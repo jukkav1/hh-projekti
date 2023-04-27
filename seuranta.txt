@@ -19,3 +19,7 @@
 
 26.4.
 -J ensimmäinen ääninäytteen toisto
+
+27.4
+-T asetteli niitä nappuloisia mukavammin,(mukaanlukien ääninappia) ja laittoi testitaustakuvat muihinkin ruutuihin, lisäksi 
+tehty sovelluksen sulkeminen sulje napista
