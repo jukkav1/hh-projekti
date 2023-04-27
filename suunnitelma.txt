@@ -29,7 +29,7 @@ Sovittuja käytäntöjä
 
 
 Tarulle:
-Välilehdet, image size etc; layout
+nappulat
 
 Jukalle:
-Toimivat nappulat; paina nappia -> vaihda screeniä
+Päiväkirja
