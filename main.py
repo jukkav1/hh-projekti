@@ -25,7 +25,7 @@ from kivy.core.audio import SoundLoader
 class MainWindow(Screen):
     """pääikkuna"""
 
-    # Onko hyvä määritelläself tässä vai jossain muualla?
+    # Onko hyvä määritellä tässä vai jossain muualla?
     Window.size = (280, 650)
 
 
