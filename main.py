@@ -1,5 +1,5 @@
 import kivy
-
+from diary import *
 kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 
 """ kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
@@ -29,8 +29,8 @@ class MainWindow(Screen):
     Window.size = (280, 650)
 
 
-class Diary(Screen):
-    """päivyri"""
+# class Diary(Screen):
+#     """päivyri"""
 
 
 class Exercise(Screen):
