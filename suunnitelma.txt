@@ -29,7 +29,7 @@ Sovittuja käytäntöjä
 
 
 Tarulle:
-nappulat
+nappulat, toolbar/navibar hässäkkä
 
 Jukalle:
 Päiväkirja
