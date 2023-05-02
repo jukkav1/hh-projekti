@@ -1,5 +1,6 @@
 import kivy
 from diary import *
+
 kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 
 """ kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
@@ -17,20 +18,12 @@ from kivy.lang import Builder
 # äänien toistoa varten
 from kivy.core.audio import SoundLoader
 
-# vanha grid -tyylinen layout; error:
-# ScreenManager accepts only Screen widget.
-# from layoutgrid import *
-
 
 class MainWindow(Screen):
     """pääikkuna"""
 
     # Onko hyvä määritellä tässä vai jossain muualla?
     Window.size = (280, 650)
-
-
-# class Diary(Screen):
-#     """päivyri"""
 
 
 class Exercise(Screen):
