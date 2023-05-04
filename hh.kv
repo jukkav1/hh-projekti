@@ -1,108 +1,87 @@
-WindowManager: # mitä ikkunoita meillä on
+WindowManager:
     MainWindow:
-    Diary:
-    Exercise:
+    SecondWindow:
 
-<MainWindow>:
-    name:"main"     #annetaan ikkunalle nimi, jota käytetään siirtymisessä
+<Mainwindow>:
+    name:"main"
+
+    Button:
+        text:"possu"
+        on_release:
+            app.root.current="secondwindow"
+            root.manager.transition.direction="left" 
+
+    BoxLayout:
+        orientation: 'vertical'
+        
+        Image:
+            source:"images/testi2.png"
+            allow_stretch:True
+            keep_ratio:False
+        
+        MDBottomAppBar:
+            title: "Bottom Navbar"
+            md_bg_color: .2,.2,.2,1
+            specific_text_color: 1,1,1,1
     
-    Image:
-        source:"images/testi2.png"
-        allow_stretch:True
-        keep_ratio:False
+        MDBottomNavigation:
+            #color stuff
+            #panel_color: 0,0,1,1
     
-    Button:
-        text:"päiväkirja"
-        size_hint:0.35, 0.2 #kuvan koko 
-        pos_hint:{"x":0,"bottom":1} # kuvan sijainti
-        on_release:
-            app.root.current="diary"    #minne mennään kun nappia painetaan
-            root.manager.transition.direction="left" 
+            MDBottomNavigationItem:
+                name: 'Main'
+                text: "nappi1"
+                icon: 'home'
 
-    Button:
-        text:"harjoitteet"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0.35,"bottom":1}
-        on_release:
-            app.root.current="exercise"    
-            root.manager.transition.direction="left" 
-    Button:
-        text:"sulje"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0.7,"bottom":1}
-        background_color:"#AA0000"
-        on_press:
-            app.stop()
-
-<Diary>:
-    name:"diary"
-
-    Image:
-        source:"images/testi3.png"
-        allow_stretch:True
-        keep_ratio:False
+                MDLabel:
+                    text: "lammas1"
+                    halign: 'center'
     
-    Button:
-        text:"koti"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0,"bottom":1}
-        on_release:
-            app.root.current="main"    
-            root.manager.transition.direction="left" 
-
-    Button:
-        text:"harjoitteet"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0.35,"bottom":1}
-        on_release:
-            app.root.current="exercise"    
-            root.manager.transition.direction="left" 
-    Button:
-        text:"sulje"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0.7,"bottom":1}
-        background_color:"#AA0000"
-        on_press:
-            app.stop()
-
-<Exercise>:
-    name:"exercise"
-
-    Image:
-        source:"images/testi.png"
-        allow_stretch:True
-        keep_ratio:False
-
-    Button:
-        text:"ääni"
-        size_hint:0.5, 0.1
-        pos_hint:{"x":0.5,"top":1}
-        on_release:
-            app.root.play_sound()
+            MDBottomNavigationItem:
+                name: 'secondwindow'
+                text: "nappi2"
+                icon: "home"
+                MDLabel:
+                    text: "lammas2"
+                    halign: 'center'
     
+
+<SecondWindow>:
+    name:"secondwindow"
     Button:
-        text:"koti"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0,"bottom":1}
+        text:"lammas"
         on_release:
-            app.root.current="main"    
-            root.manager.transition.direction="left"
+            app.root.current="main"
+            root.manager.transition.direction="right" 
 
-    Button:
-        text:"päiväkirja"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0.35,"bottom":1}
-        on_release:
-            app.root.current="diary"    
-            root.manager.transition.direction="left" 
-    Button:
-        text:"sulje"
-        size_hint:0.35, 0.2
-        pos_hint:{"x":0.7,"bottom":1}
-        background_color:"#AA0000"
-        on_press:
-            app.stop()
+    BoxLayout:
+        orientation: 'vertical'
+        
+        Image:
+            source:"images/testi.png"
+            allow_stretch:True
+            keep_ratio:False
+        
+        MDBottomAppBar:
+            title: "Bottom Navbar"
+            md_bg_color: .2,.2,.2,1
+            specific_text_color: 1,1,1,1
+    
+        MDBottomNavigation:
+            #color stuff
+            #panel_color: 0,0,1,1
+    
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: "nappi1"
+                icon: 'home'
 
-
-
-
+                MDLabel:
+                    text: "lammas1"
+                    halign: 'center'
+    
+            MDBottomNavigationItem:
+                name: 'screen 3'
+                text: "nappi3"
+                icon: 'home'
+                        
