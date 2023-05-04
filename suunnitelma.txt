@@ -8,7 +8,7 @@ Ulkonäkö
 [ ] tabit yhdistetään navigointiin
 
 Toiminnallisuus
-[ ] musiikki / ääniraita 
+[x] musiikki / ääniraita
 [ ] merkintäsysteemi
 
 
@@ -29,7 +29,7 @@ Sovittuja käytäntöjä
 
 
 Tarulle:
-nappulat
+nappulat, toolbar/navibar hässäkkä
 
 Jukalle:
 Päiväkirja
