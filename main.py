@@ -3,7 +3,6 @@ from diary import *
 
 kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 
-""" kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
 
 # otetaan hyödyllisiä kirjastoja käyttöön
 from kivy.app import App
@@ -45,6 +44,9 @@ class WindowManager(ScreenManager):
 
 # rakennetaan objekti tiedoston perusteella
 kv = Builder.load_file("hh.kv")
+
+
+# kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
