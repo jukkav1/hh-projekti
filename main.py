@@ -29,11 +29,6 @@ class MainWindow(Screen):
 class Exercise(Screen):
     """harjoitukset"""
 
-
-class WindowManager(ScreenManager):
-    """ikkunoiden määrittämistä varten"""
-
-    # Tämä soittaa äänen kutsuttaessa; kts. hh.kv
     def play_sound(self):
         """Äänen toistofunktio"""
         sound = SoundLoader.load("sounds/test.ogg")
@@ -41,6 +36,10 @@ class WindowManager(ScreenManager):
             sound.play()
         else:
             print("äänen toisto ei onnistu T_T")
+
+
+class WindowManager(ScreenManager):
+    """ikkunoiden määrittämistä varten"""
 
 
 # rakennetaan objekti tiedoston perusteella
