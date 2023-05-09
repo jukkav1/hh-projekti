@@ -44,6 +44,10 @@ class Exercise(Screen):
         pass
 
 
+class Home(Screen):
+    pass
+
+
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(App):
     """PääAppi"""
