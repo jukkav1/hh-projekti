@@ -18,9 +18,14 @@ from kivy.lang import Builder
 # äänien toistoa varten
 from kivy.core.audio import SoundLoader
 
+# Boxlayout "split" ruutua varten
+from kivy.uix.boxlayout import BoxLayout
 
-class MainWindow(Screen):
+
+class MainWindow(BoxLayout):
     """pääikkuna"""
+
+    #    Builder.load_file("hh.kv")
 
     # Onko hyvä määritellä tässä vai jossain muualla?
     Window.size = (280, 650)
@@ -36,14 +41,7 @@ class Exercise(Screen):
             sound.play()
         else:
             print("äänen toisto ei onnistu T_T")
-
-
-class WindowManager(ScreenManager):
-    """ikkunoiden määrittämistä varten"""
-
-
-# rakennetaan objekti tiedoston perusteella
-kv = Builder.load_file("hh.kv")
+        pass
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
@@ -53,7 +51,7 @@ class HH(App):
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever
     def build(self):
         # palautetaan kv:sta rakennettu objektiköntsä (siis koko ikkunamöhkäle)
-        return kv
+        return MainWindow()
 
 
 if __name__ == "__main__":
