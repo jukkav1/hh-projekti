@@ -14,42 +14,43 @@
             id: sm
             size_hint_y: 0.8
 
-            Exercise:
-
             Diary:
-                # name: "diary"
-                # BoxLayout:
-                #     orientation: "vertical"
-                #     rows: 1
-
-    
-        # Image:
-        #     source:"images/testi2.png"
-        #     allow_stretch:True
-        #     keep_ratio:False
+            Home:
+            Exercise:
         
-        Button:
-            text:"päiväkirja"
-            size_hint:0.35, 0.2 #kuvan koko 
-            pos_hint:{"x":0,"bottom":1} # kuvan sijainti
-            on_release:
-                sm.current="diary"    #minne mennään kun nappia painetaan
-                sm.transition.direction="left" 
+        GridLayout:
+            rows: 1
+            cols: 3
+            size_hint_y: 0.3
+            Button:
+                text:"päiväkirja"
+                size_hint:0.35, 0.2 #kuvan koko 
+                pos_hint:{"x":0,"bottom":1} # kuvan sijainti
+                on_release:
+                    sm.current="diary"    #minne mennään kun nappia painetaan
+                    sm.transition.direction="left" 
 
-        Button:
-            text:"harjoitteet"
-            size_hint:0.35, 0.2
-            pos_hint:{"x":0.35,"bottom":1}
-            on_release:
-                sm.current="exercise"    
-                sm.transition.direction="left" 
-        Button:
-            text:"sulje"
-            size_hint:0.35, 0.2
-            pos_hint:{"x":0.7,"bottom":1}
-            background_color:"#AA0000"
-            on_press:
-                app.stop()
+            Button:
+                text:"harjoitteet"
+                size_hint:0.35, 0.2
+                pos_hint:{"x":0.35,"bottom":1}
+                on_release:
+                    sm.current="exercise"    
+                    sm.transition.direction="left" 
+            Button:
+                text:"sulje"
+                size_hint:0.35, 0.2
+                pos_hint:{"x":0.7,"bottom":1}
+                background_color:"#AA0000"
+                on_press:
+                    app.stop()
+<Home>:
+    name:"home"
+    Image:
+        source:"images/testi2.png"
+        allow_stretch:True
+        keep_ratio:False
+
 
 <Diary>:
     name:"diary"
