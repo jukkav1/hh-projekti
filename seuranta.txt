@@ -1,0 +1,29 @@
+21.4.
+-aloituspalsu
+-kirjoiteltiin general ideaa muistioon
+-Pystytettiin github hh-projektille
+-t suunnitteli grafiikoita
+-j tutustui gridlayoutilla nappuloihin
+-j sai aikaan ensimmäisen raakileen, missä tekstikenttä, quit, kolme nappulaa ja nappuloista jopa tapahtuu jotain.
+
+22.4.
+-j väsäili koodikäytäntöjä, kommentteja ja ohjelman peruslayoutin kanssa.
+
+24.4.
+-Saatiin kallelta ja kerttulilta hyväksyntä projektille ;)
+-saatiin taustakuva näkyviin nykyiseen koodiin
+
+25.4.
+-Taru keuli painikkeiden ja siirtymän kanssa
+-RIP Jukan convoluted nappulahässäkkä, kivyllä selkeämpi ja erillään pääohjelmasta
+
+26.4.
+-J ensimmäinen ääninäytteen toisto
+
+27.4
+-T asetteli niitä nappuloisia mukavammin,(mukaanlukien ääninappia) ja laittoi testitaustakuvat muihinkin ruutuihin, lisäksi 
+tehty sovelluksen sulkeminen sulje napista
+
+11.5 
+-T aloittanut navigaationpalkin väsäämistä jukan versioon, toimii osittain, yläpalkki + sivupalkki, mutta sivupalkissa ei vielä
+mitään sisältöä tai toimintaa
