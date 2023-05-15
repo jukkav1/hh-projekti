@@ -39,11 +39,6 @@ class ContentNavigationDrawer(MDScrollView):
 class MainWindow(BoxLayout):
     """pääikkuna"""
 
-    #    Builder.load_file("hh.kv")
-
-    # Onko hyvä määritellä tässä vai jossain muualla?
-    Window.size = (280, 650)
-
 
 class Exercise(Screen):
     """harjoitukset"""
