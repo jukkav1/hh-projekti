@@ -27,3 +27,6 @@ tehty sovelluksen sulkeminen sulje napista
 8.5. J sai splitattua niin että ruutu liukuu, nappulat pysyy paikallaan
 9.5. J repi päivyrin omaan tiedostoonsa ja askarteli ensimmäiset päivyrin nappulat + toiminto templatet
      T rakenteli hienompaa navigointia omaan haaraansa
+
+11.5 
+-T latasi J:n oksan ja lisäili siihen yläpalkin ja navigaatiopalkin (wuu), samalla heivattu navigaationa olleet napit veks
