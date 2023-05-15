@@ -54,6 +54,8 @@ class Exercise(Screen):
 
 
 class Home(Screen):
+    """Aloitusruutu"""
+
     pass
 
 
