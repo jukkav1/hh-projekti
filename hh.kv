@@ -12,6 +12,7 @@
             on_press:
                 root.nav_drawer.set_state("close")
                 root.screen_manager.current="diary"
+                
         OneLineListItem:
             text:"Harjoitteet"
             on_press:
@@ -19,15 +20,15 @@
                 root.screen_manager.current="exercise"
 <MainWindow>:
     name:"ScreenManager"     #annetaan ikkunalle nimi, jota käytetään siirtymisessä
+
     BoxLayout:
         orientation: "vertical"
-        rows: 2
+
         MDTopAppBar:
-        #palkin sijainti
             title:"Yläpalkki"
-            pos_hint:{"top":1}
             #lisätään viivat yläreunaan ja määritellään palkki avautumaan painaessa, viitataan palkkiin id:n nimellä
             left_action_items: [["menu",lambda x:nav_drawer.set_state("open")]]
+
         MDNavigationLayout:
             ScreenManager:
                 id: sm
@@ -35,15 +36,29 @@
                 Diary:      #importataan ulkoa
                 Home:
                 Exercise:
+
             #luodaan sivupalkki 
             MDNavigationDrawer:
                 #annetaan palkille nimi johon voidaan viitata sitä avatessa
                 id:nav_drawer
+
                 ContentNavigationDrawer:
                     #kerrotaan millä nimella asias löytyvät pythonin puolelta (mainissa olevat) ja kivyn puolella (kv:ssä olevat)
                     screen_manager: sm
                     nav_drawer: nav_drawer
+            MDTopAppBar:
+                MDBottomNavigation
+                    MDBottomNavigationItem:
+                        text:"etusivu"
+                        icon:"home"
+                    MDBottomNavigationItem:
+                        text:"päiväkirja"
+                        icon:"home"
+                    MDBottomNavigationItem:
+                        text:"harjoitteet"
+                        icon:"home"        
         
+
 <Home>:
     name:"home"
     Image:
