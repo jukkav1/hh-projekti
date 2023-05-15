@@ -1,49 +1,50 @@
 #:kivy 2.1.0
-# WindowManager: # mitä ikkunoita meillä on
-#     MainWindow:
-#     Diary:
-#     Exercise:
+<ContentNavigationDrawer>
+    MDList:
+        # luodaan elementti sivupalkkiin
+        OneLineListItem:
+            text:" Etusivu"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current="home"
 
+        OneLineListItem:
+            text:"Päiväkirja"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current="diary"
+        OneLineListItem:
+            text:"Harjoitteet"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current="exercise"
 <MainWindow>:
     name:"ScreenManager"     #annetaan ikkunalle nimi, jota käytetään siirtymisessä
     BoxLayout:
         orientation: "vertical"
         rows: 2
-
-        ScreenManager:
-            id: sm
-            size_hint_y: 0.8
-
-            Diary:      #importataan ulkoa
-            Home:
-            Exercise:
+        MDTopAppBar:
+        #palkin sijainti
+            title:"Yläpalkki"
+            pos_hint:{"top":1}
+            #lisätään viivat yläreunaan ja määritellään palkki avautumaan painaessa, viitataan palkkiin id:n nimellä
+            left_action_items: [["menu",lambda x:nav_drawer.set_state("open")]]
+        MDNavigationLayout:
+            ScreenManager:
+                id: sm
+                #käytössä olevat ruudut
+                Diary:      #importataan ulkoa
+                Home:
+                Exercise:
+            #luodaan sivupalkki 
+            MDNavigationDrawer:
+                #annetaan palkille nimi johon voidaan viitata sitä avatessa
+                id:nav_drawer
+                ContentNavigationDrawer:
+                    #kerrotaan millä nimella asias löytyvät pythonin puolelta (mainissa olevat) ja kivyn puolella (kv:ssä olevat)
+                    screen_manager: sm
+                    nav_drawer: nav_drawer
         
-        GridLayout:
-            rows: 1
-            cols: 3
-            size_hint_y: 0.3
-            Button:
-                text:"päiväkirja"
-                size_hint:0.35, 0.2 #kuvan koko 
-                pos_hint:{"x":0,"bottom":1} # kuvan sijainti
-                on_release:
-                    sm.current="diary"    #minne mennään kun nappia painetaan
-                    sm.transition.direction="left" 
-
-            Button:
-                text:"harjoitteet"
-                size_hint:0.35, 0.2
-                pos_hint:{"x":0.35,"bottom":1}
-                on_release:
-                    sm.current="exercise"    
-                    sm.transition.direction="left" 
-            Button:
-                text:"sulje"
-                size_hint:0.35, 0.2
-                pos_hint:{"x":0.7,"bottom":1}
-                background_color:"#AA0000"
-                on_press:
-                    app.stop()
 <Home>:
     name:"home"
     Image:
