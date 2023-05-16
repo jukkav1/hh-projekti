@@ -1,5 +1,6 @@
 import kivy
 from diary import *
+from exercise import *
 
 kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 
@@ -14,9 +15,6 @@ from kivy.uix.screenmanager import Screen
 
 # jotta kv tiedosto saadaan luettua
 from kivy.lang import Builder
-
-# äänien toistoa varten
-from kivy.core.audio import SoundLoader
 
 # Boxlayout "split" ruutua varten
 from kivy.uix.boxlayout import BoxLayout
@@ -40,23 +38,12 @@ class MainWindow(BoxLayout):
     """pääikkuna"""
 
 
-class Exercise(Screen):
-    """harjoitukset"""
-
-    def play_sound(self):
-        """Äänen toistofunktio"""
-        sound = SoundLoader.load("sounds/test.ogg")
-        if sound:
-            sound.play()
-        else:
-            print("äänen toisto ei onnistu T_T")
-        pass
-
-
 class Home(Screen):
     """Aloitusruutu"""
 
-    pass
+######
+# Diary ja exercise importataan ulkopuolelta
+######
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
