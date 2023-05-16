@@ -37,7 +37,7 @@
                 #käytössä olevat ruudut
                 Diary:      #importataan ulkoa
                 Home:
-                Exercise:
+                Exercise:   # importataan ulkoa
 
             #luodaan sivupalkki 
             MDNavigationDrawer:
@@ -56,17 +56,3 @@
         allow_stretch:True
         keep_ratio:False
     
-<Exercise>:
-    name:"exercise"
-
-    Image:
-        source:"images/testi3.png"
-        allow_stretch:True
-        keep_ratio:False
-
-    Button:
-        text:"ääni"
-        size_hint:0.5, 0.1
-        pos_hint:{"x":0.5,"top":1}
-        on_release:
-            root.play_sound()
