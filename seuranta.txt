@@ -35,3 +35,5 @@ tehty sovelluksen sulkeminen sulje napista
 -J mergesi Tarun oksan omaansa;
 
 16.5. J palautti navibarin omaan haaraansa ja koittaa nyt saada menubarin ja navibarin käskyttämään pääikkunaa..
+
+17.5. J sai jonkinlaisen päivyrinäytön :P
