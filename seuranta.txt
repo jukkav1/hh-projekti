@@ -30,3 +30,8 @@ tehty sovelluksen sulkeminen sulje napista
 
 11.5 
 -T latasi J:n oksan ja lisäili siihen yläpalkin ja navigaatiopalkin (wuu), samalla heivattu navigaationa olleet napit veks
+
+15.5.
+-J mergesi Tarun oksan omaansa;
+
+16.5. J palautti navibarin omaan haaraansa ja koittaa nyt saada menubarin ja navibarin käskyttämään pääikkunaa..
