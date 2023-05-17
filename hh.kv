@@ -1,65 +1,35 @@
-<ContentNavigationDrawer>
-    MDList:
-        # luodaan elementti sivupalkkiin
-        OneLineListItem:
-            text:" Etusivu"
-            on_press:
-                root.nav_drawer.set_state("close")
-                root.screen_manager.current="home"
-
-        OneLineListItem:
-            text:"Päiväkirja"
-            on_press:
-                root.nav_drawer.set_state("close")
-                root.screen_manager.current="diary"
-                
-        OneLineListItem:
-            text:"Harjoitteet"
-            on_press:
-                root.nav_drawer.set_state("close")
-                root.screen_manager.current="exercise"
 <MainWindow>:
     name:"ScreenManager"     #annetaan ikkunalle nimi, jota käytetään siirtymisessä
 
-    BoxLayout:
+    MDBoxLayout:
         orientation: "vertical"
-
         MDTopAppBar:
-            title:"Yläpalkki"
-            #lisätään viivat yläreunaan ja määritellään palkki avautumaan painaessa, viitataan palkkiin id:n nimellä
-            left_action_items: [["menu",lambda x:nav_drawer.set_state("open")]]
-
-        MDNavigationLayout:
-            ScreenManager:
-                id: sm
-                #käytössä olevat ruudut
-                Diary:      #importataan ulkoa
-                Home:
-                Exercise:
-
-            #luodaan sivupalkki 
-            MDNavigationDrawer:
-                #annetaan palkille nimi johon voidaan viitata sitä avatessa
-                id:nav_drawer
-
-                ContentNavigationDrawer:
-                    #kerrotaan millä nimella asias löytyvät pythonin puolelta (mainissa olevat) ja kivyn puolella (kv:ssä olevat)
-                    screen_manager: sm
-                    nav_drawer: nav_drawer
+            left_action_items: [["menu"]]
             
-            #alapalkki, joka on vielä ns.hassussa kohdassa 
-            MDTopAppBar:
-                MDBottomNavigation
-                    MDBottomNavigationItem:
-                        text:"etusivu"
-                        icon:"home"
-                    MDBottomNavigationItem:
-                        text:"päiväkirja"
-                        icon:"home"
-                    MDBottomNavigationItem:
-                        text:"harjoitteet"
-                        icon:"home"        
-    
+        MDBottomNavigation:
+            panel_color: 1,0,0,1
+            text_color_active: 0, 1, 0, 1
+            MDBottomNavigationItem:
+                name: 'Diary'
+                text: 'Päiväkirja'
+                icon: 'notebook'
+                # Toiminta painaessa
+                Diary:
+
+            MDBottomNavigationItem:
+                name: 'main'
+                text: 'Koti'
+                icon: 'home'
+                Home:
+
+            MDBottomNavigationItem:
+                name: 'harjoitteet'
+                text: 'Harjoitteet'
+                icon: 'music'
+                Exercise:        
+                #luodaan sivupalkki
+         
+
 <Home>:
     name:"home"
     Image:
@@ -67,17 +37,3 @@
         allow_stretch:True
         keep_ratio:False
     
-<Exercise>:
-    name:"exercise"
-
-    Image:
-        source:"images/testi.png"
-        allow_stretch:True
-        keep_ratio:False
-
-    Button:
-        text:"ääni"
-        size_hint:0.5, 0.1
-        pos_hint:{"x":0.5,"top":1}
-        on_release:
-            root.play_sound()
