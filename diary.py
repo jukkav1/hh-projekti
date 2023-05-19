@@ -1,8 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
-
-# päivyrimoduuli
-from kivymd.uix.pickers import MDDatePicker
+from kivy.uix.popup import Popup
+from kivy.uix.button import Button
 
 kv = Builder.load_file("diary.kv")
 
@@ -13,7 +12,8 @@ class Diary(Screen):
 
     def write_diary(self):
         # Päivyrinäyttö
-        date_dialog = MDDatePicker()
+        date_dialog = Popup()
+        date_dialog.add_widget(Button(text="tallenna", on_release=date_dialog.dismiss))
         date_dialog.open()
 
     def read_diary(self):
