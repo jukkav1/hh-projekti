@@ -32,4 +32,19 @@ Tarulle:
 nappulat, toolbar/navibar hässäkkä
 
 Jukalle:
-Päiväkirja
+Päiväkirja edelleen työn alkukirjaimella
+
+
+
+Palaveri 19.5.
+T. väsää lisää ääniraitoja, sulkunappula
+j koittaa saada päivyriä toimimaan
+-Käynnistys etusivulle; tervetuloa-splash ruutu
+
+-päivän fiilis 1-5 -> seurantaan
+
+nimiä
+Hyvä Henkäys
+
+kv filejä monta; omiin hakemistoihinsa
+- Sovellus käynnistymään etusivulle

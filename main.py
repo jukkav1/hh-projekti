@@ -41,6 +41,7 @@ class MainWindow(BoxLayout):
 class Home(Screen):
     """Aloitusruutu"""
 
+
 ######
 # Diary ja exercise importataan ulkopuolelta
 ######
