@@ -1,62 +1,62 @@
 import kivy
 from diary import *
+from exercise import *
 
 kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
 
 
 # otetaan hyödyllisiä kirjastoja käyttöön
-from kivy.app import App
+from kivymd.app import MDApp
 from kivy.core.window import Window
 
 # Välilehtiä varten
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import Screen
 
 # jotta kv tiedosto saadaan luettua
 from kivy.lang import Builder
 
-# äänien toistoa varten
-from kivy.core.audio import SoundLoader
+# Boxlayout "split" ruutua varten
+from kivy.uix.boxlayout import BoxLayout
+from kivy.properties import ObjectProperty
+
+# sivun scrollaus
+from kivymd.uix.scrollview import MDScrollView
+
+# pois pääikkunasta
+Window.size = (280, 650)
 
 
-class MainWindow(Screen):
+# tehdään luokka navigoinnille
+class ContentNavigationDrawer(MDScrollView):
+    # jotta tunnistetaan elementit ja voidaan viitata niihin vapaammin https://kivy.org/doc/stable/api-kivy.properties.html
+    screen_manager = ObjectProperty()
+    nav_drawer = ObjectProperty()
+
+
+class MainWindow(BoxLayout):
     """pääikkuna"""
 
-    # Onko hyvä määritellä tässä vai jossain muualla?
-    Window.size = (280, 650)
+
+class Home(Screen):
+    """Aloitusruutu"""
 
 
-class Exercise(Screen):
-    """harjoitukset"""
-
-
-class WindowManager(ScreenManager):
-    """ikkunoiden määrittämistä varten"""
-
-    # Tämä soittaa äänen kutsuttaessa; kts. hh.kv
-    def play_sound(self):
-        """Äänen toistofunktio"""
-        sound = SoundLoader.load("sounds/test.ogg")
-        if sound:
-            sound.play()
-        else:
-            print("äänen toisto ei onnistu T_T")
-
-
-# rakennetaan objekti tiedoston perusteella
-kv = Builder.load_file("hh.kv")
+######
+# Diary ja exercise importataan ulkopuolelta
+######
 
 
 # kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py
 
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
-class HH(App):
+class HH(MDApp):
     """PääAppi"""
 
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever
     def build(self):
         # palautetaan kv:sta rakennettu objektiköntsä (siis koko ikkunamöhkäle)
-        return kv
+        return MainWindow()
 
 
 if __name__ == "__main__":

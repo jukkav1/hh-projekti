@@ -1,0 +1,27 @@
+#:kivy 2.1.0
+<Diary>:
+    name: "diary"
+    Image:
+        source: "images/testi.png"
+        allow_stretch:True
+        keep_ratio:False
+
+
+    Button:
+        text:"lue"
+        size_hint:0.5, 0.1
+        pos_hint:{"x":0,"top":1}
+        on_release:
+            root.read_diary()
+    Button:
+        text:"kirjoita"
+        size_hint:0.5, 0.1
+        pos_hint:{"x":0.0,"top":0.8}
+        on_release:
+            root.write_diary()
+    
+    Label:
+        text: "jee"
+        id: leibel
+        size_hint:0.5, 0.1
+        
