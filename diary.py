@@ -3,7 +3,6 @@ from kivy.lang import Builder
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 
-kv = Builder.load_file("diary.kv")
 
 class Diary(Screen):
     """päivyri"""
