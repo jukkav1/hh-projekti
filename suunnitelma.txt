@@ -44,11 +44,11 @@ j koittaa saada päivyriä toimimaan
 nimiä
 Hyvä Henkäys
 
-kv filejä monta -> omiin hakemistoihinsa
-- Sovellus käynnistymään etusivulle
+[x] kv filejä monta -> omiin hakemistoihinsa
+[x] Aletaan järjestelemään kv ym. filejä
+[x] Sovellus käynnistymään etusivulle
 
 J:n haara deviin; päästään samaan vaiheeseen;
-Aletaan järjestelemään kv ym. filejä
 
 T sulkunappi, ääniraitoja,palkkeja, värimaailmaa, alku splash?
 paniikkinappulapeli :Dee
