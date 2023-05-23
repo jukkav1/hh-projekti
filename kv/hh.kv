@@ -1,0 +1,33 @@
+#:kivy 2.1.0
+
+<MainWindow>:
+    MDBottomNavigation:
+        id: 'bottom_nav'
+        panel_color: 1,0,0,1
+        text_color_active: 0, 1, 0, 1
+
+        MDBottomNavigationItem:
+            name: 'main'
+            text: 'Koti'
+            icon: 'home'
+            Home:
+
+        MDBottomNavigationItem:
+            name: 'Diary'
+            text: 'Päiväkirja'
+            icon: 'notebook'
+            Diary:
+
+        MDBottomNavigationItem:
+            name: 'harjoitteet'
+            text: 'Harjoitteet'
+            icon: 'music'
+            Exercise:
+
+<Home>:
+    name:"home"
+    Image:
+        source:"images/testi2.png"
+        allow_stretch:True
+        keep_ratio:False
+    

@@ -17,6 +17,7 @@ from kivy.uix.boxlayout import BoxLayout
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
 Window.size = (280, 650)
+Builder.load_file("kv/hh.kv")
 
 
 class MainWindow(BoxLayout):
@@ -34,6 +35,7 @@ class Home(Screen):
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
+
     """PääAppi"""
 
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever

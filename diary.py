@@ -7,7 +7,7 @@ from kivy.uix.button import Button
 class Diary(Screen):
     """päivyri"""
 
-    Builder.load_file("diary/diary.kv")
+    Builder.load_file("kv/diary.kv")
 
     def write_diary(self):
         # Päivyrinäyttö
