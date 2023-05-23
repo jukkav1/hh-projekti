@@ -23,6 +23,7 @@ from kivy.properties import ObjectProperty
 from kivymd.uix.scrollview import MDScrollView
 
 # pois pääikkunasta
+# Window.fullscreen = True
 Window.size = (280, 650)
 
 
