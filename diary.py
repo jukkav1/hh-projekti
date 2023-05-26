@@ -17,3 +17,7 @@ class Diary(Screen):
 
     def read_diary(self):
         self.ids.leibel.text = "lueskele"
+
+    def tallenna(self):
+        print("koitetaan tallentaa")
+        self.dismiss()
