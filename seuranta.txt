@@ -39,3 +39,5 @@ tehty sovelluksen sulkeminen sulje napista
 17.5. J sai jonkinlaisen päivyrinäytön :P
 
 23.5. Siistitty codebasea
+
+26.5. Päivyrin popup/tallennus toimii mutta textbox puuttuu vielä
