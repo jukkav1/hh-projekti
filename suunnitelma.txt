@@ -53,5 +53,6 @@ Hyvä Henkäys
 T sulkunappi, ääniraitoja, palkkeja, värimaailmaa, alku splash?
 paniikkinappulapeli :Dee
 
+T:
 -Visuaalista puolta miettiessä pidetään tärkeänä, että värimaailma on paitsi rauhallinen ja positiivisia ajatuksia herättävä, myös huomioi saatavuusasioita
 mahdollisen värisokeuden varalta.
