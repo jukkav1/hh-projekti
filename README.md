@@ -6,6 +6,8 @@ Mitä?
 Tehdään hyvinvointisovellus puhelimelle.
 
 # Ohjelma sisältää:
+* Disclaimer tämä ei ole virallista terapiaa eikä ohjelmaa ei tule käyttää mielenterveyspaveluiden korvikkeena.
+* Konsultoi hoitokontaktiasi ennen ohjelman käyttöä.
 * rauhoittumis-, hengitys- ja meditaatioharjoituksia sekä ääninäytteitä
 * pitää kirjaa käyttäjän edistymisestä kalenterilla.
 
