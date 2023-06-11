@@ -2,8 +2,8 @@ from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivy.uix.popup import Popup
 
-# from kivy.uix.button import Button
-# from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
 
 
 class Diary(Screen):
@@ -12,16 +12,10 @@ class Diary(Screen):
     Builder.load_file("kv/diary.kv")
 
     def write_diary(self):
-        # Päivyrinäyttö
-        date_dialog = Poppi()
-        # date_dialog.add_widget(Button(text="tallenna", on_release=date_dialog.dismiss))
-        date_dialog.open()
+        print("triggered kirjoita")
+        self.ids.leibel.text = "kirjoota"
+        pass
 
     def read_diary(self):
+        print("triggered lueskelu!")
         self.ids.leibel.text = "lueskele"
-
-
-class Poppi(Popup):
-    def tallenna(self):
-        print("koitetaan tallentaa")
-        self.dismiss()
