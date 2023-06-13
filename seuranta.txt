@@ -44,3 +44,6 @@ tehty sovelluksen sulkeminen sulje napista
 
 26.5. Taru nosti esille värimaailman tärkeitä asioita;
 rauhoittava ja saavutettava teema myös värisokeuden varalta
+
+12.6. Projektin aloituspäivä
+13.6. Jonkinnäköinen päivyri saatu näkymään
