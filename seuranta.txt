@@ -35,3 +35,12 @@ tehty sovelluksen sulkeminen sulje napista
 -J mergesi Tarun oksan omaansa;
 
 16.5. J palautti navibarin omaan haaraansa ja koittaa nyt saada menubarin ja navibarin käskyttämään pääikkunaa..
+
+17.5. J sai jonkinlaisen päivyrinäytön :P
+
+23.5. J Siistitty codebasea
+
+26.5. J Päivyrin popup/tallennus toimii mutta textbox puuttuu vielä
+
+26.5. Taru nosti esille värimaailman tärkeitä asioita;
+rauhoittava ja saavutettava teema myös värisokeuden varalta

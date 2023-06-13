@@ -4,9 +4,11 @@ from kivy.lang import Builder
 # äänien toistoa varten
 from kivy.core.audio import SoundLoader
 
+
 class Exercise(Screen):
     """harjoitukset"""
-    Builder.load_file("exercise/exercise.kv")
+
+    Builder.load_file("kv/exercise.kv")
 
     def play_sound(self):
         """Äänen toistofunktio"""

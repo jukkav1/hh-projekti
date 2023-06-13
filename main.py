@@ -2,15 +2,10 @@ import kivy
 from diary import *
 from exercise import *
 
-kivy.require("2.1.0")  # vaaditaan tietty kivy -versio
+kivy.require("2.1.0")
 
-""" kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
-
-# otetaan hyödyllisiä kirjastoja käyttöön
 from kivymd.app import MDApp
 from kivy.core.window import Window
-
-# Välilehtiä varten
 from kivy.uix.screenmanager import Screen
 
 # jotta kv tiedosto saadaan luettua
@@ -18,20 +13,11 @@ from kivy.lang import Builder
 
 # Boxlayout "split" ruutua varten
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import ObjectProperty
 
-# sivun scrollaus
-from kivymd.uix.scrollview import MDScrollView
-
-# pois pääikkunasta
+# Kokoruutu vai ikkuna
+# Window.fullscreen = True
 # Window.size = (280, 650)
-
-
-# tehdään luokka navigoinnille
-# class ContentNavigationDrawer(MDScrollView):
-#    # jotta tunnistetaan elementit ja voidaan viitata niihin vapaammin https://kivy.org/doc/stable/api-kivy.properties.html
-#    screen_manager = ObjectProperty()
-#    nav_drawer = ObjectProperty()
+Builder.load_file("kv/hh.kv")
 
 
 class MainWindow(BoxLayout):
@@ -49,6 +35,7 @@ class Home(Screen):
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
+
     """PääAppi"""
 
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever

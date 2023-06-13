@@ -4,11 +4,11 @@ Pohjana taskuterapeutti-tyylinen
 Ulkonäkö
 [x] maskotti (taru)
 [x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
-[ ] tabit nappuloiden toiminnoille (taru)
-[ ] tabit yhdistetään navigointiin
+[x] tabit nappuloiden toiminnoille (taru)
+[x] tabit yhdistetään navigointiin
 
 Toiminnallisuus
-[x] musiikki / ääniraita
+[x] musiikkia / ääniraitoja
 [ ] merkintäsysteemi
 
 
@@ -23,7 +23,7 @@ Sovittuja käytäntöjä
 - alaviiva (_) ym. yksimerkkiset muuttujat varataan silmukan iteraattoreiksi.
 - luokat ym. Isolla alkukirjaimella. 
 - Käytetään Black Formatter -muotoilijaa, jotta koodi säilyy yhtenäisenä ja luettavana (pep8 standardi, jos kiinnostaa enemmän).
-- Käytetään alkuun jukan devel -haaraa, jonne molemmat pushaa.
+- Molemmilla omat härväyshaaransa, käytetään develiä "snapshottina" 
 - Raakilekoodi testing -haaraan ja perusteellisemmin testattu lopulta mainiin.
 - jukan main on lukittu.
 
@@ -32,4 +32,27 @@ Tarulle:
 nappulat, toolbar/navibar hässäkkä
 
 Jukalle:
-Päiväkirja
+Päiväkirja työn alla
+
+Palaveri 19.5.
+T. väsää lisää ääniraitoja, sulkunappula
+j koittaa saada päivyriä toimimaan
+-Käynnistys etusivulle; tervetuloa-splash ruutu
+
+-päivän fiilis 1-5 -> seurantaan, statsit ?
+
+nimiä
+Hyvä Henkäys
+
+[x] kv filejä monta -> omiin hakemistoihinsa
+[x] Aletaan järjestelemään kv ym. filejä
+[x] Sovellus käynnistymään etusivulle
+
+[x] J:n haara deviin; päästään samaan vaiheeseen
+
+T sulkunappi, ääniraitoja, palkkeja, värimaailmaa, alku splash?
+paniikkinappulapeli :Dee
+
+T:
+-Visuaalista puolta miettiessä pidetään tärkeänä, että värimaailma on paitsi rauhallinen ja positiivisia ajatuksia herättävä, myös huomioi saatavuusasioita
+mahdollisen värisokeuden varalta.
