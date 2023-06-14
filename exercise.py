@@ -10,38 +10,33 @@ Builder.load_file("kv/exercise.kv")
 
 
 class Exercise(Screen):
+    length = NumericProperty(0.0)
+    progress = NumericProperty(0.0)
+
     def __init__(self, **kwargs):
         self.sound = SoundLoader.load("sounds/test.ogg")
         self.sound_position = None
         super().__init__(**kwargs)
 
     def play(self):
-        self.sound.play()
-        print("kuuluu ääniä!")
+        """Äänen toistofunktio"""
+        if self.sound:
+            self.length = self.sound.length
+            self.sound.play()
+            # päivitetään  palkki sekunnin välein
+            self.prog_ev = Clock.schedule_interval(self.update_progress, 1.0)
+            print("kuuluu ääniä!")
+
+        else:
+            print("äänen toisto ei onnistu T_T")
 
     def stop(self):
         self.sound.stop()
-        print("ei kuulu ääniä!")
+        print("ääni lopetettu!")
 
-
-#    length = NumericProperty(0.0)
-#    progress = NumericProperty(0.0)
-#
-#    def play_sound(self):
-#        """Äänen toistofunktio"""
-#        sound = SoundLoader.load("sounds/test.ogg")
-#        if sound:
-#            self.length = sound.length
-#            sound.play()
-#            # päivitetään sekunnin välein
-#            self.prog_ev = Clock.schedule_interval(self.update_progress, 1.0)
-#        else:
-#            print("äänen toisto ei onnistu T_T")
-#
-#    def update_progress(self, dt):  # ei toimi ilman kahta
-#        if self.progress < self.length:
-#            self.progress += 1
-#        else:
-#            self.progress = 0  # nollataan palkki
-#            self.prog_ev.cancel()  # lopetataan päivittäminen
-#
+    def update_progress(self, dt):  # ei toimi ilman kahta
+        if self.progress < self.length:
+            self.progress += 1
+        else:
+            self.progress = 0  # nollataan palkki
+            self.prog_ev.cancel()  # lopetataan päivittäminen
