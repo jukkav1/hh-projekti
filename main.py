@@ -1,6 +1,7 @@
 import kivy
 from diary import *
 from exercise import *
+from skeduler import *
 
 kivy.require("2.1.0")
 
@@ -16,7 +17,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
-Window.size = (280, 650)
+# Window.size = (280, 650)
 Builder.load_file("kv/hh.kv")
 
 
