@@ -6,20 +6,26 @@
         source:"images/testi3.png"
         allow_stretch:True
         keep_ratio:False
-
     MDIconButton:
         icon:"play"
         icon_size:"50dp"
-        size_hint:0.5, 0.1
-        pos_hint:{"x":0.5,"top":1}
+        pos_hint:{"x":0.6,"top":1}
         on_release:
-            root.play_sound()
-        
-    MDProgressBar:
+            root.play()
+
+    MDIconButton:
+        icon:"pause"
+        icon_size:"50dp"
         size_hint:0.5, 0.1
-        pos_hint:{"x":0.5,"top":0.9}
-        min: 0
-        max: 100
-        value:root.progress
+        pos_hint:{"x":0.7,"top":1}
+        on_release:
+            root.stop()
+        
+    #MDProgressBar:
+    #    size_hint:0.5, 0.1
+    #    pos_hint:{"x":0.5,"top":0.9}
+    #    min: 0
+    #    max: 100
+    #    value:root.progress
         
         
