@@ -71,7 +71,7 @@ class Select(BoxLayout):
 # ------------------------------------------------------------------------------------------------#
 
 
-# class for Reminder in Dates
+# Luokka muistutussysteemille; sisältää tekstikentän ja tallennusnappulan
 class Reminder(BoxLayout):
     def __init__(self, **kwargs):
         super(Reminder, self).__init__(**kwargs)
@@ -123,6 +123,8 @@ class Dates(GridLayout):
     def on_release(self, event):
         print("Valittu päivä: " + event.text)
         event.background_color = 1, 0, 0, 1
+
+        # Tämä näyttää pop-upin
         self.popup = Popup(
             title="Tee merkintä",
             content=Reminder(),
@@ -146,20 +148,16 @@ class Months(BoxLayout):
 
 
 # mainApp class
-class Skeduler(App):
+class Skeduler(Screen):
+    Builder.load_file("skeduler/skeduler.kv")
+
     time = StringProperty()
 
     def update(self, *args):
         self.time = str(time.asctime())
 
-    def build(self):
-        self.title = "Kivy-Calendar"
-        self.load_kv("skeduler/skeduler.kv")
-        Clock.schedule_interval(self.update, 1)
-        return Calendar()
-
-
-# BoilerPlate
-if __name__ == "__main__":
-    app = Skeduler()
-    app.run()
+    # def build(self):
+    #     self.title = "Kivy-Calendar"
+    #     self.load_kv("skeduler/skeduler.kv")
+    #     Clock.schedule_interval(self.update, 1)
+    #     return Calendar()
