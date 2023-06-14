@@ -154,7 +154,7 @@ class Skeduler(App):
 
     def build(self):
         self.title = "Kivy-Calendar"
-        self.load_kv("skeduler/calendar.kv")
+        self.load_kv("skeduler/skeduler.kv")
         Clock.schedule_interval(self.update, 1)
         return Calendar()
 
