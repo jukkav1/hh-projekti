@@ -47,3 +47,4 @@ rauhoittava ja saavutettava teema myös värisokeuden varalta
 
 12.6. Projektin aloituspäivä
 13.6. Jonkinnäköinen päivyri saatu näkymään
+14.6 T väsännyt play/pause buttonin audioon ja lisännyt progress bar raakileen, joka ei vielä toimi ihan halutulla tavalla
