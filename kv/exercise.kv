@@ -6,26 +6,34 @@
         source:"images/testi3.png"
         allow_stretch:True
         keep_ratio:False
+
+    MDLabel:
+        text:"Lintuääni"
+        size_hint:0.1, 0.1
+        pos_hint:{"x":0.1,"top":1}
+
     MDIconButton:
         icon:"play"
         icon_size:"50dp"
-        pos_hint:{"x":0.6,"top":1}
+        size_hint:0.1, 0.1
+        pos_hint:{"x":0.8,"top":1}
         on_release:
             root.play()
 
     MDIconButton:
         icon:"pause"
         icon_size:"50dp"
-        size_hint:0.5, 0.1
-        pos_hint:{"x":0.7,"top":1}
+        size_hint:0.1, 0.1
+        pos_hint:{"x":0.9,"top":1}
         on_release:
             root.stop()
         
-    #MDProgressBar:
-    #    size_hint:0.5, 0.1
-    #    pos_hint:{"x":0.5,"top":0.9}
-    #    min: 0
-    #    max: 100
-    #    value:root.progress
+    MDProgressBar:
+        size_hint:0.5, 0.1
+        pos_hint:{"x":0.5,"top":0.9}
+        min: 0
+        max: 100
+        value:root.progress
+        #ei vielä reagoi oikein, ei ole oikean mittainen suhteessa audioon eikä lopeta "lataamista" jos audion pausettaa
         
         
