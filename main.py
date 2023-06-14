@@ -1,8 +1,9 @@
 import kivy
 
-from diary import *
-from exercise import *
-from skeduler import *
+from diary import Diary
+from exercise import Exercise
+from skeduler import Skeduler
+
 
 kivy.require("2.1.0")
 
@@ -21,12 +22,6 @@ from kivy.uix.boxlayout import BoxLayout
 # Window.fullscreen = True
 # Window.size = (280, 650)
 Builder.load_file("kv/hh.kv")
-Builder.load_file("skeduler/skeduler.kv")
-Builder.load_file("skeduler/months.kv")
-Builder.load_file("skeduler/dates.kv")
-Builder.load_file("skeduler/select.kv")
-Builder.load_file("skeduler/status.kv")
-Builder.load_file("skeduler/days.kv")
 
 
 class MainWindow(BoxLayout):
