@@ -6,6 +6,12 @@
         MDTopAppBar:
             left_action_items: [["menu"]]
 
+            MDIconButton:
+                pos_hint:{"center_x":0.99,"center_y":0}
+                icon:"close"
+                icon_size:"64sp"
+                on_press:app.stop()
+
         MDBottomNavigation:
             id: "bottom_nav"
             panel_color: 1,0,0,1
@@ -24,7 +30,7 @@
                 Diary:
 
             MDBottomNavigationItem:
-                name: "harjoitteet"
+                name: "excercise"
                 text: "Harjoitteet"
                 icon: "music"
                 Exercise:
