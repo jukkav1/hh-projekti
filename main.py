@@ -3,6 +3,10 @@ import kivy
 from diary import Diary
 from exercise import Exercise
 from skeduler import Skeduler
+from time import time
+from kivy.properties import ListProperty
+from kivy.properties import ObjectProperty
+from kivy.properties import StringProperty
 
 
 kivy.require("2.1.0")
@@ -39,6 +43,7 @@ class Home(Screen):
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
+    time = StringProperty()
 
     """PääAppi"""
 
