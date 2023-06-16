@@ -6,6 +6,7 @@ Ulkonäkö
 [x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
 [x] tabit nappuloiden toiminnoille (taru)
 [x] tabit yhdistetään navigointiin
+[ ] värimaailma värisokeille (Taru)
 
 Toiminnallisuus
 [x] musiikkia / ääniraitoja
@@ -29,10 +30,10 @@ Sovittuja käytäntöjä
 
 
 Tarulle:
-nappulat, toolbar/navibar hässäkkä
+nappulat, toolbar/navibar hässäkkä, värimaailma
 
 Jukalle:
-Päiväkirja työn alla
+Päiväkirjan toiminnallisuus työn alla
 
 Palaveri 19.5.
 T. väsää lisää ääniraitoja, sulkunappula
@@ -56,3 +57,10 @@ paniikkinappulapeli :Dee
 T:
 -Visuaalista puolta miettiessä pidetään tärkeänä, että värimaailma on paitsi rauhallinen ja positiivisia ajatuksia herättävä, myös huomioi saatavuusasioita
 mahdollisen värisokeuden varalta.
+
+Palaveri 16.6.
+-Tilanne helevetin hyvä.
+-Taru häsää ääninappuloiden, värimaailman ym. kanssa
+-Jukka häsää päivyrin ja puhelin-apin kanssa
+
+-Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
