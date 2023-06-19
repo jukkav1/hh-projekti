@@ -101,16 +101,12 @@ class Dates(GridLayout):
         # Kalenteri näyttää lähtökohtaisesti kuluvan kuun kalenteria
         self.c = calendar.monthcalendar(self.now.year, self.now.month)
 
-        for i in self.c:
-            for j in i:
+        for _ in self.c:
+            for j in _:
                 if j == 0:
-                    self.add_widget(
-                        Button(on_release=self.on_release, text="{j}".format(j=""))
-                    )
+                    self.add_widget(Button(on_release=self.on_release, text=""))
                 else:
-                    self.add_widget(
-                        Button(on_release=self.on_release, text="{j}".format(j=j))
-                    )
+                    self.add_widget(Button(on_release=self.on_release, text=f"{j}"))
 
     def get_month(self):
         pass
