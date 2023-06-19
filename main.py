@@ -1,4 +1,4 @@
-import kivy
+from kivy import require
 
 from diary import Diary
 from exercise import Exercise
@@ -9,15 +9,13 @@ from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
 
 # vaaditaan tietty kivy -versio
-kivy.require("2.1.0")
-
+require("2.2.0")
 
 """ kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
 
 from kivymd.app import MDApp
 from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
-import time
 
 # jotta kv tiedosto saadaan luettua
 from kivy.lang import Builder
@@ -28,10 +26,7 @@ from kivy.uix.boxlayout import BoxLayout
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
 # Window.size = (280, 650)
-Builder.load_file("kv/hh.kv")
-# Kokoruutu vai ikkuna
-# Window.fullscreen = True
-# Window.size = (280, 650)
+
 Builder.load_file("kv/hh.kv")
 
 
