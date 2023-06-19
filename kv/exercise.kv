@@ -13,20 +13,12 @@
         pos_hint:{"x":0.1,"top":1}
 
     MDIconButton:
+        id:play_stop_btn
         icon:"play"
         icon_size:"50dp"
         size_hint:0.1, 0.1
         pos_hint:{"x":0.8,"top":1}
-        on_release:
-            root.play()
-
-    MDIconButton:
-        icon:"pause"
-        icon_size:"50dp"
-        size_hint:0.1, 0.1
-        pos_hint:{"x":0.9,"top":1}
-        on_release:
-            root.stop()
+        on_release:root.play_stop_audio()
             
     MDLabel:
         text:root.timer
