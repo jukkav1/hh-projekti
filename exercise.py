@@ -13,34 +13,54 @@ class Exercise(Screen):
     timer = StringProperty()
     seconds = NumericProperty()
     minutes = NumericProperty()
+    audio_playing = False
+    pause_pushed = False
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.sound = SoundLoader.load("sounds/test.ogg")
-        self.sound_position = None
+        # self.sound = SoundLoader.load("sounds/mixkit-evil-storm-atmosphere-2404.wav")
         self.timer = "00:00"
 
-    def play(self):
-        """Äänen toistofunktio"""
+    # vaatii vielä kikkailua jos audio soi loppuun ilman että pausettaa
+    def play_stop_audio(self):
         if self.sound:
-            self.length = self.sound.length
-            self.sound.play()
-            # päivitetään  palkki sekunnin välein
-            self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
-            self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
-            print("kuuluu ääniä!")
+            if self.audio_playing == True:
+                self.sound.stop()
+                self.audio_playing = False
+                self.pause_pushed = True
+                self.progress = 0
+                self.timer = "00:00"
+                self.seconds = 0
+                self.minutes = 0
+                self.bar_progress.cancel()
+                self.timer_progress.cancel()
+                print(
+                    f"äänet kuoli. self.audio_playing={self.audio_playing}, self.pause_pushed={self.pause_pushed}"
+                )
+                self.update_icon()
+
+            elif self.audio_playing == False:
+                self.sound.play()
+                self.audio_playing = True
+                self.length = self.sound.length
+                # clock_shedule_interval määrittää miten usein palkki/timer päivitetään
+                self.bar_progress = Clock.schedule_interval(
+                    self.update_progress_bar, 1.0
+                )
+                self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
+                self.update_icon()
+                print(f"kuuluu ääniä! self.audio_playing={self.audio_playing}")
+            # else elif jos audio soi loppuun
+
         else:
             print("äänen toisto ei onnistu T_T")
 
-    def stop(self):
-        self.sound.stop()
-        print("ääni lopetettu!")
-        self.progress = 0  # nollataan palkki
-        self.timer = "00:00"
-        self.seconds = 0
-        self.minutes = 0
-        self.bar_progress.cancel()
-        self.timer_progress.cancel()
+    def update_icon(self):
+        if self.ids.play_stop_btn.icon == "play":
+            self.ids.play_stop_btn.icon = "pause"
+        else:
+            self.ids.play_stop_btn.icon = "play"
 
     def update_progress_bar(self, dt):  # ei toimi ilman kahta dt=datetime?
         if self.progress < self.length:
@@ -59,7 +79,6 @@ class Exercise(Screen):
 
         if len(minutes) < 2:
             minutes = f"0{minutes}"
-
         self.timer = f"{minutes}:{seconds}"
 
     def update_seconds(self):
@@ -77,14 +96,3 @@ class Exercise(Screen):
 
     def update_minutes(self):
         self.minutes += 1
-
-    def on_start(self):
-        self.timer = "00:00"
-
-
-class Progress_bar:
-    pass
-
-
-class Timer:
-    pass
