@@ -47,6 +47,6 @@ rauhoittava ja saavutettava teema myös värisokeuden varalta
 
 12.6. Projektin aloituspäivä
 13.6. Jonkinnäköinen päivyri saatu näkymään, Tarun vika
-14.6. Taru laittoi play/pause buttonit ja ääniprocessbarin
+14.6. Taru väsännyt play/pause buttonin audioon ja lisännyt progress bar raakileen, joka ei vielä toimi ihan halutulla tavalla
 15.6. Jukka Sai kalenterin ympättyä pääohjelmaan.
 16.6. Jukka sai proton pyörimään puhelimella ensimmäistä kertaa! Woop woop!

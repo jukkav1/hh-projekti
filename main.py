@@ -8,8 +8,11 @@ from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
 
-
+# vaaditaan tietty kivy -versio
 kivy.require("2.1.0")
+
+
+""" kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
 
 from kivymd.app import MDApp
 from kivy.core.window import Window
@@ -22,6 +25,10 @@ from kivy.lang import Builder
 # Boxlayout "split" ruutua varten
 from kivy.uix.boxlayout import BoxLayout
 
+# Kokoruutu vai ikkuna
+# Window.fullscreen = True
+# Window.size = (280, 650)
+Builder.load_file("kv/hh.kv")
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
 # Window.size = (280, 650)
