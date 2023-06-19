@@ -49,3 +49,4 @@ rauhoittava ja saavutettava teema myös värisokeuden varalta
 13.6. Jonkinnäköinen päivyri saatu näkymään, Tarun vika
 14.6. Taru laittoi play/pause buttonit ja ääniprocessbarin
 15.6. Jukka Sai kalenterin ympättyä pääohjelmaan.
+16.6. Jukka sai proton pyörimään puhelimella ensimmäistä kertaa! Woop woop!
