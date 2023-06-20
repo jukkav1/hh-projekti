@@ -28,7 +28,6 @@ class Exercise(Screen):
             if self.audio_playing == True:
                 self.sound.stop()
                 self.audio_playing = False
-                self.pause_pushed = True
                 self.progress = 0
                 self.timer = "00:00"
                 self.seconds = 0
@@ -36,7 +35,7 @@ class Exercise(Screen):
                 self.bar_progress.cancel()
                 self.timer_progress.cancel()
                 print(
-                    f"äänet kuoli. self.audio_playing={self.audio_playing}, self.pause_pushed={self.pause_pushed}"
+                    f"äänet kuoli. self.audio_playing={self.audio_playing}"
                 )
                 self.update_icon()
 
