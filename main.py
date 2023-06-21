@@ -9,7 +9,7 @@ from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
 
 # vaaditaan tietty kivy -versio
-require("2.2.0")
+require("2.1.0")
 
 """ kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
 
