@@ -112,12 +112,11 @@ class Dates(GridLayout):
         pass
 
     def on_dismiss(self, arg):
-        print("Dismissed :()")
-        # Do something on close of popup
+        print("Dismissed :(")
         pass
 
     def on_release(self, event):
-        print("Valittu päivä: " + event.text)
+        print("Valittu päivä: ", event.text, self.now.month, self.now.year)
         event.background_color = 1, 0, 0, 1
 
         # Tämä näyttää pop-upin
