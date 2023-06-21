@@ -151,9 +151,3 @@ class Skeduler(Screen):
 
     def update(self, *args):
         self.time = str(time.asctime())
-
-    # def build(self):
-    #     self.title = "Kivy-Calendar"
-    #     self.load_kv("skeduler/skeduler.kv")
-    #     Clock.schedule_interval(self.update, 1)
-    #     return Calendar()

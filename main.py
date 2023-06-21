@@ -1,6 +1,6 @@
 from kivy import require
 
-from diary import Diary
+# from diary import Diary
 from exercise import Exercise
 from skeduler import Skeduler
 from time import time
