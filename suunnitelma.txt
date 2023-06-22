@@ -64,3 +64,8 @@ Palaveri 16.6.
 -Jukka häsää päivyrin ja puhelin-apin kanssa
 
 -Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
+
+palaveri 22.6
+-kalenteri etenee
+-harjoitteet osiota laajennettu kivasti
+-taru alkanut häsäämään värimaailman kanssa, tehty muutama eri versio joista lähteä sitten rakentamaan lopullista väriä(värisokeutta huomioitu)
