@@ -6,22 +6,10 @@ from kivymd.app import MDApp
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 
-# class Diary(Screen):
-#     """päivyri"""
-
-#     Builder.load_file("kv/diary.kv")
-
-#     def write_diary(self):
-#         print("triggered kirjoita")
-#         self.ids.leibel.text = "kirjoota"
-#         pass
-
-#     def read_diary(self):
-#         print("triggered lueskelu!")
-#         self.ids.leibel.text = "lueskele"
-
 
 class Diary(Screen):
+    """päivyri"""
+
     Builder.load_file("kv/diary.kv")
 
     def build(self):

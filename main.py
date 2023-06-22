@@ -1,8 +1,17 @@
-import kivy
-from diary import *
-from exercise import *
+from kivy import require
 
-kivy.require("2.1.0")
+# from diary import Diary
+from exercise import Exercise
+from skeduler import Skeduler
+from time import time
+from kivy.properties import ListProperty
+from kivy.properties import ObjectProperty
+from kivy.properties import StringProperty
+
+# vaaditaan tietty kivy -versio
+require("2.1.0")
+
+""" kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
 
 from kivymd.app import MDApp
 from kivy.core.window import Window
@@ -17,6 +26,7 @@ from kivy.uix.boxlayout import BoxLayout
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
 # Window.size = (280, 650)
+
 Builder.load_file("kv/hh.kv")
 
 
@@ -35,6 +45,7 @@ class Home(Screen):
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
+    time = StringProperty()
 
     """PääAppi"""
 
