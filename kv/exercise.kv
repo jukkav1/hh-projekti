@@ -13,26 +13,20 @@
         pos_hint:{"x":0.1,"top":1}
 
     MDIconButton:
+        id:play_stop_btn
         icon:"play"
         icon_size:"50dp"
         size_hint:0.1, 0.1
         pos_hint:{"x":0.8,"top":1}
-        on_release:
-            root.play()
-
-    MDIconButton:
-        icon:"pause"
-        icon_size:"50dp"
-        size_hint:0.1, 0.1
-        pos_hint:{"x":0.9,"top":1}
-        on_release:
-            root.stop()
+        on_release:root.play_stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+             
     MDLabel:
-        text:"00:00"
+        text:root.timer # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
         pos_hint:{"x":0.9,"top":1.35}
                
-    MDProgressBar:
+    MDProgressBar: #tämä nappi testi.ogg: audiota varten
         pos_hint:{"x":0.5,"top":0.9}
         color: 1,0,0,1
+        # max 8 ehtii päivittämään testi.ogg audiolle palkin täyteen audion aikana
         max:8
         value:root.progress
