@@ -25,7 +25,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
-# Window.size = (280, 650)
+Window.size = (360, 640)
 
 Builder.load_file("kv/hh.kv")
 
