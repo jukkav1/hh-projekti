@@ -146,7 +146,8 @@ class Months(BoxLayout):
 class Skeduler(Screen):
     Builder.load_file("skeduler/skeduler.kv")
 
-    time = StringProperty()
-
     def update(self, *args):
         self.time = str(time.asctime())
+
+    def build(self, *args):
+        Clock.schedule_interval(self.update, 1)
