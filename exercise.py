@@ -69,10 +69,10 @@ class Exercise(Screen):
     def update_icon(self):
         # katsotaan mikä kuvake käytössä ja muutetaan se toiseksi
         #  etsii iconbuttonin nimeltä "play_stop_btn" ja vaihtaa siihen oikean kuvakkeen tilanteen mukaan
-        if self.ids.play_stop_btn.icon == "play":
-            self.ids.play_stop_btn.icon = "pause"
+        if self.ids.play_stop_btn1.icon == "play":
+            self.ids.play_stop_btn1.icon = "pause"
         else:
-            self.ids.play_stop_btn.icon = "play"
+            self.ids.play_stop_btn1.icon = "play"
 
     # mitä tehdään progressipalkille kun audio käynnissä (Clock.schedule_interval(self.update_progress_bar, 1.0)) tulee tänne
     def update_progress_bar(self, dt):  # ei toimi ilman kahta dt=datetime?
