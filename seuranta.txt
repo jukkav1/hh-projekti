@@ -50,5 +50,7 @@ rauhoittava ja saavutettava teema myös värisokeuden varalta
 14.6. Taru väsännyt play/pause buttonin audioon ja lisännyt progress bar raakileen, joka ei vielä toimi ihan halutulla tavalla
 15.6. Jukka Sai kalenterin ympättyä pääohjelmaan.
 16.6. Jukka sai proton pyörimään puhelimella ensimmäistä kertaa! Woop woop!
-15-22.6 välillä Taru lisäilyt harjoitteisiin timerin,väsännyt lisää progress baria, tehnyt play/pause napin ja alkanyt väsäämään sovelluksen värien/taustakuvan kanssa tehty myös pientä tietopakettia värisokeudesta
-23.6. J sai kalenterin kellon tikittämään, mergesi tarun haaran koska LEHDET ja Ääniraidat \o/
+15-22.6 välillä Taru lisäilyt harjoitteisiin timerin,väsännyt lisää progress baria, tehnyt play/pause napin ja alkanyt väsäämään sovelluksen värien/taustakuvan kanssa tehty myös pientä tietopakettia värisokeudesta 
+23.6. J sai kalenterin kellon tikittämään, siivosi codebasea ja mergesi Tarun haaran koska LEHDET
+
+26.6. Aletaan väsätä tietokannan kanssa.
