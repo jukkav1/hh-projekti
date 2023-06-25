@@ -1,0 +1,1 @@
+# tilaa varattu tietokantafunktioille
