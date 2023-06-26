@@ -67,7 +67,12 @@ class Reminder(BoxLayout):
 
     def on_release(self, event):
         """Tallennusta painettu, pitäisi kutsua tallennusfunktiota ja sulkea pop-up!"""
-        print("Yritetty tallentaa", self.textbox.text)
+        # print("Yritetty tallentaa", self.textbox.text)
+        tallenna_merkinta(self.textbox.text)
+
+
+def tallenna_merkinta(text):
+    print("yritetty tallentaa", text)
 
 
 class Dates(GridLayout):
@@ -86,16 +91,18 @@ class Dates(GridLayout):
         for days in self.cal:
             for day in days:
                 if day == 0:
-                    self.add_widget(Button(on_release=self.on_release, text=""))
+                    self.add_widget(Button(text="", on_release=self.on_release))
                 else:
-                    self.add_widget(Button(on_release=self.on_release, text=str(day)))
+                    self.add_widget(Button(text=str(day), on_release=self.on_release))
+                    self.tarkista_merkinta(day)
 
     def on_release(self, event):
         """Kun valitaan joku päivä, tee popup"""
         print("Valittu päivä: ", event.text, self.now.month, self.now.year)
-        event.background_color = 1, 0, 0, 1
+        if self.tarkista_merkinta(event.text):
+            event.background_color = 1, 1, 0, 1
 
-        # Tämä rakentaa pop-upin
+            # Tämä rakentaa pop-upin
         self.popup = Popup(
             title="Tee merkintä",
             content=Reminder(),
@@ -108,8 +115,13 @@ class Dates(GridLayout):
         # avaa se popup
         self.popup.open()
 
+    def tarkista_merkinta(self, day):
+        """tarkistaa onko ko. päivällä merkintä"""
+        # aseta taustaväri
+        return True
+
     def on_dismiss(self, event):
-        """Tähän tullaan, jos pop-up ESCataan"""
+        """Tähän tullaan, jos pop-up hylätään"""
         print("Dismissed :(")
 
     def get_month(self):

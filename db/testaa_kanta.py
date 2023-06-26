@@ -1,20 +1,5 @@
-# tilaa varattu tietokantafunktioille
-
-from dbconn import *
-
-
-def hae_merkinta(pvm, kuukausi):
-    # taru lähti oluelle eikä tee enää töitä
-
-    
-    pass
-
-
-def tee_merkinta():
-    pass
-
-
 import sqlite3
+import dbfunc
 
 kanta = "kanta.db"
 
@@ -32,3 +17,18 @@ def test_connection():
 
 
 test_connection()
+
+dbfunc.hae_merkinta(1, 2)
+
+def oksenna_merkinnat(entries):
+    for entry in entries:
+        print(f"entry:{entry}")
+
+oksenna_merkinnat()
+
+def tee_merkinta():
+    
+
+
+#inputti sille päivämäärän hakemiselle
+
