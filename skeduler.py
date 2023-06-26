@@ -19,6 +19,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import Screen
+from db.dbfunc import *
 
 # loaderit kivy-fileille
 Builder.load_file("skeduler/months.kv")
@@ -74,6 +75,8 @@ class Reminder(BoxLayout):
 def tallenna_merkinta(text, month, now):
     """Tallentaa (yrittää) merkinnän"""
     print("yritetty tallentaa", now)
+    tee_merkinta(now, text)
+    test_connection()
 
 
 class Dates(GridLayout):
