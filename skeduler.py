@@ -68,11 +68,12 @@ class Reminder(BoxLayout):
     def on_release(self, event):
         """Tallennusta painettu, pitäisi kutsua tallennusfunktiota ja sulkea pop-up!"""
         # print("Yritetty tallentaa", self.textbox.text)
-        tallenna_merkinta(self.textbox.text)
+        tallenna_merkinta(self.textbox.text, Dates.now.month, Dates.now)
 
 
-def tallenna_merkinta(text):
-    print("yritetty tallentaa", text)
+def tallenna_merkinta(text, month, now):
+    """Tallentaa (yrittää) merkinnän"""
+    print("yritetty tallentaa", now)
 
 
 class Dates(GridLayout):
