@@ -1,15 +1,19 @@
 #:kivy 2.1.0
 <Button>:
-	background_color: 0.1,.5,.5,1
+	background_color: 0,0,0,0
 	
 <Skeduler>:
 	orientation:'vertical'
-	canvas.before:
-		Color:
-			rgba: .5,.6,.7,1
-		Rectangle:
-			pos: self.pos
-			size: self.size
+	Image:
+		source:"images/tausta-lehdet.png"
+        allow_stretch:True
+        keep_ratio:False
+	#canvas.before:
+	#	Color:
+	#		rgba: 237/255,216/255,174/255,0
+	#	Rectangle:
+	#		pos: self.pos
+	#		size: self.size
 		
 	BoxLayout:
 		Months:
