@@ -2,14 +2,16 @@
 <Status>:
 	canvas.before:
 		Color:
-			rgba: 0,0,0,1
+			rgba: 237/255,191/255,88/255,0
 		Rectangle:
 			pos: self.pos
 			size: self.size
-	Label:
+	MDLabel:
 		id: yo
 		text:'Tänään on:'
-	Label:
+        text_color:0,0,0,1
+
+	MDLabel:
 		id: _tnd
 		text: app.time
 	

@@ -97,7 +97,13 @@ class Dates(GridLayout):
                 if day == 0:
                     self.add_widget(Button(text="", on_release=self.on_release))
                 else:
-                    self.add_widget(Button(text=str(day), on_release=self.on_release))
+                    self.add_widget(
+                        Button(
+                            text=str(day),
+                            color=(0, 0, 0, 1),
+                            on_release=self.on_release,
+                        )
+                    )
                     self.tarkista_merkinta(day)
 
     def on_release(self, event):
