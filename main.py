@@ -3,7 +3,6 @@ from kivy import require
 # from diary import Diary
 from exercise import Exercise
 from skeduler import Skeduler
-from time import time
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
