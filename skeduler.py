@@ -22,10 +22,10 @@ from kivy.uix.screenmanager import Screen
 from db.dbfunc import *
 
 # loaderit kivy-fileille
-Builder.load_file("skeduler/months.kv")
-Builder.load_file("skeduler/dates.kv")
-Builder.load_file("skeduler/status.kv")
-Builder.load_file("skeduler/days.kv")
+Builder.load_file("skeduler/months.kv")  # kuukaudet
+Builder.load_file("skeduler/dates.kv")  # päivämäärät
+Builder.load_file("skeduler/status.kv")  # tila-aika-jatkumo
+Builder.load_file("skeduler/days.kv")  # viikonpäivät
 
 
 # Skeleton luokat
@@ -49,6 +49,9 @@ class Months(BoxLayout):
 
     def __init__(self, **kwargs):
         super(Months, self).__init__(**kwargs)
+
+    def valitse_kuukausi(self, mo):
+        print("Valitsit kuukauden ", mo)
 
 
 # ------------------------------------------------------------------------------------------------#
@@ -89,10 +92,13 @@ class Dates(GridLayout):
         self.cols = 7
 
         # Kalenteri näyttää lähtökohtaisesti kuluvan kuun kalenteria
-        self.cal = calendar.monthcalendar(self.now.year, self.now.month)
+        month = calendar.monthcalendar(self.now.year, self.now.month)
+        # Kutsu kuukauden piirto-funktiota ja kerro piirrettävä kuukausi
+        self.draw_month(month)
 
+    def draw_month(self, month):
         # Tekee kalenterin päivistä (myös tyhjistä) nappuloita
-        for days in self.cal:
+        for days in month:
             for day in days:
                 if day == 0:
                     self.add_widget(Button(text="", on_release=self.on_release))
