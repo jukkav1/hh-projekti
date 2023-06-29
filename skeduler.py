@@ -127,6 +127,7 @@ class Dates(GridLayout):
 
     def tarkista_merkinta(self, day):
         """tarkistaa onko ko. päivällä merkintä"""
+        print(f"päivällä {day} .. ei kai ole merkintää. Vielä.")
         # aseta taustaväri
         return True
 
