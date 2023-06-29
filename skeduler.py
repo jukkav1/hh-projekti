@@ -67,7 +67,9 @@ class Reminder(BoxLayout):
         self.boxlayout = BoxLayout(orientation="horizontal", size_hint=(1, 0.15))
         self.add_widget(self.textbox)
         self.add_widget(self.boxlayout)
-        self.boxlayout.add_widget(Button(on_release=self.on_release, text="Tallenna"))
+        self.boxlayout.add_widget(
+            Button(on_release=self.on_release, text="Tallenna", color=(0, 0, 0, 1))
+        )
 
     def on_release(self, event):
         """Tallennusta painettu, pitäisi kutsua tallennusfunktiota ja sulkea pop-up!"""
@@ -110,11 +112,14 @@ class Dates(GridLayout):
         """Kun valitaan joku päivä, tee popup"""
         print("Valittu päivä: ", event.text, self.now.month, self.now.year)
         if self.tarkista_merkinta(event.text):
-            event.background_color = 1, 1, 0, 1
+            event.background_color = (232 / 255, 123 / 255, 0, 0.5)
 
             # Tämä rakentaa pop-upin
         self.popup = Popup(
             title="Tee merkintä",
+            title_color=(0, 0, 0, 1),
+            title_align="center",
+            background="images/tausta-lehdet.png",
             content=Reminder(),
             size_hint=(None, None),
             size=(self.width * 3 / 4, self.height),
