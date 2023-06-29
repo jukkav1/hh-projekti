@@ -6,6 +6,8 @@ from skeduler import Skeduler
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
+from kivy.clock import Clock
+from kivy.uix.popup import Popup
 
 # vaaditaan tietty kivy -versio
 require("2.1.0")
@@ -44,13 +46,23 @@ class Home(Screen):
 
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
+    """PääAppi"""
+
     time = StringProperty()
 
-    """PääAppi"""
+    def disclaimer(self, dt):
+        popup = Popup(
+            title="oma vikas",
+            size_hint=(0.6, 0.6),
+            background="images/tausta-lehdet.png",
+        )
+
+        popup.open()
 
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever
     def build(self):
         # palautetaan kv:sta rakennettu objektiköntsä (siis koko ikkunamöhkäle)
+        Clock.schedule_once(self.disclaimer, 1)
         return MainWindow()
 
 
