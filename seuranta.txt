@@ -53,3 +53,6 @@ rauhoittava ja saavutettava teema myös värisokeuden varalta
 15-22.6 välillä Taru lisäilyt harjoitteisiin timerin,väsännyt lisää progress baria, tehnyt play/pause napin ja alkanyt väsäämään sovelluksen värien/taustakuvan kanssa tehty myös pientä tietopakettia värisokeudesta 
 23.6. J sai kalenterin kellon tikittämään, siivosi codebasea ja mergesi Tarun haaran koska LEHDET
 26.6. Aletaan väsätä tietokannan kanssa. ladattu appi myös tarun puhelimeen
+27.6. Työ esitelty virallisesti luokalle ja kouluttajille.
+29.6. Palaveri. Visuaalinen ulkonäkö hyväksytään. Myös kalenterin visuaalinen puoli näyttää hyvältä, myös nappulat ja pop-up osittain läpinäkyviä. taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
+Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
