@@ -8,6 +8,8 @@ from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
 from kivy.clock import Clock
 from kivy.uix.popup import Popup
+from kivy.uix.button import Button
+from kivy.uix.label import Label
 
 # vaaditaan tietty kivy -versio
 require("2.1.0")
@@ -51,12 +53,17 @@ class HH(MDApp):
     time = StringProperty()
 
     def disclaimer(self, dt):
+        # mitenkä saadaan label ja button yhtä aikaa näkymähän? :D
+        # content = Label(text="liirum\nlaarum", size_hint=(1, 1), color=(0, 0, 0, 1))
+        content = Button(text="ok", size_hint=(0.1, 0.1), color=(0, 0, 0, 1))
         popup = Popup(
             title="oma vikas",
+            title_color=(0, 0, 0, 1),
+            content=content,
             size_hint=(0.6, 0.6),
             background="images/tausta-lehdet.png",
         )
-
+        content.bind(on_press=popup.dismiss)
         popup.open()
 
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever
