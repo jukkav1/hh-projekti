@@ -1,7 +1,7 @@
 from kivy import require
 from exercise import Exercise
 from skeduler import Skeduler
-import time
+from time import asctime
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
@@ -35,7 +35,7 @@ class HH(MDApp):
     time = StringProperty()
 
     def update(self, *args):
-        self.time = str(time.asctime())
+        self.time = str(asctime())
 
     def build(self, *args):
         Clock.schedule_interval(self.update, 1)
