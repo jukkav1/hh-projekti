@@ -158,13 +158,4 @@ class Dates(GridLayout):
 # mainApp class
 class Skeduler(Screen):
     """Päivyrin pääluokka"""
-
     Builder.load_file("skeduler/skeduler.kv")
-
-    def update(self, **kwargs):
-        """kellon päivitysfunktio"""
-        self.time = str(time.asctime())
-
-    def build(self, **kwargs):
-        """Kellon tikittäjä, 1 sek välein kutsu self.update():a"""
-        Clock.schedule_interval(self.update, 1)
