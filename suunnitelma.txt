@@ -69,3 +69,9 @@ palaveri 22.6
 -kalenteri etenee
 -harjoitteet osiota laajennettu kivasti
 -taru alkanut häsäämään värimaailman kanssa, tehty muutama eri versio joista lähteä sitten rakentamaan lopullista väriä(värisokeutta huomioitu)
+
+Palaveri 29.6.
+- Visuaalinen ulkonäkö hyväksytään. Myös kalenterin visuaalinen puoli näyttää hyvältä, myös nappulat ja pop-up osittain läpinäkyviä.
+- taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
+- Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
+- Ensimmäinen ääniraita saatu. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
