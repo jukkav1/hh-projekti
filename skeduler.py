@@ -94,13 +94,13 @@ class Dates(GridLayout):
         self.cols = 7
 
         # Kalenteri näyttää lähtökohtaisesti kuluvan kuun kalenteria
-        month = calendar.monthcalendar(self.now.year, self.now.month)
+        self.daylist = calendar.monthcalendar(self.now.year, self.now.month)
         # Kutsu kuukauden piirto-funktiota ja kerro piirrettävä kuukausi
-        self.draw_month(month)
+        self.draw_month(self.now.month)
 
     def draw_month(self, month):
         # Tekee kalenterin päivistä (myös tyhjistä) nappuloita
-        for days in month:
+        for days in self.daylist:
             for day in days:
                 if day == 0:
                     self.add_widget(Button(text=""))
@@ -112,12 +112,12 @@ class Dates(GridLayout):
                             on_release=self.on_release,
                         )
                     )
-                    self.tarkista_merkinta(day)
+                    self.tarkista_merkinta(day, month)
 
     def on_release(self, event):
         """Kun valitaan joku päivä, tee popup"""
         print("Valittu päivä: ", event.text, self.now.month, self.now.year)
-        if self.tarkista_merkinta(event.text):
+        if self.tarkista_merkinta(event.text, self.now.month):
             event.background_color = (232 / 255, 123 / 255, 0, 0.5)
 
             # Tämä rakentaa pop-upin
@@ -136,9 +136,9 @@ class Dates(GridLayout):
         # avaa se popup
         self.popup.open()
 
-    def tarkista_merkinta(self, day):
+    def tarkista_merkinta(self, day, month):
         """tarkistaa onko ko. päivällä merkintä"""
-        print(f"päivällä {day} .. ei kai ole merkintää. Vielä.")
+        print(f"päivällä {day}.{month}. .. ei kai ole merkintää. Vielä.")
         # aseta taustaväri
         return True
 
@@ -158,4 +158,5 @@ class Dates(GridLayout):
 # mainApp class
 class Skeduler(Screen):
     """Päivyrin pääluokka"""
+
     Builder.load_file("skeduler/skeduler.kv")
