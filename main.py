@@ -1,7 +1,7 @@
 from kivy import require
 from exercise import Exercise
 from skeduler import Skeduler
-from time import asctime
+from datetime import datetime
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
@@ -33,9 +33,12 @@ class Home(Screen):
 # noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
     time = StringProperty()
+    date = StringProperty()
 
     def update(self, *args):
-        self.time = str(asctime())
+        self.time = str(datetime.now().strftime('%H:%M'))
+        self.date = str(datetime.now().strftime('%d.%m.%Y'))
+
 
     def build(self, *args):
         Clock.schedule_interval(self.update, 1)
