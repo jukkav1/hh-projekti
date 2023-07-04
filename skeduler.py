@@ -79,8 +79,8 @@ class Reminder(BoxLayout):
 
 def tallenna_merkinta(text, month, now):
     """Tallentaa (yrittää) merkinnän"""
-    print("yritetty tallentaa", now)
-    tee_merkinta(now, text)
+    print("yritetty tallentaa", now, month, text)
+    tee_merkinta(now, month, text)
     test_connection()
 
 
