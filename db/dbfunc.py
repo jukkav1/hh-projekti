@@ -3,28 +3,28 @@
 # from dbconn import *
 import sqlite3
 from sqlite3 import Error
-import os.path
+from os.path import isfile
 
 kanta = "db/kanta.db"
 taulu = "merkinnat"
 
 
-def hae_merkinta(pvm, kuukausi):
+def tee_merkinta(pvm, kuukausi, teksti):
+    # cursor.execute(
+    #     f"INSERT INTO merkinnat(date,text) VALUES ('{params[0]}', '{params[1]}');"
+    # )
+
     pass
 
 
-def tee_merkinta(pvm, text):
+def hae_merkinnat(pvm, text):
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
     params = (pvm, text)
-    if os.path.isfile(kanta):
+    if isfile(kanta):
         print("Tiedosto on olemassa")
-        # cursor.execute(
-        #     f"INSERT INTO merkinnat(date,text) VALUES ('{params[0]}', '{params[1]}');"
-        # )
         try:
-            x = cursor.execute("SELECT * FROM merkinnat")
-
+            x = cursor.execute("SELECT * FROM ?", taulu)
             for y in x.fetchall():
                 print(y)
 
@@ -45,7 +45,6 @@ def test_connection():
         print("Ei toimi T_T", e)
     finally:
         conn.close()
-        print("byes")
 
 
 test_connection()
