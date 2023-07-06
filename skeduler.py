@@ -74,10 +74,13 @@ class Reminder(BoxLayout):
     def on_release(self, event):
         """Tallennusta painettu, pitäisi kutsua tallennusfunktiota ja sulkea pop-up!"""
         # print("Yritetty tallentaa", self.textbox.text)
+
+        # Logics on pielessä, ei pitäisi välittää tätä päivää, vaan valitun päivän date.
         tallenna_merkinta(self.textbox.text, Dates.now.month, Dates.now)
 
 
 def tallenna_merkinta(text, month, now):
+    # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
     """Tallentaa (yrittää) merkinnän"""
     print("yritetty tallentaa", now, month, text)
     tee_merkinta(now, month, text)
