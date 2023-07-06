@@ -10,11 +10,20 @@ taulu = "merkinnat"
 
 
 def tee_merkinta(pvm, kuukausi, teksti):
-    # cursor.execute(
-    #     f"INSERT INTO merkinnat(date,text) VALUES ('{params[0]}', '{params[1]}');"
-    # )
+    print(f"Koitetaan tehdä merkintä {teksti} päivälle {pvm.date()}")
+    conn = sqlite3.connect(kanta)
+    cursor = conn.cursor()
+    try:
+        cursor.execute(
+            f"INSERT INTO merkinnat(date,text) VALUES ('{pvm.date()}', '{teksti}');"
+        )
+        conn.commit()
 
-    pass
+    except Error as e:
+        print("Joku meni pieleen: ", e)
+
+    finally:
+        conn.close()
 
 
 def hae_merkinnat(pvm, text):
