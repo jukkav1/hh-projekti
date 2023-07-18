@@ -53,17 +53,35 @@ class HH(MDApp):
     time = StringProperty()
 
     def disclaimer(self, dt):
-        # mitenkä saadaan label ja button yhtä aikaa näkymähän? :D
-        # content = Label(text="liirum\nlaarum", size_hint=(1, 1), color=(0, 0, 0, 1))
-        content = Button(text="ok", size_hint=(0.1, 0.1), color=(0, 0, 0, 1))
+        layout = BoxLayout(orientation="vertical")
+        label = Label(
+            text="""            
+            Tämä sovellus ei ole virallisesti
+            hyväksytty terapiamuoto.
+            Sovellusta ei ole tarkoitettu
+            korvaamaan mielenterveyspalveluja.
+            Jos sinulla tai läheiselläsi on
+            mielenterveysongelmiin viittaavia
+            oireita, ole hyvä ja ota
+            yhteys omaan lääkäriisi avun 
+            saamiseksi.""",
+            halign="center",
+            valign="middle",
+            size_hint=(0.8, 0.1),
+            color=(0, 0, 0, 1),
+        )
+        btn = Button(text="selvä", size_hint=(1, 0.02), color=(0, 0, 0, 1))
+        layout.add_widget(label)
+        layout.add_widget(btn)
+
         popup = Popup(
-            title="oma vikas",
+            title="Huomio!",
             title_color=(0, 0, 0, 1),
-            content=content,
-            size_hint=(0.6, 0.6),
+            content=layout,
+            size_hint=(0.8, 0.8),
             background="images/tausta-lehdet.png",
         )
-        content.bind(on_press=popup.dismiss)
+        btn.bind(on_press=popup.dismiss)
         popup.open()
 
     # alustetaan (konstruktoidaan) juuriolio, pääkikkare, root widget, what ever
