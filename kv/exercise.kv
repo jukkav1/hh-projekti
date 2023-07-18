@@ -3,13 +3,159 @@
     name:"exercise"
 
     Image:
-        source:"images/testi3.png"
+        source:"images/tausta-lehdet.png"
         allow_stretch:True
         keep_ratio:False
 
-    Button:
-        text:"ääni"
-        size_hint:0.5, 0.1
-        pos_hint:{"x":0.5,"top":1}
-        on_release:
-            root.play_sound()
+    MDLabel: # ensimmäinen raita
+        text:"Lintuääni"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.38,"top":1.45}
+
+    MDLabel:
+        text:root.timer # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        pos_hint:{"x":0.11,"top":1.40}
+    
+    MDIconButton:
+        id:play_stop_btn1
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.965}
+        on_release:root.play_stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+    
+    MDProgressBar: #tämä nappi testi.ogg: audiota varten
+        pos_hint:{"center_x":0.5,"center_y":0.90}
+        size_hint_x: 0.5
+        color: 163/255, 102/255, 28/255, 1
+        max:4
+        value:root.progress
+    
+    MDLabel:
+        text:"00:04" # tähän näkyviiin audion pituus
+        pos_hint:{"x":0.85,"top":1.40}
+    
+    MDLabel: # toinen raita
+        text:"Raita 2"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.38,"top":1.30}
+
+    MDLabel:
+        text:root.timer # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        pos_hint:{"x":0.11,"top":1.25}
+    
+    MDIconButton:
+        id:play_stop_btn2
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.815}
+        on_release:root.play_stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+    
+    MDProgressBar: #tämä nappi testi.ogg: audiota varten
+        pos_hint:{"center_x":0.5,"center_y":0.75}
+        size_hint_x: 0.5
+        color: 163/255, 102/255, 28/255, 1
+        max:4
+        #value:root.progress
+    
+    MDLabel:
+        text:"00:04" # tähän näkyviiin audion pituus
+        pos_hint:{"x":0.85,"top":1.25}
+
+    MDLabel: # kolmas raita
+        text:"Raita 3"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.38,"top":1.15}
+
+    MDLabel:
+        text:root.timer # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        pos_hint:{"x":0.11,"top":1.10}
+    
+    MDIconButton:
+        id:play_stop_btn3
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.665}
+        #on_release:root.play_stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+    
+    MDProgressBar: #tämä nappi testi.ogg: audiota varten
+        pos_hint:{"center_x":0.5,"center_y":0.60}
+        size_hint_x: 0.5
+        color: 163/255, 102/255, 28/255, 1
+        max:4
+        #value:root.progress
+    
+    MDLabel:
+        text:"00:04" # tähän näkyviiin audion pituus
+        pos_hint:{"x":0.85,"top":1.10}
+    
+    MDLabel: # neljäs raita
+        text:"Raita 4"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.38,"top":1.0}
+
+    MDLabel:
+        text:root.timer # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        pos_hint:{"x":0.11,"top":0.95}
+    
+    MDIconButton:
+        id:play_stop_btn4
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.515}
+        #on_release:root.play_stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+    
+    MDProgressBar: #tämä nappi testi.ogg: audiota varten
+        pos_hint:{"center_x":0.5,"center_y":0.45}
+        size_hint_x: 0.5
+        color: 163/255, 102/255, 28/255, 1
+        max:4
+        #value:root.progress
+    
+    MDLabel:
+        text:"00:04" # tähän näkyviiin audion pituus
+        pos_hint:{"x":0.85,"top":0.95}
+    
+    MDLabel: # viides raita
+        text:"Raita 5"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.38,"top":0.85}
+
+    MDLabel:
+        text:root.timer # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        pos_hint:{"x":0.11,"top":0.80}
+    
+    MDIconButton:
+        id:play_stop_btn5
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.365}
+        #on_release:root.play_stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+    
+    MDProgressBar: #tämä nappi testi.ogg: audiota varten
+        pos_hint:{"center_x":0.5,"center_y":0.30}
+        size_hint_x: 0.5
+        color: 163/255, 102/255, 28/255, 1
+        max:4
+        #value:root.progress
+    
+    MDLabel:
+        text:"00:04" # tähän näkyviiin audion pituus
+        pos_hint:{"x":0.85,"top":0.80}
+
+             
+               

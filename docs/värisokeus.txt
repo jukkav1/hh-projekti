@@ -1,0 +1,29 @@
+Silmän verkkokalvossa on kolmenlaisia tappisoluja, jotka reagoivat eriväriseen valoon (sininen, punainen, vihreä), jotka mahdollistavat
+eri värien ja niiden sävyjen erottamisen. Synnynnäisessä  värinäön häiriöissä yksi tai usemapi tappisolu toimii puutteellisesti,
+jolloin värien erottaminen vaikeutuu. Tätä kutsutaan värinäon heikkoudeksi tai ääritapauksissa värisokeudeksi. Jos henkilöllä on
+harvinainen kaikkien tappityyppien puutos, se aiheuttaa täydellisen värinäön puutteen, jolloin henkilö näkee vain mustaa, valkoista 
+ja harmaan sävyjä.
+
+Tavallisimmat värinäön heikkoudet ovat puna-viher- tai viher-punaheikkoudet, joissa punaista tai vihreää valoa havaitsevat tappisolut 
+toimivat puutteellisesti, tästä kärsii 8-9% miehistä ja 0-5-1% naisista. Muut värisokeustyypit ovat huomattavasti harvinaisempia.
+Värisokeus voi olla synnynnäistä se voivat ilmetä myöhemmin esim. silmäsaurauden myötä. Henkilöt joilla värisokeus on perinnöllistä,
+huomaavat asian usein vasta vuosien kuluttua esim. jos värisokeudesta kärsivä henkilö puhuu värisävyistä toisen henkilön kanssa,
+tai jos jokin tehtävä vaatii värien tarkkaa luokittelua. On myös joitakin ammatteja joissa vaaditaan täydellistä väkinäköä esim. 
+poliisi, maalari, CAD-suunnittelija, ja sähköasentaja
+
+Värisokeutta tai värinäön puutosta ei voi hoitaa, mutta on olemassa erityislaseja, jotka vaikuttavat värikontrasteihin, jolloin tietyissä
+olosuhteissa näkeminen on on miellyttävämpää. Värisokeuden ja värinäön puutteen diagnosoimiseen on olemassa erilaisia testejä, joilla 
+värisokeus ja värinäön puutos voidaan testata mm. ishihara-testissä, jota käytetään punaviher ja sinikeltapuutoksissa, henkilölle
+annettaan katsottavaksi pyöreitä laattoja joissa on värikkäitä täpliä, jotka muodostavat tietyn numeron riippuen tutkittavan värinäöstä
+henkilö jolla on normaali värinäkö, näkee laatassa eri numeron kuin henkilö jonka värinäkö on puutteellinen
+
+
+lähteet:
+https://www.zeiss.fi/vision-care/parempaa-naekemistae/naekoekyvyn-ymmaertaeminen/punaviherheikkous-punavihersokeus-ja-taeydellinen-vaerisokeus.html
+https://www.terveyskirjasto.fi/dlk00347
+
+värien suunnitteluun sovellusta varten
+https://www.tableau.com/en-gb/blog/examining-data-viz-rules-dont-use-red-green-together
+
+voi testailla kuvien värejä eri värisokeustyypeillä
+https://asada.website/webCVS/index.html

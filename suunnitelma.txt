@@ -6,6 +6,7 @@ Ulkonäkö
 [x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
 [x] tabit nappuloiden toiminnoille (taru)
 [x] tabit yhdistetään navigointiin
+[ ] värimaailma värisokeille (Taru)
 
 Toiminnallisuus
 [x] musiikkia / ääniraitoja
@@ -29,10 +30,10 @@ Sovittuja käytäntöjä
 
 
 Tarulle:
-nappulat, toolbar/navibar hässäkkä
+nappulat, toolbar/navibar hässäkkä, värimaailma
 
 Jukalle:
-Päiväkirja työn alla
+Päiväkirjan toiminnallisuus työn alla
 
 Palaveri 19.5.
 T. väsää lisää ääniraitoja, sulkunappula
@@ -48,7 +49,30 @@ Hyvä Henkäys
 [x] Aletaan järjestelemään kv ym. filejä
 [x] Sovellus käynnistymään etusivulle
 
-J:n haara deviin; päästään samaan vaiheeseen;
+[x] J:n haara deviin; päästään samaan vaiheeseen
 
-T sulkunappi, ääniraitoja,palkkeja, värimaailmaa, alku splash?
+T sulkunappi, ääniraitoja, palkkeja, värimaailmaa, alku splash?
 paniikkinappulapeli :Dee
+
+T:
+-Visuaalista puolta miettiessä pidetään tärkeänä, että värimaailma on paitsi rauhallinen ja positiivisia ajatuksia herättävä, myös huomioi saatavuusasioita
+mahdollisen värisokeuden varalta.
+
+Palaveri 16.6.
+-Tilanne helevetin hyvä.
+-Taru häsää ääninappuloiden, värimaailman ym. kanssa
+-Jukka häsää päivyrin ja puhelin-apin kanssa
+
+-Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
+
+palaveri 22.6
+-taru alkanut häsäämään värimaailman kanssa
+
+Palaveri 29.6.
+- taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
+- Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
+- Ensimmäinen ulkopuolinen ääniraita saatu, tilataan pari lisää. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
+
+Palaveri 18.7.
+- Taru refaktoroi äänisoitinten logiikkaa uudella siistimmällä toteutusidealla
+- Jukka koittaa saada kalenteria hakemaan merkintä kannasta ja nappulat reagoimaan sen mukaisesti..

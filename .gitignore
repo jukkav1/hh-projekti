@@ -1,5 +1,9 @@
+# Buildozer folders
 .buildozer/
 bin/
+
+#sqlite browser crap
+*.sqbpro
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
