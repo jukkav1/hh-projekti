@@ -75,3 +75,7 @@ Palaveri 29.6.
 - taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
 - Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
 - Ensimmäinen ääniraita saatu. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
+
+Palaveri 18.7.
+- Palaillaan lomien jälkeen sorvin ääreen. Äänisoitinhässäkän kanssa keksittiin siistimpi toteutusidea. Äänipuolen koodia voi alkaa refaktoroida järkevämmäksi. Opiskeltiin olio-ohjelmointia MOOCissa.
+- Kalenteri tekee jo merkinnän päiväkirjaan, mutta ei vielä hae merkintöjä tai reagoi kuukauden vaihtoon.
