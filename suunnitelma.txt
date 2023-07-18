@@ -66,16 +66,13 @@ Palaveri 16.6.
 -Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
 
 palaveri 22.6
--kalenteri etenee
--harjoitteet osiota laajennettu kivasti
--taru alkanut häsäämään värimaailman kanssa, tehty muutama eri versio joista lähteä sitten rakentamaan lopullista väriä(värisokeutta huomioitu)
+-taru alkanut häsäämään värimaailman kanssa
 
 Palaveri 29.6.
-- Visuaalinen ulkonäkö hyväksytään. Myös kalenterin visuaalinen puoli näyttää hyvältä, myös nappulat ja pop-up osittain läpinäkyviä.
 - taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
 - Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
-- Ensimmäinen ääniraita saatu. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
+- Ensimmäinen ulkopuolinen ääniraita saatu, tilataan pari lisää. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
 
 Palaveri 18.7.
-- Palaillaan lomien jälkeen sorvin ääreen. Äänisoitinhässäkän kanssa keksittiin siistimpi toteutusidea. Äänipuolen koodia voi alkaa refaktoroida järkevämmäksi. Opiskeltiin olio-ohjelmointia MOOCissa.
-- Kalenteri tekee jo merkinnän päiväkirjaan, mutta ei vielä hae merkintöjä tai reagoi kuukauden vaihtoon.
+- Taru refaktoroi äänisoitinten logiikkaa uudella siistimmällä toteutusidealla
+- Jukka koittaa saada kalenteria hakemaan merkintä kannasta ja nappulat reagoimaan sen mukaisesti..

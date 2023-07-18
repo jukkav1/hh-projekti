@@ -46,13 +46,32 @@ tehty sovelluksen sulkeminen sulje napista
 rauhoittava ja saavutettava teema myös värisokeuden varalta
 
 12.6. Projektin aloituspäivä
+
 13.6. Jonkinnäköinen päivyri saatu näkymään, Tarun vika
+
 14.6. Taru väsännyt play/pause buttonin audioon ja lisännyt progress bar raakileen, joka ei vielä toimi ihan halutulla tavalla
+
 15.6. Jukka Sai kalenterin ympättyä pääohjelmaan.
+
 16.6. Jukka sai proton pyörimään puhelimella ensimmäistä kertaa! Woop woop!
-15-22.6 välillä Taru lisäilyt harjoitteisiin timerin,väsännyt lisää progress baria, tehnyt play/pause napin ja alkanyt väsäämään sovelluksen värien/taustakuvan kanssa tehty myös pientä tietopakettia värisokeudesta 
+
+15-22.6 välillä Taru lisäilyt harjoitteisiin timerin,väsännyt lisää progress baria, tehnyt play/pause napin ja alkanyt väsäämään sovelluksen värien/taustakuvan kanssa.
+Tehty myös pientä tietopakettia värisokeudesta.
+
+Palaveri 22.6.
+-Jukan kalenteri etenee.
+-Taru häsännyt värimaailman kanssa:
+     muutama eri versio joista lähteä sitten rakentamaan lopullista väriä (värisokeus huomioiden)
+
 23.6. J sai kalenterin kellon tikittämään, siivosi codebasea ja mergesi Tarun haaran koska LEHDET
+
 26.6. Aletaan väsätä tietokannan kanssa. ladattu appi myös tarun puhelimeen
+
 27.6. Työ esitelty virallisesti luokalle ja kouluttajille.
+
 29.6. Palaveri. Visuaalinen ulkonäkö hyväksytään. Myös kalenterin visuaalinen puoli näyttää hyvältä, myös nappulat ja pop-up osittain läpinäkyviä. taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
 Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
+
+Palaveri 18.7.
+- Palattiin lomien jälkeen sorvin ääreen. Äänisoitinhässäkän kanssa keksittiin siistimpi toteutusidea. Äänipuolen koodia voi alkaa refaktoroida järkevämmäksi. Opiskeltiin olio-ohjelmointia MOOCissa.
+- Kalenteri tekee jo merkinnän päiväkirjaan, mutta ei vielä hae merkintöjä tai reagoi kuukauden vaihtoon.
