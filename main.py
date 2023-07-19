@@ -9,18 +9,11 @@ from kivy.clock import Clock
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.label import Label
-
-# vaaditaan tietty kivy -versio
-require("2.1.0")
-
-""" kivy vaatii, että ohjelman "perusluokka" periytyy App -luokasta, joka luokka löytyy: kivy_asennushakemisto/kivy/app.py """
-
 from kivymd.app import MDApp
 from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from kivy.clock import Clock
 
 # vaaditaan tietty kivy -versio
 require("2.1.0")
@@ -48,8 +41,8 @@ class HH(MDApp):
     date = StringProperty()
 
     def update(self, *args):
-        self.time = str(datetime.now().strftime('%H:%M'))
-        self.date = str(datetime.now().strftime('%d.%m.%Y'))
+        self.time = str(datetime.now().strftime("%H:%M"))
+        self.date = str(datetime.now().strftime("%d.%m.%Y"))
 
     def disclaimer(self, dt):
         layout = BoxLayout(orientation="vertical")
