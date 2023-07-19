@@ -62,8 +62,7 @@ class HH(MDApp):
             Jos sinulla tai läheiselläsi on
             mielenterveysongelmiin viittaavia
             oireita, ole hyvä ja ota
-            yhteys omaan lääkäriisi avun 
-            saamiseksi.""",
+            yhteys omaan lääkäriisi""",
             halign="center",
             valign="middle",
             size_hint=(0.8, 0.1),
