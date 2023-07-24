@@ -1,7 +1,7 @@
 # Buildozer folders
 .buildozer/
 bin/
-kanta.db
+db/kanta.db
 
 #sqlite browser crap
 *.sqbpro
