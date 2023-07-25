@@ -6,16 +6,16 @@ from sqlite3 import Error
 from os.path import isfile
 
 kanta = "db/kanta.db"
-taulu = "merkinnat"
+taulu = "merkinnat2"
 
 
-def tee_merkinta(pvm, kuukausi, teksti):
-    print(f"Koitetaan tehdä merkintä {teksti} päivälle {pvm.date()}")
+def tee_merkinta(paiva, kuukausi, teksti):
+    print(f"Koitetaan tehdä merkintä '{teksti}' päivälle {paiva}.{kuukausi}.")
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
     try:
         cursor.execute(
-            f"INSERT INTO merkinnat(date,text) VALUES ('{pvm.date()}', '{teksti}');"
+            f"INSERT INTO {taulu}(date,month,text) VALUES ('{paiva}', '{kuukausi}', '{teksti}');"
         )
         conn.commit()
 
@@ -26,10 +26,10 @@ def tee_merkinta(pvm, kuukausi, teksti):
         conn.close()
 
 
-def hae_merkinnat(pvm, text):
+def hae_merkinnat(paiva, kuukausi):
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
-    params = (pvm, text)
+    # params = (paiva, text)
     if isfile(kanta):
         print("Tiedosto on olemassa")
         try:

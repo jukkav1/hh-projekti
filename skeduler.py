@@ -25,7 +25,7 @@ from db.dbfunc import *
 Builder.load_file("skeduler/months.kv")  # kuukaudet
 Builder.load_file("skeduler/dates.kv")  # päivämäärät
 Builder.load_file("skeduler/status.kv")  # tila-aika-jatkumo
-Builder.load_file("skeduler/days.kv")  # viikonpäivät
+Builder.load_file("skeduler/days.kv")  # viikon päivät -palikka
 
 
 # Skeleton luokat
