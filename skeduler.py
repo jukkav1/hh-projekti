@@ -19,13 +19,13 @@ from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import Screen
-from db.dbfunc import *
+import db.dbfunc as db
 
 # loaderit kivy-fileille
 Builder.load_file("skeduler/months.kv")  # kuukaudet
 Builder.load_file("skeduler/dates.kv")  # päivämäärät
 Builder.load_file("skeduler/status.kv")  # tila-aika-jatkumo
-Builder.load_file("skeduler/days.kv")  # viikon päivät -palikka
+Builder.load_file("skeduler/daylabels.kv")  # viikon päivät -palikka
 
 
 # Skeleton luokat
@@ -83,8 +83,8 @@ def tallenna_merkinta(text, month, now):
     # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
     """Tallentaa (yrittää) merkinnän"""
     print("yritetty tallentaa", now, month, text)
-    tee_merkinta(now, month, text)
-    test_connection()
+    db.tee_merkinta(now, month, text)
+    db.test_connection()
 
 
 class Dates(GridLayout):
@@ -119,8 +119,10 @@ class Dates(GridLayout):
 
     def on_release(self, event):
         """Kun valitaan joku päivä, tee popup"""
-        print("Valittu päivä: ", event.text, self.now.month, self.now.year)
-        if self.tarkista_merkinta(event.text, self.now.month):
+        # Tänne tulee PÄIVÄMÄÄRÄ; pitää tunkea ÄKKIÄ johonkin talteen
+        self.day = event.text
+        print("Valittu päivä: ", self.day, self.now.month, self.now.year)
+        if self.tarkista_merkinta(self.day, self.now.month):
             event.background_color = (232 / 255, 123 / 255, 0, 0.5)
 
             # Tämä rakentaa pop-upin
@@ -141,10 +143,10 @@ class Dates(GridLayout):
 
     def tarkista_merkinta(self, day, month):
         """tarkistaa onko ko. päivällä merkintä"""
-        print("funktio ei tee vielä mitään")
-        # print(f"päivällä {day}.{month}. .. ei kai ole merkintää. Vielä.")
-        # aseta taustaväri
-        return True
+        if db.hae_merkinta(day, month):
+            print("!", end="")
+        else:
+            print("-", end="")
 
     def on_dismiss(self, event):
         """Tähän tullaan, jos pop-up hylätään"""

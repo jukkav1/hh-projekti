@@ -26,22 +26,22 @@ def tee_merkinta(paiva, kuukausi, teksti):
         conn.close()
 
 
-def hae_merkinnat(paiva, kuukausi):
+def hae_merkinta(paiva, kuukausi):
+    merkinnat = []
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
-    # params = (paiva, text)
     if isfile(kanta):
-        print("Tiedosto on olemassa")
         try:
-            x = cursor.execute("SELECT * FROM ?", taulu)
+            x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kuukausi}")
             for y in x.fetchall():
-                print(y)
-
+                merkinnat.append(y)
+            return merkinnat
         except Error as e:
             print(e)
-
+            return -1
     else:
         print("kakkaa täh?")
+
     conn.close()
 
 
@@ -49,11 +49,8 @@ def test_connection():
     try:
         conn = sqlite3.connect(kanta)
         if conn:
-            print("Yhteys toimii", conn)
+            print("Yhteys toimii.")
     except sqlite3.Error as e:
         print("Ei toimi T_T", e)
     finally:
         conn.close()
-
-
-test_connection()
