@@ -9,12 +9,18 @@
 		source:"images/tausta-lehdet.png"
         allow_stretch:True
         keep_ratio:False
+	# canvas.before:
+	#	Color:
+	#		rgba: 237/255,216/255,174/255,1
+	#	Rectangle:
+	#		pos: self.pos
+	#		size: self.size
 		
 	BoxLayout:
 		Months:
 		BoxLayout:
 			orientation: 'vertical'
-			DayLabels:
+			Days:
 			Dates:
 			BoxLayout:
 				size_hint:1,.15
