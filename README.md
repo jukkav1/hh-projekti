@@ -1,6 +1,12 @@
 hh-projekti
 ===========
 
+Credits
+-------
+Arts by Taru Haapala
+Music by Jani Vähämäki
+Code by Taru Haapala and Jukka Valvanne
+
 Mitä?
 -----
 Tehdään hyvinvointisovellus puhelimelle.
@@ -17,7 +23,7 @@ Käyttäjätapauksia
 - Käyttäjä Y on todennut rentoutumisharjoitukset hyödylliseksi ja haluaa rentoutua hektisen arjen keskellä, paikasta riippumatta.
 
 # Hyväksymiskriteerit
-[ ] Ohjelma vastaa käyttäjätarinoiden asettamiin vaatimuksiin.
+[x] Ohjelma vastaa käyttäjätarinoiden asettamiin vaatimuksiin.
 [x] Ohjelman väriteema on rauhoittava ja saavutettava myös puna-viher  / viher-puna -värisokeille
 [ ] Ohjelma pitää kirjaa käyttäjän arviota "voinnista", päiväkirjamerkinnät tallentuvat päivyrin muistiin ja niitä voi lukea.
 [x] Toimii android 9+ puhelimella
