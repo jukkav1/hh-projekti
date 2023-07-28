@@ -1,5 +1,6 @@
 from kivy import require
 from exercise import Exercise
+# from player import Player
 from skeduler import Skeduler
 from datetime import datetime
 from kivy.properties import ListProperty
@@ -55,7 +56,7 @@ class HH(MDApp):
             Jos sinulla tai läheiselläsi on
             mielenterveysongelmiin viittaavia
             oireita, ole hyvä ja ota
-            yhteys omaan lääkäriisi""",
+            yhteys omaan lääkäriisi.""",
             halign="center",
             valign="middle",
             size_hint=(0.8, 0.1),

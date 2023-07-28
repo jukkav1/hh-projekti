@@ -1,0 +1,52 @@
+#:kivy 2.1.0
+<Player>:
+    name:"player"
+
+    Image:
+        source:"images/tausta-lehdet.png"
+        allow_stretch:True
+        keep_ratio:False
+
+    #ENSIMMAINEN AUDION PALAT
+    
+    MDIconButton: # ensimmäisen audion play nappi
+        id:play_stop1
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.965}
+        on_press:root.play_stop_audio("sounds/test.ogg")
+    
+    MDLabel: # ensimmäsen audion ajastin joka näyttää paljonko audiota on mennyt
+        id: aika
+        text:root.label_time
+
+        pos_hint:{"x":0.11,"top":1.40}
+    
+    
+    MDProgressBar:# ensimmäsen audion edistymispalkki
+        id:bar1 
+        pos_hint:{"center_x":0.53,"center_y":0.90}
+        size_hint_x: 0.58
+        color: 163/255, 102/255, 28/255, 1
+        value:50
+        min:0
+        max:100
+    
+    MDLabel: #audion kokonaispituus
+        text:"00:04"
+        pos_hint:{"x":0.85,"top":1.40}
+
+
+    #TOISEN AUDION PALAT
+    MDIconButton:
+        id:play_stop2
+        icon:"play"
+        icon_size:"40dp"
+        pos_hint:{"center_x":0.06,"top":0.815}
+        on_release:root.play_stop_audio("sounds/sade.mp3")
+    
+
+
+
+
+    
