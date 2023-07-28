@@ -75,3 +75,10 @@ Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
 Palaveri 18.7.
 - Palattiin lomien jälkeen sorvin ääreen. Äänisoitinhässäkän kanssa keksittiin siistimpi toteutusidea. Äänipuolen koodia voi alkaa refaktoroida järkevämmäksi. Opiskeltiin olio-ohjelmointia MOOCissa.
 - Kalenteri tekee jo merkinnän päiväkirjaan, mutta ei vielä hae merkintöjä tai reagoi kuukauden vaihtoon.
+
+Vko 29 ja 30:
+- Opiskeltiin olio-ohjelmointia, tapeltiin äänisoittimen sekä kalenterin kanssa.
+-Tietokanta täytyy suunnitella hieman uusiksi, jotta tuleva kuukauden perusteella haku (max. 31) onnistuu, eikä täydy käydä kaikkia merkintöjä (365) läpi päivämäärän varalle. Myös varataan tietokantaan tila "päivän fiilistä" varten.
+-Kalenteri värjää näytetyn kuukauden päivänappulan eri värillä, jos "päivässä on merkintä" (tai siis, tarkista_merkinta() -funktio palauttaa true/false (nyt T/F arvotaan randomilla)).
+
+28.7. Saatiin soitinsivu tekemään ero eri äänien välillä, PYSÄYTYS, edistyspalkki ja kello sekä sen nollaus toimii.
