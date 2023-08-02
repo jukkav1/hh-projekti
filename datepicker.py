@@ -4,7 +4,10 @@ from kivy.uix.boxlayout import BoxLayout
 
 
 class DatePicker(BoxLayout):
-    pass
+    """ " JEE"""
+
+    def valitse_kuukausi(self, pvm):
+        print("kakkaa: ", pvm)
 
 
 KV = "datepicker.kv"

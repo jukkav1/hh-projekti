@@ -1,5 +1,6 @@
 #:kivy 2.1.0
 #:import Calendar calendar.Calendar
+
 <Day@Button>:
     datepicker: self.parent.datepicker
     color: [1,1,1,1]
@@ -7,6 +8,9 @@
     disabled: True if self.text == "" else False
     on_release:
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
+        root.datepicker.valitse_kuukausi(root.datepicker.picked)
+
+
 <Week@BoxLayout>:
     datepicker: root.parent
     weekdays: ["","","","","","",""]
@@ -24,6 +28,7 @@
         text: str(root.weekdays[5])
     Day:
         text: str(root.weekdays[6])
+
 <WeekDays@BoxLayout>:
     Label:
         text: "Mon"
@@ -39,6 +44,7 @@
         text: "Sat"
     Label:
         text: "Sun"
+
 <NavBar@BoxLayout>:
     datepicker: self.parent
     Spinner:
@@ -68,7 +74,9 @@
             if root.datepicker.month == 12 and spin.text == "Month": root.datepicker.year += 1
             if spin.text == "Month": root.datepicker.month = 1 if root.datepicker.month == 12 else root.datepicker.month + 1
             if spin.text == "Year": root.datepicker.year += 1
+
 <DatePicker@BoxLayout>:
+    id: deitpikker
     year: 2020
     month: 1
     picked: ["","",""]
@@ -92,3 +100,5 @@
         weekdays: root.days[35:]
     Label:
         text: "" if root.picked == ["","",""] else "{}/{}-{}".format(root.picked[0], root.picked[1], root.picked[2])
+        color: 0,0,0,1
+
