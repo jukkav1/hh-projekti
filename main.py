@@ -1,5 +1,6 @@
 from kivy import require
 from exercise import Exercise
+
 # from player import Player
 from skeduler import Skeduler
 from datetime import datetime
@@ -15,6 +16,7 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
+from datepicker import DatePicker
 
 # vaaditaan tietty kivy -versio
 require("2.1.0")

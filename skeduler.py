@@ -28,15 +28,7 @@ Builder.load_file("skeduler/months.kv")  # kuukaudet
 Builder.load_file("skeduler/dates.kv")  # päivämäärät
 Builder.load_file("skeduler/status.kv")  # tila-aika-jatkumo
 Builder.load_file("skeduler/days.kv")  # viikonpäivät
-
-
-# Skeleton luokat
-# ---------------------------#
-# class Calendar(BoxLayout):
-#     """Kalenterin pääluokka"""
-
-#     def __init__(self, **kwargs):
-#         super(Calendar, self).__init__(**kwargs)
+Builder.load_file("skeduler/skeduler.kv")
 
 
 class Status(BoxLayout):
@@ -55,7 +47,7 @@ class Months(BoxLayout):
     def valitse_kuukausi(self, mo):
         print("Valitsit kuukauden ", mo)
         Skeduler.set_month(Skeduler, mo)
-        w = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
+        w = draw_month(mo)
         Dates.push_widget(self, w)
 
 
@@ -76,23 +68,14 @@ class Reminder(BoxLayout):
             Button(on_release=self.on_release, text="Tallenna", color=(0, 0, 0, 1))
         )
 
-    def on_release(self, event):
-        """Tallennusta painettu, pitäisi kutsua tallennusfunktiota ja sulkea pop-up!"""
-        # print("Yritetty tallentaa", self.textbox.text)
-
-        # Logics on pielessä, ei pitäisi välittää tätä päivää, vaan valitun päivän date.
-        self.tallenna_merkinta(self.textbox.text, Dates.now.month, Dates.now)
-
     def tallenna_merkinta(text, month, now):
-        # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
-        """Tallentaa (yrittää) merkinnän"""
         print("yritetty tallentaa", now, month, text)
         tee_merkinta(now, month, text)
-        test_connection()
 
     # Tänne tullaan, jos
     def on_release(self, event):
         """Kun valitaan joku päivä, tee popup"""
+        self.tallenna_merkinta(self.textbox.text, Dates.now.month, Dates.now)
         print("Valittu päivä: ", event.text, self.now.month, self.now.year)
         if self.tarkista_merkinta(event.text, self.now.month):
             event.background_color = (232 / 255, 123 / 255, 0, 0.5)
@@ -138,43 +121,42 @@ class Skeduler(Screen):
     def set_month(self, month):
         self.month = month
         print("month set to", self.month)
-        Skeduler.draw_month(Dates, self.month)
+        draw_month(self.month)
 
     def get_month(self):
         return self.month
 
-    def draw_month(self, month: int) -> GridLayout:
-        # Tekee kalenterin päivistä (myös tyhjistä) nappuloita
-        daylist = calendar.monthcalendar(Skeduler.now.year, month)
-        layout = GridLayout()
-        layout.cols = 7
-        for days in daylist:
-            for day in days:
-                if day == 0:
-                    layout.add_widget(Button(text=""))
-                else:
-                    ## !!! Jos päivällä on merkintä, niin vaihda myös taustaväri
-                    if Reminder.tarkista_merkinta(day, month):
-                        layout.add_widget(
-                            Button(
-                                text=str(day),
-                                background_color=(128, 255, 0, 1),
-                                color=(128, 0, 0, 1),
-                                on_release=Reminder.on_release,
-                            )
-                        )
-                    ## Jos merkintää ei ole .. niin taustaväriä ei vaihdeta
-                    else:
-                        layout.add_widget(
-                            Button(
-                                text=str(day),
-                                color=(0, 0, 0, 1),
-                                on_release=Reminder.on_release,
-                            )
-                        )
-        return layout
 
-    Builder.load_file("skeduler/skeduler.kv")
+def draw_month(month: int) -> GridLayout:
+    # Tekee kalenterin päivistä (myös tyhjistä) nappuloita
+    daylist = calendar.monthcalendar(Skeduler.now.year, month)
+    layout = GridLayout()
+    layout.cols = 7
+    for days in daylist:
+        for day in days:
+            if day == 0:
+                layout.add_widget(Button(text=""))
+            else:
+                ## !!! Jos päivällä on merkintä, niin vaihda myös taustaväri
+                if Reminder.tarkista_merkinta(day, month):
+                    layout.add_widget(
+                        Button(
+                            text=str(day),
+                            background_color=(128, 255, 0, 1),
+                            color=(128, 0, 0, 1),
+                            on_release=Reminder.on_release,
+                        )
+                    )
+                ## Jos merkintää ei ole .. niin taustaväriä ei vaihdeta
+                else:
+                    layout.add_widget(
+                        Button(
+                            text=str(day),
+                            color=(0, 0, 0, 1),
+                            on_release=Reminder.on_release,
+                        )
+                    )
+    return layout
 
 
 class Dates(GridLayout):
@@ -185,11 +167,11 @@ class Dates(GridLayout):
 
     def __init__(self, **kwargs):
         super(Dates, self).__init__(**kwargs)
-        piirra_nyt = Skeduler.draw_month(self.now.year, self.now.month)
+        piirra_nyt = draw_month(self.now.month)
         self.add_widget(piirra_nyt)
 
     def push_widget(self, s):
         print(s)
-        g = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
+        g = draw_month(Skeduler.month)
         self.remove_widget(g)
         self.add_widget(g)
