@@ -1,5 +1,11 @@
 #:kivy 2.1.0
 #:import Calendar calendar.Calendar
+<DatePickerContainer>:
+    FloatLayout:
+        Image:
+            source: "images/tausta-lehdet.png"
+        DatePicker:
+
 
 <Day@Button>:
     datepicker: self.parent.datepicker
