@@ -9,13 +9,19 @@
     size_hint: 0.8,0.8
     pos_hint:{"x":0.1,"top":0.9}
     background:"images/tausta-lehdet.png"
+    
+    
+    FloatLayout:
+        TextInput:
+            size_hint:1,0.8
+            pos_hint:{"x":0,"top":1}
 
-    Button:
-        text:"Tallenna"
-        size_hint: 0.2,0.2
-        pos_hint:{"x":0.1,"bottom":0.9}
-        color:(0, 0, 0, 1)
-        on_release:root.dismiss()
+        Button:
+            text:"Tallenna"
+            size_hint: 1,0.2
+            pos_hint:{"x":0,"top":0.19}
+            color:(0, 0, 0, 1)
+            on_release:root.dismiss()
 
 <DatePickerContainer>:
     FloatLayout:
