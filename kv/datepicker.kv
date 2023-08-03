@@ -1,5 +1,22 @@
 #:kivy 2.1.0
 #:import Calendar calendar.Calendar
+#:import Factory kivy.factory.Factory
+<myPopUp@Popup>:
+    auto_dissmiss:False
+    title:"Tee merkintä"
+    title_align:"center"
+    title_color:(0, 0, 0, 1)
+    size_hint: 0.8,0.8
+    pos_hint:{"x":0.1,"top":0.9}
+    background:"images/tausta-lehdet.png"
+
+    Button:
+        text:"Tallenna"
+        size_hint: 0.2,0.2
+        pos_hint:{"x":0.1,"bottom":0.9}
+        color:(0, 0, 0, 1)
+        on_release:root.dismiss()
+
 <DatePickerContainer>:
     FloatLayout:
         Image:
@@ -18,7 +35,8 @@
     disabled: True if self.text == "" else False
     on_release:
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
-        root.datepicker.valitse_kuukausi(root.datepicker.picked)
+        root.datepicker.tee_merkinta(root.datepicker.picked)
+        Factory.myPopUp().open()
 
 
 <Week@BoxLayout>:
