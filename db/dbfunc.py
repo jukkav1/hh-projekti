@@ -7,7 +7,7 @@ kanta = "db/kanta.db"
 taulu = "merkinnat2"
 
 
-def tee_merkinta(paiva, kuukausi, vuosi, teksti) -> bool:
+def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> bool:
     print(f"Koitetaan tehdä merkintä '{teksti}' päivälle {paiva}.{kuukausi}.")
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
