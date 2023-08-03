@@ -4,13 +4,17 @@
     FloatLayout:
         Image:
             source: "images/tausta-lehdet.png"
+            allow_stretch:True
+            keep_ratio:False
         DatePicker:
 
 
 <Day@Button>:
     datepicker: self.parent.datepicker
-    color: [1,1,1,1]
-    background_color: root.color if self.text != "" else [0,0,0,0]
+    #color: [232/255,123/255,0/255,0.10]
+    #background_color: root.color if self.text != "" else [0,0,0,0]
+    #theme_text_color: "Custom"
+    text_color:(0, 0, 0, 1)
     disabled: True if self.text == "" else False
     on_release:
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
@@ -22,71 +26,93 @@
     weekdays: ["","","","","","",""]
     Day:
         text: str(root.weekdays[0])
+        color:(0, 0, 0, 1)
     Day:
         text: str(root.weekdays[1])
+        color:(0, 0, 0, 1)
     Day:
         text: str(root.weekdays[2])
+        color:(0, 0, 0, 1)
     Day:
         text: str(root.weekdays[3])
+        color:(0, 0, 0, 1)
     Day:
         text: str(root.weekdays[4])
+        color:(0, 0, 0, 1)
     Day:
         text: str(root.weekdays[5])
+        color:(0, 0, 0, 1)
     Day:
         text: str(root.weekdays[6])
+        color:(0, 0, 0, 1)
 
 <WeekDays@BoxLayout>:
     Label:
-        text: "Mon"
+        text: "Ma"
+        color:(0, 0, 0, 1)
     Label:
-        text: "Tue"
+        text: "Ti"
+        color:(0, 0, 0, 1)    
     Label:
-        text: "Wed"
+        text: "Ke"
+        color:(0, 0, 0, 1)
     Label:
-        text: "Thu"
+        text: "To"
+        color:(0, 0, 0, 1)
     Label:
-        text: "Fri"
+        text: "Pe"
+        color:(0, 0, 0, 1)
     Label:
-        text: "Sat"
+        text: "La"
+        color:(0, 0, 0, 1)
     Label:
-        text: "Sun"
+        text: "Su"
+        color:(0, 0, 0, 1)
 
 <NavBar@BoxLayout>:
-    datepicker: self.parent
+    datepicker:self.parent
     Spinner:
         values: root.datepicker.months
         text: root.datepicker.months[root.datepicker.month-1]
+        color:(0, 0, 0, 1)
         on_text:
             root.datepicker.month = root.datepicker.months.index(self.text)+1
+            
     Spinner:
-        values: [str(i) for i in range(1970,2100)]
+        values: [str(i) for i in range(2020,2031)]
         text: str(root.datepicker.year)
+        color:(0, 0, 0, 1)
         on_text:
             root.datepicker.year = int(self.text)
     Widget:
     Button:
         text: "<"
+        color:(0, 0, 0, 1)
         on_release:
-            if root.datepicker.month == 1 and spin.text == "Month": root.datepicker.year -= 1
-            if spin.text == "Month": root.datepicker.month = 12 if root.datepicker.month == 1 else root.datepicker.month - 1
-            if spin.text == "Year": root.datepicker.year -= 1
+            if root.datepicker.month == 1 and spin.text == "Kuukausi": root.datepicker.year -= 1
+            if spin.text == "Kuukausi": root.datepicker.month = 12 if root.datepicker.month == 1 else root.datepicker.month - 1
+            if spin.text == "Vuosi": root.datepicker.year -= 1
     Spinner:
         id: spin
-        values: ["Month","Year"]
-        text: "Month"
+        values: ["Kuukausi","Vuosi"]
+        text: "Kuukausi"
+        color:(0, 0, 0, 1)
+
     Button:
         text: ">"
+        color:(0, 0, 0, 1)
+        
         on_release:
-            if root.datepicker.month == 12 and spin.text == "Month": root.datepicker.year += 1
-            if spin.text == "Month": root.datepicker.month = 1 if root.datepicker.month == 12 else root.datepicker.month + 1
-            if spin.text == "Year": root.datepicker.year += 1
+            if root.datepicker.month == 12 and spin.text == "Kuukausi": root.datepicker.year += 1
+            if spin.text == "Kuukausi": root.datepicker.month = 1 if root.datepicker.month == 12 else root.datepicker.month + 1
+            if spin.text == "Vuosi": root.datepicker.year += 1
 
 <DatePicker@BoxLayout>:
     id: deitpikker
-    year: 2020
-    month: 1
+    year: 2023
+    month: 8
     picked: ["","",""]
-    months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
     calendar: Calendar()
     days: [(i if i > 0 else "") for i in self.calendar.itermonthdays(self.year, self.month)] + [""] * 14
     orientation: "vertical"
@@ -106,5 +132,6 @@
         weekdays: root.days[35:]
     Label:
         text: "" if root.picked == ["","",""] else "{}/{}-{}".format(root.picked[0], root.picked[1], root.picked[2])
-        color: 0,0,0,1
+        color:(0, 0, 0, 1)
+        
 
