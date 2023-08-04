@@ -82,3 +82,5 @@ Vko 29 ja 30:
 -Kalenteri värjää näytetyn kuukauden päivänappulan eri värillä, jos "päivässä on merkintä" (tai siis, tarkista_merkinta() -funktio palauttaa true/false (nyt T/F arvotaan randomilla)).
 
 28.7. Saatiin soitinsivu tekemään ero eri äänien välillä, PYSÄYTYS, edistyspalkki ja kello sekä sen nollaus toimii.
+
+2.8. Taru löysi yksinkertaisemman kalenterin, kokeillaan saako siitä käyttökelpoisen.
