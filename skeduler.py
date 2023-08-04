@@ -38,6 +38,8 @@ Builder.load_file("skeduler/days.kv")  # viikonpäivät
 #     def __init__(self, **kwargs):
 #         super(Calendar, self).__init__(**kwargs)
 
+date_layout = None
+
 
 class Status(BoxLayout):
     """Status -palkin luokka"""
@@ -51,12 +53,13 @@ class Months(BoxLayout):
 
     def __init__(self, **kwargs):
         super(Months, self).__init__(**kwargs)
+        self.layout = None
 
     def valitse_kuukausi(self, mo):
         print("Valitsit kuukauden ", mo)
         Skeduler.set_month(Skeduler, mo)
-        w = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
-        Dates.push_widget(self, w)
+        layout = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
+        Dates.push_widget(layout)
 
 
 # ------------------------------------------------------------------------------------------------#
@@ -182,14 +185,15 @@ class Dates(GridLayout):
 
     now = Skeduler.now  # Nyt on nyt.
     cols = 7
+    g = Skeduler.draw_month(now.year, now.month)
 
     def __init__(self, **kwargs):
         super(Dates, self).__init__(**kwargs)
-        piirra_nyt = Skeduler.draw_month(self.now.year, self.now.month)
-        self.add_widget(piirra_nyt)
+        self.add_widget(Dates.g)
+        global date_layout
+        date_layout = self
 
-    def push_widget(self, s):
-        print(s)
-        g = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
-        self.remove_widget(g)
-        self.add_widget(g)
+    def push_widget(layout):
+        global date_layout
+        date_layout.clear_widgets()
+        date_layout.add_widget(layout)
