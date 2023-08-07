@@ -7,7 +7,7 @@
         allow_stretch:True
         keep_ratio:False
 
-    MDLabel: # ensimmäinen raita
+    MDLabel: # ensimmäsen audion tiedot
         text:"Metsä"
         theme_text_color: "Custom"
         text_color:0,0,0,1
@@ -36,7 +36,7 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max:494
-        value:root.progress1
+        value:root.bar_progress1
 
     MDLabel:
         text:root.timer1 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
@@ -46,7 +46,7 @@
         text:"08:12" # tähän näkyviiin audion pituus
         pos_hint:{"x":0.86,"top":1.40}
     
-    MDLabel: # ensimmäinen raita
+    MDLabel: # toisen audion tiedot
         text:"Lehdet"
         theme_text_color: "Custom"
         text_color:0,0,0,1
@@ -75,12 +75,12 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max:494
-        value:root.progress2
+        value:root.bar_progress2
 
     MDLabel:
         text:root.timer2 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
         pos_hint:{"x":0.26,"top":1.25}
 
     MDLabel:
-        text:"07:52" # tähän näkyviiin audion pituus
+        text:"07:52" 
         pos_hint:{"x":0.86,"top":1.25}
