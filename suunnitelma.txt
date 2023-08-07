@@ -6,7 +6,7 @@ Ulkonäkö
 [x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
 [x] tabit nappuloiden toiminnoille (taru)
 [x] tabit yhdistetään navigointiin
-[ ] värimaailma värisokeille (Taru)
+[x ] värimaailma värisokeille (Taru)
 
 Toiminnallisuus
 [x] musiikkia / ääniraitoja
@@ -66,6 +66,13 @@ Palaveri 16.6.
 -Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
 
 palaveri 22.6
--kalenteri etenee
--harjoitteet osiota laajennettu kivasti
--taru alkanut häsäämään värimaailman kanssa, tehty muutama eri versio joista lähteä sitten rakentamaan lopullista väriä(värisokeutta huomioitu)
+-taru alkanut häsäämään värimaailman kanssa
+
+Palaveri 29.6.
+- taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
+- Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
+- Ensimmäinen ulkopuolinen ääniraita saatu, tilataan pari lisää. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
+
+Palaveri 18.7.
+- Taru refaktoroi äänisoitinten logiikkaa uudella siistimmällä toteutusidealla
+- Jukka koittaa saada kalenteria hakemaan merkintä kannasta ja nappulat reagoimaan sen mukaisesti..

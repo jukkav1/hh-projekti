@@ -1,38 +1,45 @@
 # tilaa varattu tietokantafunktioille
-
-# from dbconn import *
 import sqlite3
 from sqlite3 import Error
-import os.path
+from os.path import isfile
 
 kanta = "db/kanta.db"
-taulu = "merkinnat"
+taulu = "merkinnat2"
 
 
-def hae_merkinta(pvm, kuukausi):
-    pass
-
-
-def tee_merkinta(pvm, text):
+def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> bool:
+    print(f"Koitetaan tehdä merkintä '{teksti}' päivälle {paiva}.{kuukausi}.")
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
-    params = (pvm, text)
-    if os.path.isfile(kanta):
-        print("Tiedosto on olemassa")
-        # cursor.execute(
-        #     f"INSERT INTO merkinnat(date,text) VALUES ('{params[0]}', '{params[1]}');"
-        # )
+    try:
+        cursor.execute(
+            f"INSERT INTO {taulu}(date,month,text) VALUES ('{paiva}', '{kuukausi}', '{teksti}');"
+        )
+        conn.commit()
+
+    except Error as e:
+        print("Joku meni pieleen: ", e)
+
+    finally:
+        conn.close()
+
+
+def hae_merkinta(paiva: int, kuukausi: int) -> list:
+    merkinnat = []
+    conn = sqlite3.connect(kanta)
+    cursor = conn.cursor()
+    if isfile(kanta):
         try:
-            x = cursor.execute("SELECT * FROM merkinnat")
-
+            x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kuukausi}")
             for y in x.fetchall():
-                print(y)
-
+                merkinnat.append(y)
+            return merkinnat
         except Error as e:
             print(e)
-
+            return -1
     else:
         print("kakkaa täh?")
+
     conn.close()
 
 
@@ -40,12 +47,8 @@ def test_connection():
     try:
         conn = sqlite3.connect(kanta)
         if conn:
-            print("Yhteys toimii", conn)
+            print("Yhteys toimii.")
     except sqlite3.Error as e:
         print("Ei toimi T_T", e)
     finally:
         conn.close()
-        print("byes")
-
-
-test_connection()

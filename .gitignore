@@ -1,6 +1,10 @@
 # Buildozer folders
 .buildozer/
 bin/
+db/kanta.db
+
+#sqlite browser crap
+*.sqbpro
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

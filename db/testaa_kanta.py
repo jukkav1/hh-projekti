@@ -20,15 +20,17 @@ test_connection()
 
 dbfunc.hae_merkinta(1, 2)
 
+
 def oksenna_merkinnat(entries):
     for entry in entries:
         print(f"entry:{entry}")
 
+
 oksenna_merkinnat()
 
+
 def tee_merkinta():
-    
+    pass
 
 
-#inputti sille päivämäärän hakemiselle
-
+# inputti sille päivämäärän hakemiselle
