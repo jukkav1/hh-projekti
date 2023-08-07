@@ -64,7 +64,12 @@ class HH(MDApp):
             size_hint=(0.8, 0.1),
             color=(0, 0, 0, 1),
         )
-        btn = Button(text="selvä", size_hint=(1, 0.02), color=(0, 0, 0, 1))
+        btn = Button(
+            text="selvä",
+            size_hint=(1, 0.02),
+            color=(0, 0, 0, 1),
+            background_color=(232 / 255, 123 / 255, 0 / 255, 0.10),
+        )
         layout.add_widget(label)
         layout.add_widget(btn)
 

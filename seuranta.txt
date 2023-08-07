@@ -84,3 +84,4 @@ Vko 29 ja 30:
 28.7. Saatiin soitinsivu tekemään ero eri äänien välillä, PYSÄYTYS, edistyspalkki ja kello sekä sen nollaus toimii.
 
 2.8. Taru löysi yksinkertaisemman kalenterin, kokeillaan saako siitä käyttökelpoisen.
+

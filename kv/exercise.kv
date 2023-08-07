@@ -7,7 +7,7 @@
         allow_stretch:True
         keep_ratio:False
 
-    MDLabel: # ensimmäinen raita
+    MDLabel: # ensimmäsen audion tiedot
         text:"Metsä"
         theme_text_color: "Custom"
         text_color:0,0,0,1
@@ -19,7 +19,7 @@
         id:play_one
         name:"play one"
         icon:"play-circle-outline"
-        icon_size:"40dp"
+        icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
         on_release:root.Button1("sounds/ambient_forest_new.mp3") #kutsuu def Button1 exercice.py:stä
 
@@ -27,7 +27,7 @@
         id:stop_one
         name:"stop one"
         icon:"stop-circle-outline"
-        icon_size:"40dp"
+        icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.965}
         on_release:root.stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
     
@@ -36,7 +36,7 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max:494
-        value:root.progress1
+        value:root.bar_progress1
 
     MDLabel:
         text:root.timer1 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
@@ -46,7 +46,7 @@
         text:"08:12" # tähän näkyviiin audion pituus
         pos_hint:{"x":0.86,"top":1.40}
     
-    MDLabel: # ensimmäinen raita
+    MDLabel: # toisen audion tiedot
         text:"Lehdet"
         theme_text_color: "Custom"
         text_color:0,0,0,1
@@ -58,7 +58,7 @@
         id:play_two
         name:"play two"
         icon:"play-circle-outline"
-        icon_size:"40dp"
+        icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.815}
         on_release:root.Button2("sounds/lehdet.mp3") #kutsuu def Button2 exercice.py:stä
 
@@ -66,7 +66,7 @@
         id:stop_one
         name:"stop one"
         icon:"stop-circle-outline"
-        icon_size:"40dp"
+        icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.815}
         on_release:root.stop_audio() #kutsuu def stop_audiota exercice.py:stä
     
@@ -75,110 +75,15 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max:494
-        value:root.progress2
+        value:root.bar_progress2
 
     MDLabel:
         text:root.timer2 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
         pos_hint:{"x":0.26,"top":1.25}
 
     MDLabel:
-        text:"07:52" # tähän näkyviiin audion pituus
+        text:"07:52" 
         pos_hint:{"x":0.86,"top":1.25}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #
-    #MDIconButton:
-    #    id:but_one
-    #    name:"stop one"
-    #    icon:"stop"
-    #    icon_size:"40dp"
-    #    pos_hint:{"center_x":0.12,"top":0.965}
-    #    on_release:root.stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
-    #
-
-    #
-    #MDLabel:
-    #    text:"08:12" # tähän näkyviiin audion pituus
-    #    pos_hint:{"x":0.85,"top":1.40}
-    #
-    #MDLabel: # toinen raita
-    #    text:"Lehdet"
-    #    theme_text_color: "Custom"
-    #    text_color:0,0,0,1
-    #    font_style:"Subtitle2"
-    #    font_size:"20sp"
-    #    pos_hint:{"x":0.38,"top":1.30}
-#
-    #MDLabel:
-    #    text:root.timer2 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
-    #    pos_hint:{"x":0.11,"top":1.25}
-    #
-    #MDIconButton:
-    #    id:but_two
-    #    icon:"play"
-    #    icon_size:"40dp"
-    #    pos_hint:{"center_x":0.06,"top":0.815}
-    #    on_release:root.Button2("sounds/lehdet.mp3") #kutsuu def play_stop_audiota exercice.py:stä
-    #
-    #MDProgressBar: #tämä nappi testi.ogg: audiota varten
-    #    pos_hint:{"center_x":0.5,"center_y":0.75}
-    #    size_hint_x: 0.5
-    #    color: 163/255, 102/255, 28/255, 1
-    #    max:474
-    #    value:root.progress2
-#
-    #
-    #MDLabel:
-    #    text:"07:52" # tähän näkyviiin audion pituus
-    #    pos_hint:{"x":0.85,"top":1.25}
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-
-
-
 
     #MDLabel: # kolmas raita
     #    text:"Sade"
