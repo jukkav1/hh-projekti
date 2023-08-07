@@ -6,7 +6,7 @@ Ulkonäkö
 [x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
 [x] tabit nappuloiden toiminnoille (taru)
 [x] tabit yhdistetään navigointiin
-[ ] värimaailma värisokeille (Taru)
+[x ] värimaailma värisokeille (Taru)
 
 Toiminnallisuus
 [x] musiikkia / ääniraitoja
