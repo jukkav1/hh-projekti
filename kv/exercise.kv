@@ -18,6 +18,7 @@
     MDIconButton:
         id:play_one
         name:"play one"
+        disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
@@ -57,14 +58,15 @@
     MDIconButton:
         id:play_two
         name:"play two"
+        disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.815}
         on_release:root.Button2("sounds/lehdet.mp3") #kutsuu def Button2 exercice.py:stä
 
     MDIconButton:
-        id:stop_one
-        name:"stop one"
+        id:stop_two
+        name:"stop two"
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.815}
@@ -84,3 +86,44 @@
     MDLabel:
         text:"07:52" 
         pos_hint:{"x":0.86,"top":1.25}
+    
+    MDLabel: # kolmannen audion tiedot
+        text:"Sade"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.40,"top":1.15}
+    
+    MDIconButton:
+        id:play_three
+        name:"play two"
+        disabled:False
+        icon:"play-circle-outline"
+        icon_size:"48dp"
+        pos_hint:{"center_x":0.08,"top":0.665}
+        on_release:root.Button3("sounds/sade.mp3") #kutsuu def Button3 exercice.py:stä
+
+    MDIconButton:
+        id:stop_three
+        name:"stop three"
+        icon:"stop-circle-outline"
+        icon_size:"48dp"
+        pos_hint:{"center_x":0.20,"top":0.665}
+        on_release:root.stop_audio() #kutsuu def stop_audiota exercice.py:stä
+    
+    MDProgressBar:
+        pos_hint:{"center_x":0.62,"center_y":0.60}
+        size_hint_x: 0.43
+        color: 163/255, 102/255, 28/255, 1
+        max:496
+        value:root.bar_progress3
+
+    MDLabel:
+        text:root.timer3 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        pos_hint:{"x":0.26,"top":1.10}
+
+    MDLabel:
+        text:"07:54" 
+        pos_hint:{"x":0.86,"top":1.10}
+
