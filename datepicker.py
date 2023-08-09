@@ -13,19 +13,21 @@ class DatePickerContainer(Screen):
 class DatePicker(BoxLayout):
     """ " JEE"""
 
-    def tee_merkinta(self, pvmlist):
+    def tee_merkinta(
+        self, pvmlist, text="DatePicker class says henlo from datepicker.py!"
+    ):
         pvm = pvmlist[0]
         kk = pvmlist[1]
         yy = pvmlist[2]
-        if self.tarkista_merkinta(pvm, kk, yy):
-            print("On jo merkintä tai joku vika.")
-
+        d = self.tarkista_merkinta(pvm, kk, yy)
+        if d:
+            print(f"{pvm} {kk} {yy} on jo merkintä:", d)
         else:
-            dbase.tee_merkinta(pvm, kk, yy)
-            print("tehtiin merkintä.")
+            dbase.tee_merkinta(pvm, kk, yy, text)
+            print(pvm, kk, yy, text)
 
     def tarkista_merkinta(self, pvm, kk, yy) -> list:
-        merkintalista = dbase.hae_merkinta(pvm, kk)
+        merkintalista = dbase.hae_merkinta(pvm, kk, yy)
         print("merkintälista:", merkintalista)
         return merkintalista
 

@@ -24,13 +24,15 @@ def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> boo
         conn.close()
 
 
-def hae_merkinta(paiva: int, kuukausi: int) -> list:
+def hae_merkinta(paiva: int, kuukausi: int, vuosi: int) -> list:
     merkinnat = []
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
     if isfile(kanta):
         try:
-            x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kuukausi}")
+            x = cursor.execute(
+                f"SELECT * from {taulu} WHERE month IS {kuukausi} and date IS {paiva}"
+            )
             for y in x.fetchall():
                 merkinnat.append(y)
             return merkinnat
