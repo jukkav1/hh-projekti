@@ -88,3 +88,5 @@ Vko 29 ja 30:
 -Uuden kalenterin logiikka väärin päin, ei värjää päiviä joissa merkintä.
 
 8.8. esitelty luokalle, viimeinen esittely ennen näyttöä 24.8. monkaS
+
+9.8. Mergeilty tarun laajennettuun soittimeen.
