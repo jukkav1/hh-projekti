@@ -13,8 +13,10 @@ class Exercise(Screen):
     general_progress = NumericProperty(0.0)
     bar_progress1 = NumericProperty(0.0)
     bar_progress2 = NumericProperty(0.0)
+    bar_progress3 = NumericProperty(0.0)
     timer1 = StringProperty("00:00")
     timer2 = StringProperty("00:00")
+    timer3 = StringProperty("00:00")
     seconds = NumericProperty()
     minutes = NumericProperty()
     mika_nappi = 0
@@ -35,6 +37,10 @@ class Exercise(Screen):
                 print("äänet löytyy")
                 self.sound.play()
                 self.audio_playing = True
+                #otetaan play napit pois käytöstä toistaiseksi
+                self.ids.play_one.disabled=True
+                self.ids.play_two.disabled=True
+                self.ids.play_three.disabled=True
                 self.length = self.sound.length
                 # käynnistetään kello jotta latauspalkki ja ajasti lähtee pyörimään, määritetään kuinka usein päivitetään(tässä sekunnin välein)
                 self.bar_progress = Clock.schedule_interval(
@@ -53,6 +59,26 @@ class Exercise(Screen):
             # käynnistetää audio
             self.sound.play()
             self.audio_playing = True
+            self.ids.play_one.disabled=True
+            self.ids.play_two.disabled=True
+            self.ids.play_three.disabled=True
+            # määritetään myöhempää käyttöä varten
+            self.length = self.sound.length
+            self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
+            self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
+    
+    def Button3(self, soundfile):
+        self.sound = SoundLoader.load(soundfile)
+        self.mika_nappi = 3
+
+        if self.sound:
+            print("äänet löytyy")
+            # käynnistetää audio
+            self.sound.play()
+            self.audio_playing = True
+            self.ids.play_one.disabled=True
+            self.ids.play_two.disabled=True
+            self.ids.play_three.disabled=True
             # määritetään myöhempää käyttöä varten
             self.length = self.sound.length
             self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
@@ -62,6 +88,10 @@ class Exercise(Screen):
     def stop_audio(self):
         if self.audio_playing == True:
             self.audio_playing = False
+            #play napit takaisin käyttöön
+            self.ids.play_one.disabled=False
+            self.ids.play_two.disabled=False
+            self.ids.play_three.disabled=False
             self.clear_time()
             # pysäytetään audio
             self.sound.stop()
@@ -73,8 +103,10 @@ class Exercise(Screen):
         self.bar_progress.cancel()
         self.timer1 = "00:00"
         self.timer2 = "00:00"
+        self.timer3 = "00:00"
         self.bar_progress1 = 0
         self.bar_progress2 = 0
+        self.bar_progress3 = 0
         self.seconds = 0
         self.minutes = 0
         self.general_progress = 0
@@ -95,6 +127,9 @@ class Exercise(Screen):
 
         elif self.mika_nappi == 2:
             self.bar_progress2 = self.general_progress
+            
+        elif self.mika_nappi == 3:
+            self.bar_progress3 = self.general_progress
 
     # miten aikaa päivitetään
     def string_time(self, dt):
@@ -117,6 +152,8 @@ class Exercise(Screen):
             self.timer1 = aika
         elif self.mika_nappi == 2:
             self.timer2 = aika
+        elif self.mika_nappi == 3:
+            self.timer3 = aika
 
     # miten sekunnit päivitetään
     def update_seconds(self):
@@ -134,6 +171,9 @@ class Exercise(Screen):
             self.timer_progress.cancel()
             # asetetaan muuttuja alkutilaan, jos audio soi loppuun
             self.audio_playing = False
+            self.ids.play_one.disabled=False
+            self.ids.play_two.disabled=False
+            self.ids.play_three.disabled=False
 
     # miten minuutit päivitetään
     def update_minutes(self):

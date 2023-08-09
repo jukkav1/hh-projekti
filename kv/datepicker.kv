@@ -31,6 +31,18 @@
             source: "images/tausta-lehdet.png"
             allow_stretch:True
             keep_ratio:False
+    	MDLabel:
+		    id: aika
+		    text:"Tänään on:"
+            text_color:0,0,0,1
+            pos_hint:{"x":0,"top":0.55}
+        
+        MDLabel:
+		    id: aika_nyt
+            pos_hint:{"x":0.23,"top":0.55}
+		    text: app.date
+            
+
         DatePicker:
 
 
