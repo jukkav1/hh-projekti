@@ -90,3 +90,10 @@ Vko 29 ja 30:
 8.8. esitelty luokalle, viimeinen esittely ennen näyttöä 24.8. monkaS
 
 9.8. Mergeilty tarun laajennettuun soittimeen.
+10.8. Ankaraa tappelua kalenterin kanssa;
+     Vihdoinkin päivyrin pop-up:in saa tekstin tulemaan tietokantamerkinnästä, MUTTA sitä ei voi enää muuttaa tai tehdä uusia merkin-
+     töjä..
+     Opittu uusia kirosanoja, mm. Kivy.
+     Tietokannasta halutaan saada lista merkityistä päivämääristä, koska sen perusteella voisi päivyristä värjätä tietyt
+     pvm:t "sisältämään merkinnän".
+     

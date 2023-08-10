@@ -8,38 +8,39 @@
     color: 0,0,0,1
 
 # on olemassa myPopUp, joka on Popup -tyyppinen hässäkkä
-<myPopUp@Popup>:
-    # Merkinnän tekoa varten oma kivyn popup -luokka
-    auto_dissmiss:False
-    title:"Tee merkintä"
-    title_align:"center"
-    title_color:(0, 0, 0, 1)
-    size_hint: 0.8,0.8
-    pos_hint:{"x":0.1,"top":0.9}
-    background:"images/tausta-lehdet.png"
+# <myPopUp@Popup>:
+#     # Merkinnän tekoa varten oma kivyn popup -luokka
+#     auto_dissmiss:False
+#     title:"Tee merkintä"
+#     title_align:"center"
+#     title_color:(0, 0, 0, 1)
+#     size_hint: 0.8,0.8
+#     pos_hint:{"x":0.1,"top":0.9}
+#     background:"images/tausta-lehdet.png"
 
-    #rakennellaan MyPopUpiin sisältö layoutin sisään
-    FloatLayout:
-        TextInput:
-            size_hint:1,0.8
-            pos_hint:{"x":0,"top":1}
+#     #rakennellaan MyPopUpiin sisältö layoutin sisään
+#     FloatLayout:
+#         TextInput:
+#             size_hint:1,0.8
+#             pos_hint:{"x":0,"top":1}
+#             #text: "hello world"
+#             text: str(root.get_screen('datepicker'))
 
-        Button:
-            text:"Tallenna"
-            size_hint: 1,0.2
-            pos_hint:{"x":0,"top":0.19}
-            color:(0, 0, 0, 1)
-            background_color: 232/255,123/255,0/255,0.10
-            # tämän pitäisi kutsua jotenkin tee_merkinta(pvm, kk, vv) funktiota parametreineen
-            on_release:root.dismiss()
+#         Button:
+#             text:"Tallenna"
+#             size_hint: 1,0.2
+#             pos_hint:{"x":0,"top":0.19}
+#             color:(0, 0, 0, 1)
+#             background_color: 232/255,123/255,0/255,0.10
+#             # tämän pitäisi kutsua jotenkin tee_merkinta(pvm, kk, vv) funktiota parametreineen
+#             on_release:root.dismiss()
 
 #Container kuori päivyriä ja taustakuvaa varten
 <DatePickerContainer>:
     FloatLayout:
         Image:
             source: "images/tausta-lehdet.png"
-            allow_stretch:True
-            keep_ratio:False
+            fit_mode: "fill"
 
         # Laibel missä tänään on ..
     	MDLabel:
@@ -61,17 +62,18 @@
 <Day@Button>:
     # Päivämäärien nappulat
     datepicker: self.parent.datepicker
-    #merkinta2: str(Factory.DatePicker().onko_merkinta())
-    merkintalista: ["10","20","30"] # Tämä pitäisi olla lista databasessa olevista päivämääristä, jossa on merkintä
-    background_color: (128, 128, 0, 1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10)
+
+    ## Tämä lista halutaan tulevan tietokannasta datepicker.py:n "hae_merkinnat()" funktion avulla.
+    merkintalista: ["10","20","30"] # Tämä pitäisi olla lista databasessa olevista päivämääristä, jossa on merkintä ko. kuukautena.
+    background_color: (128, 128, 0, 1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
     text_color:(0, 0, 0, 1)
     #background_color: 232/255,123/255,0/255,0.10
     disabled: True if self.text == "" else False
     
     on_release:
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
-        root.datepicker.tee_merkinta(root.datepicker.picked)
-        Factory.myPopUp().open()
+        root.datepicker.tarkista_merkinta(root.datepicker.picked)
+        root.datepicker.merkinta_popup(root.datepicker.picked)
 
 
 <Week@BoxLayout>:
@@ -168,7 +170,8 @@
             if spin.text == "Kuukausi": root.datepicker.month = 1 if root.datepicker.month == 12 else root.datepicker.month + 1
             if spin.text == "Vuosi": root.datepicker.year += 1
 
-<DatePicker@BoxLayout>:
+<DatePicker>:
+    name: "ylin"
     id: datepicker
     year: 2023
     month: 8

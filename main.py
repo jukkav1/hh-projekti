@@ -7,6 +7,7 @@ from datetime import datetime
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
+from kivy.properties import NumericProperty
 from kivy.clock import Clock
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
@@ -43,6 +44,8 @@ class HH(MDApp):
     # tehdään ajalle ja päivämäärälle hyödyllinen muuttuja
     time = StringProperty()
     date = StringProperty()
+    month = NumericProperty(datetime.now().month)
+    year = NumericProperty(datetime.now().year)
 
     def update(self, *args):
         """Päivitellään päivää ja kelloa etc"""
