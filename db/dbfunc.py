@@ -7,6 +7,28 @@ kanta = "db/kanta.db"
 taulu = "merkinnat2"
 
 
+def hae_lista(kk, yy) -> list:
+    print("kk", kk, "yy:", yy)
+
+    merkinnat = []
+    conn = sqlite3.connect(kanta)
+    cursor = conn.cursor()
+    if isfile(kanta):
+        try:
+            x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kk}")
+            for y in x.fetchall():
+                merkinnat.append(y)
+            print("merkinnät kannassa:", merkinnat)
+            return merkinnat
+        except Error as e:
+            print(e)
+            return -1
+    else:
+        print("kakkaa täh?")
+
+    conn.close()
+
+
 def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> bool:
     print(f"Koitetaan tehdä merkintä '{teksti}' päivälle {paiva}.{kuukausi}.")
     conn = sqlite3.connect(kanta)

@@ -2,6 +2,10 @@
 #:import Calendar calendar.Calendar
 #:import Factory kivy.factory.Factory
 
+<CustomSpinnerOptions@SpinnerOption>:
+    background_color:255/155, 255/255, 0/255,1
+    color: 0,0,0,1
+
 <myPopUp@Popup>:
     auto_dissmiss:False
     title:"Tee merkintä"
@@ -48,9 +52,11 @@
 
 <Day@Button>:
     datepicker: self.parent.datepicker
-    #background_color: root.color if self.text != "" else [0,0,0,0]
+    #merkinta2: str(Factory.DatePicker().onko_merkinta())
+    merkintalista: ["10","20","30"] # haetaan databasesta
+    background_color: (128, 128, 0, 1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10)
     text_color:(0, 0, 0, 1)
-    background_color: 232/255,123/255,0/255,0.10
+    #background_color: 232/255,123/255,0/255,0.10
     disabled: True if self.text == "" else False
     
     on_release:
@@ -110,6 +116,7 @@
 <NavBar@BoxLayout>:
     datepicker:self.parent
     Spinner:
+        option_cls: Factory.CustomSpinnerOptions
         values: root.datepicker.months
         text: root.datepicker.months[root.datepicker.month-1]
         color:(0, 0, 0, 1)
@@ -118,6 +125,7 @@
             root.datepicker.month = root.datepicker.months.index(self.text)+1
             
     Spinner:
+        option_cls: Factory.CustomSpinnerOptions
         values: [str(i) for i in range(2020,2031)]
         text: str(root.datepicker.year)
         color:(0, 0, 0, 1)
@@ -134,6 +142,7 @@
             if spin.text == "Kuukausi": root.datepicker.month = 12 if root.datepicker.month == 1 else root.datepicker.month - 1
             if spin.text == "Vuosi": root.datepicker.year -= 1
     Spinner:
+        option_cls: Factory.CustomSpinnerOptions
         id: spin
         values: ["Kuukausi","Vuosi"]
         text: "Kuukausi"

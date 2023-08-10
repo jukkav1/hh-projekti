@@ -4,6 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import Screen
 import db.dbfunc as dbase
+from random import randint
 
 
 class DatePickerContainer(Screen):
@@ -25,6 +26,11 @@ class DatePicker(BoxLayout):
         else:
             dbase.tee_merkinta(pvm, kk, yy, text)
             print(pvm, kk, yy, text)
+
+    def onko_merkinta(self, pvm, kk, yy) -> bool:
+        print("Omko merkintäds?!")
+        kakka = randint(1, 30)
+        return str(kakka)
 
     def tarkista_merkinta(self, pvm, kk, yy) -> list:
         merkintalista = dbase.hae_merkinta(pvm, kk, yy)

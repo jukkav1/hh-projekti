@@ -2,7 +2,7 @@ from kivy import require
 from exercise import Exercise
 
 # from player import Player
-from skeduler import Skeduler
+# from skeduler import Skeduler
 from datetime import datetime
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
