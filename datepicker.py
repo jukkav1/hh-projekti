@@ -6,9 +6,6 @@ from kivy.uix.screenmanager import Screen
 import db.dbfunc as dbase
 from random import randint
 
-# Ladataan Kv file.
-Builder.load_file("kv/datepicker.kv")
-
 
 # Container kuori sisältöä varten, tarvitaan taustakuvaa varten
 class DatePickerContainer(Screen):
@@ -46,3 +43,7 @@ class DatePicker(BoxLayout):
         merkintalista = dbase.hae_merkinta(pvm, kk, yy)
         print("merkintälista:", merkintalista)
         return merkintalista
+
+
+# Ladataan Kv file.
+Builder.load_file("kv/datepicker.kv")
