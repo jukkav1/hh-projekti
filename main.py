@@ -40,14 +40,19 @@ class Home(Screen):
 class HH(MDApp):
     """PääAppi"""
 
+    # tehdään ajalle ja päivämäärälle hyödyllinen muuttuja
     time = StringProperty()
     date = StringProperty()
 
     def update(self, *args):
+        """Päivitellään päivää ja kelloa etc"""
         self.time = str(datetime.now().strftime("%H:%M"))
         self.date = str(datetime.now().strftime("%d.%m.%Y"))
 
     def disclaimer(self, dt):
+        """vastuunvapautuslause pop-uppi"""
+        # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten
+        # laittaa pop-upin sisällöksi
         layout = BoxLayout(orientation="vertical")
         label = Label(
             text="""            
@@ -80,11 +85,15 @@ class HH(MDApp):
             size_hint=(0.8, 0.8),
             background="images/tausta-lehdet.png",
         )
+        # nappulan toiminnalle funktio
         btn.bind(on_press=popup.dismiss)
+        # näytetään vihdoin pop-up
         popup.open()
 
     def build(self, *args):
+        # päivämäärän päivitys käyntiin, mikä ja montako sekuntia
         Clock.schedule_interval(self.update, 1)
+        # disclaimerin triggeri
         Clock.schedule_once(self.disclaimer, 1)
         return MainWindow()
 
