@@ -85,3 +85,6 @@ Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja
 - Tietokannalta tuleva merkintäteksti päivän pop-upin textbox:iin
 
 - datepicker.py:ssä merkintöjen haku- ja tekokutsujen logiikka pitää korjata niin, että vasta tallennusnapin painalluksen jälkeen yritetään tosiaan tallentaa tekstikenttään laitettu teksti.
+
+11.8. Perusosat on saatu lähes valmiiksi. Kunhan kalenterin merkintä saatetaan loppuun,
+seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita tehdä siistimmin / järkevämmin / intuitiivisemmin lyhyellä aikataululla.
