@@ -21,7 +21,7 @@ class DatePickerContainer(Screen):
 class DatePicker(BoxLayout):
     def merkinta_popup(self, pvmlist):
         print(pvmlist)
-        """vastuunvapautuslause pop-uppi"""
+        """ pop-uppi merkinnän tekemistä varten """
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten
         # laittaa pop-upin sisällöksi
         layout = GridLayout(cols=1, rows=2)
@@ -98,6 +98,7 @@ class DatePicker(BoxLayout):
         oma_kk = kkyylist[0]
         oma_yy = kkyylist[1]
         merkintalista = dbase.hae_lista(oma_kk, oma_yy)
+        
         print(merkintalista)
         # return merkintalista
         return ["5", "10", "20", "30"]

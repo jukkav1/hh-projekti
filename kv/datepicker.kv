@@ -62,11 +62,8 @@
 <Day@Button>:
     # Päivämäärien nappulat
     datepicker: self.parent.datepicker
-
-    ## Tämä lista halutaan tulevan tietokannasta datepicker.py:n "hae_merkintalista()" funktion avulla.
-    #merkintalista: ["10","20","30"] # Tämä pitäisi olla lista databasessa olevista päivämääristä, jossa on merkintä ko. kuukautena.
-    merkintalista: Factory.DatePicker.hae_merkintalista([self.text, Factory.DatePicker.month, 2023])
-    background_color: (128, 128, 0, 1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
+    merkintalista: Factory.DatePicker.hae_merkintalista([self.parent.parent.month, self.parent.parent.year])
+    background_color: (255/155, 255/255, 0/255,1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
     text_color:(0, 0, 0, 1)
     #background_color: 232/255,123/255,0/255,0.10
     disabled: True if self.text == "" else False
@@ -212,9 +209,9 @@
     Week:
         weekdays: root.days[35:]
     
-    Label:
-        text: "" if root.picked == ["","",""] else "{}/{}-{}".format(root.picked[0], root.picked[1], root.picked[2])
-        color:(0, 0, 0, 1)
-        background_color: 232/255,123/255,0/255,0.10
+    # Label:
+    #     text: "" if root.picked == ["","",""] else "{}/{}-{}".format(root.picked[0], root.picked[1], root.picked[2])
+    #     color:(0, 0, 0, 1)
+    #     background_color: 232/255,123/255,0/255,0.10
         
 
