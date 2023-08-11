@@ -64,7 +64,8 @@
     datepicker: self.parent.datepicker
 
     ## Tämä lista halutaan tulevan tietokannasta datepicker.py:n "hae_merkintalista()" funktion avulla.
-    merkintalista: ["10","20","30"] # Tämä pitäisi olla lista databasessa olevista päivämääristä, jossa on merkintä ko. kuukautena.
+    #merkintalista: ["10","20","30"] # Tämä pitäisi olla lista databasessa olevista päivämääristä, jossa on merkintä ko. kuukautena.
+    merkintalista: Factory.DatePicker.hae_merkintalista([self.text, Factory.DatePicker.month, 2023])
     background_color: (128, 128, 0, 1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
     text_color:(0, 0, 0, 1)
     #background_color: 232/255,123/255,0/255,0.10

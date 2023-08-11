@@ -94,13 +94,13 @@ class DatePicker(BoxLayout):
         # print("merkintälista:", merkintalista)
         return merkintalista
 
-    def hae_merkintalista(kkyylist) -> list:
+    def hae_merkintalista(kkyylist: list) -> list:
         oma_kk = kkyylist[0]
         oma_yy = kkyylist[1]
         merkintalista = dbase.hae_lista(oma_kk, oma_yy)
         print(merkintalista)
-        return merkintalista
-        # return ["10", "20", "30"]
+        # return merkintalista
+        return ["5", "10", "20", "30"]
 
 
 # Ladataan Kv file.
