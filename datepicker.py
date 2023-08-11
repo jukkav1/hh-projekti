@@ -98,10 +98,8 @@ class DatePicker(BoxLayout):
         oma_kk = kkyylist[0]
         oma_yy = kkyylist[1]
         merkintalista = dbase.hae_lista(oma_kk, oma_yy)
-        
-        print(merkintalista)
-        # return merkintalista
-        return ["5", "10", "20", "30"]
+        # print(merkintalista)
+        return merkintalista
 
 
 # Ladataan Kv file.

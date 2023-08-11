@@ -17,7 +17,7 @@ def hae_lista(kk, yy) -> list:
         try:
             x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kk}")
             for y in x.fetchall():
-                merkinnat.append(y)
+                merkinnat.append(str(y[0]))
             print("merkinnät kannassa:", merkinnat)
             return merkinnat
 
