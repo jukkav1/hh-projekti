@@ -32,7 +32,7 @@ class DatePicker(BoxLayout):
         if onkomerkinta:
             texti = str(DatePicker.onko_merkinta(self, pvmlist)[2])
         else:
-            texti = "Merkintää ei ole"
+            texti = ""
 
         textbox = TextInput(
             text=texti,
