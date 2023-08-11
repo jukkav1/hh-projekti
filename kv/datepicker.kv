@@ -63,7 +63,7 @@
     # Päivämäärien nappulat
     datepicker: self.parent.datepicker
 
-    ## Tämä lista halutaan tulevan tietokannasta datepicker.py:n "hae_merkinnat()" funktion avulla.
+    ## Tämä lista halutaan tulevan tietokannasta datepicker.py:n "hae_merkintalista()" funktion avulla.
     merkintalista: ["10","20","30"] # Tämä pitäisi olla lista databasessa olevista päivämääristä, jossa on merkintä ko. kuukautena.
     background_color: (128, 128, 0, 1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
     text_color:(0, 0, 0, 1)
@@ -79,24 +79,31 @@
 <Week@BoxLayout>:
     datepicker: root.parent
     weekdays: ["","","","","","",""]
+    # Päivien numerot sarakkeina
     Day:
         text: str(root.weekdays[0])
         color:(0, 0, 0, 1)
+    # sarake 'ti'
     Day:
         text: str(root.weekdays[1])
         color:(0, 0, 0, 1)
+    #sarake 'ke'
     Day:
         text: str(root.weekdays[2])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[3])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[4])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[5])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[6])
         color:(0, 0, 0, 1)
@@ -178,22 +185,32 @@
     picked: ["","",""]
     months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
     calendar: Calendar()
+    
+    #miksi * 14 ??
     days: [(i if i > 0 else "") for i in self.calendar.itermonthdays(self.year, self.month)] + [""] * 14
     orientation: "vertical"
     NavBar:
     WeekDays:
+
+    # Viikon rakennus
     Week:
         weekdays: root.days[0:7]
+    
     Week:
         weekdays: root.days[7:14]
+    
     Week:
         weekdays: root.days[14:21]
+    
     Week:
         weekdays: root.days[21:28]
+    
     Week:
         weekdays: root.days[28:35]
+    
     Week:
         weekdays: root.days[35:]
+    
     Label:
         text: "" if root.picked == ["","",""] else "{}/{}-{}".format(root.picked[0], root.picked[1], root.picked[2])
         color:(0, 0, 0, 1)

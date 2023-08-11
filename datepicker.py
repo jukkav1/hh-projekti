@@ -19,10 +19,6 @@ class DatePickerContainer(Screen):
 
 
 class DatePicker(BoxLayout):
-    def kakkaa(eka, toka):
-        print(eka, toka)
-        pass
-
     def merkinta_popup(self, pvmlist):
         print(pvmlist)
         """vastuunvapautuslause pop-uppi"""

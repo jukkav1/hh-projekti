@@ -20,6 +20,7 @@ def hae_lista(kk, yy) -> list:
                 merkinnat.append(y)
             print("merkinnät kannassa:", merkinnat)
             return merkinnat
+
         except Error as e:
             print(e)
             return -1
