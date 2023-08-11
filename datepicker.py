@@ -54,7 +54,12 @@ class DatePicker(BoxLayout):
             size_hint=(0.8, 0.8),
             background="images/tausta-lehdet.png",
         )
+
+        def kakkaa(self):
+            print("kakkaa täh", textbox.text, pvmlist)
+
         # nappulan toiminnalle funktio
+        tallenna_btn.bind(on_press=kakkaa)
         tallenna_btn.bind(on_press=popup.dismiss)
 
         # näytetään vihdoin pop-up
