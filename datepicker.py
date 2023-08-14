@@ -1,16 +1,12 @@
-from kivy.app import App
+# from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen
 import db.dbfunc as dbase
-from random import randint
-from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.textinput import TextInput
-from kivy.properties import NumericProperty, StringProperty
 
 
 # Container kuori sisältöä varten, tarvitaan taustakuvaa varten
@@ -19,7 +15,7 @@ class DatePickerContainer(Screen):
 
 
 class DatePicker(BoxLayout):
-    def merkinta_popup(self, pvmlist):
+    def merkinta_popup(self, pvmlist: list):
         print(pvmlist)
         """ pop-uppi merkinnän tekemistä varten """
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten
@@ -57,6 +53,8 @@ class DatePicker(BoxLayout):
 
         def kakkaa(self):
             print("kakkaa täh", textbox.text, pvmlist)
+            # text = textbox.text
+            DatePicker.tee_merkinta(self, pvmlist, textbox.text)
 
         # nappulan toiminnalle funktio
         tallenna_btn.bind(on_press=kakkaa)
@@ -65,17 +63,15 @@ class DatePicker(BoxLayout):
         # näytetään vihdoin pop-up
         popup.open()
 
-    # Päivyrin pääluokka
-
-    def tee_merkinta(
-        self, pvmlist, text="DatePicker class says henlo from datepicker.py!"
-    ):
+    def tee_merkinta(self, pvmlist, text):
         """Tekee merkintöjä päiväkirjaan. text -muuttujalla otetaan päiväkirjamerkintä, jos semmoinen tulee. Ei vielä tule :("""
         # pvmlist : [pvmlist] #pvm, kk, vuosi
+        self.pvmlist = pvmlist
         pvm = pvmlist[0]
         kk = pvmlist[1]
         yy = pvmlist[2]
-        d = self.tarkista_merkinta(pvmlist)
+        d = DatePicker.tarkista_merkinta(self, pvmlist)
+        print("moronnääs")
         if d:
             print(f"{pvm} {kk} {yy} on jo merkintä:", d)
         else:
@@ -100,10 +96,7 @@ class DatePicker(BoxLayout):
         return merkintalista
 
     def hae_merkintalista(kkyylist: list) -> list:
-        oma_kk = kkyylist[0]
-        oma_yy = kkyylist[1]
-        merkintalista = dbase.hae_lista(oma_kk, oma_yy)
-        # print(merkintalista)
+        merkintalista = dbase.hae_lista(kkyylist[0], kkyylist[1])
         return merkintalista
 
 
