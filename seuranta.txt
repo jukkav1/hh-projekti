@@ -109,3 +109,8 @@ Viimeistelyjuttuja:
 - Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
 - Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
 - Kalenteri tuostaa excessive syötettä konsoliin, listan välityksen voisi tehdä vähemmälläkin tietokannan kuormituksella.
+
+14.8. - Merkintä saatiin menemään tietokantaan, pieni glitch jäi vielä.
+- Käytiin läpi koodia ja lisäiltiin mielekkäitä kommentointeja.
+
+- Alkuperäisellä kalenterilla (datepicker.kv) ei ole lisenssiä, mutta asiasta keskusteltu Kerttulin kanssa. Loppujärkeily on, että koska kalenteri on laitettu githubiin, julkiseen tietoverkkoon, julkisesti esille ja näytille, voidaan olettaa, että henkilö on halunnut sen näytille. Emme kuitenkaan levitä tai hyödynnä koodia kaupallisessa tarkoituksessa, mutta lisäämme toiminnallisuutta ja jatkojalostamme sitä. Hyvien käytöstapojen mukaisesti tietenkin mainitsemme lähteen omassa projektissamme.
