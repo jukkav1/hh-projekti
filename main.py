@@ -1,8 +1,5 @@
 from kivy import require
 from exercise import Exercise
-
-# from player import Player
-# from skeduler import Skeduler
 from datetime import datetime
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
@@ -37,25 +34,23 @@ class Home(Screen):
     """Aloitusruutu"""
 
 
-# noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
     """PääAppi"""
 
-    # tehdään ajalle ja päivämäärälle hyödyllinen muuttuja
+    # Kalenterille hyödyllisiä muuttujia
     time = StringProperty()
     date = StringProperty()
     month = NumericProperty(datetime.now().month)
     year = NumericProperty(datetime.now().year)
 
     def update(self, *args):
-        """Päivitellään päivää ja kelloa etc"""
+        """Ajan ja päiväyksen muunto oikeaan suomalaiseen muotoon"""
         self.time = str(datetime.now().strftime("%H:%M"))
         self.date = str(datetime.now().strftime("%d.%m.%Y"))
 
     def disclaimer(self, dt):
         """vastuunvapautuslause pop-uppi"""
-        # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten
-        # laittaa pop-upin sisällöksi
+        # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten laittaa pop-upin sisällöksi
         layout = BoxLayout(orientation="vertical")
         label = Label(
             text="""            
