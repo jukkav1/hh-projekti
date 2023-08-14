@@ -43,7 +43,6 @@ class Exercise(Screen):
         if self.sound:
             print("äänet löytyy")
             self.sound.play()
-            self.audio_playing = True
 
             # otetaan play napit pois käytöstä jos jokin ääni ON JO KÄYNNISSÄ
             self.ids.play_one.disabled = True
@@ -67,7 +66,6 @@ class Exercise(Screen):
             print("äänet löytyy")
             # käynnistetää audio
             self.sound.play()
-            self.audio_playing = True
             self.ids.play_one.disabled = True
             self.ids.play_two.disabled = True
             self.ids.play_three.disabled = True
@@ -85,7 +83,6 @@ class Exercise(Screen):
             print("äänet löytyy")
             # käynnistetään audio
             self.sound.play()
-            self.audio_playing = True
             self.ids.play_one.disabled = True
             self.ids.play_two.disabled = True
             self.ids.play_three.disabled = True
@@ -96,16 +93,14 @@ class Exercise(Screen):
 
     def stop_audio(self):
         """Pysäyttää audion"""
-        if self.audio_playing == True:
-            self.audio_playing = False
-            # play napit takaisin käyttöön
-            self.ids.play_one.disabled = False
-            self.ids.play_two.disabled = False
-            self.ids.play_three.disabled = False
-            self.clear_time()
-            # pysäytetään audio
-            self.sound.stop()
-            print("ääni pysäytetty")
+        # play napit takaisin käyttöön
+        self.ids.play_one.disabled = False
+        self.ids.play_two.disabled = False
+        self.ids.play_three.disabled = False
+        self.clear_time()
+        # pysäytetään audio
+        self.sound.stop()
+        print("ääni pysäytetty")
 
     def clear_time(self):
         """Palautetaan muuttujat alkutilaan"""
@@ -184,7 +179,6 @@ class Exercise(Screen):
             self.timer_progress.cancel()
 
             # asetetaan muuttuja alkutilaan, jos audio soi loppuun
-            self.audio_playing = False
             self.ids.play_one.disabled = False
             self.ids.play_two.disabled = False
             self.ids.play_three.disabled = False
