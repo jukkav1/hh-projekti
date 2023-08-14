@@ -1,90 +1,91 @@
 #:kivy 2.1.0
+# Alkuperäinen kalenteripohja:
+# https://github.com/el3/Kivy-datepicker
+
 #:import Calendar calendar.Calendar
 #:import Factory kivy.factory.Factory
 
-<myPopUp@Popup>:
-    auto_dissmiss:False
-    title:"Tee merkintä"
-    title_align:"center"
-    title_color:(0, 0, 0, 1)
-    size_hint: 0.8,0.8
-    pos_hint:{"x":0.1,"top":0.9}
-    background:"images/tausta-lehdet.png"
-    
-    
-    FloatLayout:
-        TextInput:
-            size_hint:1,0.8
-            pos_hint:{"x":0,"top":1}
+#Dropdown valikkojen väriteema-asioita
+<CustomSpinnerOptions@SpinnerOption>:
+    # Buttonin tausta on oletuksena harmaa ja vuotaa läpi, ellei explisiitisesti laiteta "tyhjäksi"
+    background_normal:""
+    background_color: 189/255, 132/255, 47/255, 1
+    color: 0,0,0,1
+    font_size: "14sp"
 
-        Button:
-            text:"Tallenna"
-            size_hint: 1,0.2
-            pos_hint:{"x":0,"top":0.19}
-            color:(0, 0, 0, 1)
-            background_color: 232/255,123/255,0/255,0.10
-            on_release:root.dismiss()
-
+#Container kuori päivyriä ja taustakuvaa varten
 <DatePickerContainer>:
     FloatLayout:
         Image:
             source: "images/tausta-lehdet.png"
-            allow_stretch:True
-            keep_ratio:False
+            fit_mode: "fill"
+
+        # Label missä tänään on ..
     	MDLabel:
 		    id: aika
-		    text:"Tänään on:"
+		    text: "Tänään on:"
             text_color:0,0,0,1
             pos_hint:{"x":0,"top":0.55}
         
+        # Labeliin tämänhetkinen aika
         MDLabel:
 		    id: aika_nyt
             pos_hint:{"x":0.23,"top":0.55}
 		    text: app.date
             
-
+        #Päivyri siihen containeriin
         DatePicker:
 
 
 <Day@Button>:
+    # Päivämäärien nappulat
     datepicker: self.parent.datepicker
-    #background_color: root.color if self.text != "" else [0,0,0,0]
+    merkintalista: Factory.DatePicker.hae_merkintalista([self.parent.parent.month, self.parent.parent.year])
+    background_color: (255/155, 255/255, 0/255,1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
     text_color:(0, 0, 0, 1)
-    background_color: 232/255,123/255,0/255,0.10
     disabled: True if self.text == "" else False
     
+    # Painiketta klikatessa tehdään päivämäärästä lista, joka lähetetään merkintöjen tarkistus- ja pop-up funktioille pythonin puolelle
     on_release:
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
-        root.datepicker.tee_merkinta(root.datepicker.picked)
-        Factory.myPopUp().open()
+        root.datepicker.tarkista_merkinta(root.datepicker.picked)
+        root.datepicker.merkinta_popup(root.datepicker.picked)
 
 
 <Week@BoxLayout>:
     datepicker: root.parent
     weekdays: ["","","","","","",""]
+    # Päivien numerot sarakkeina
     Day:
         text: str(root.weekdays[0])
         color:(0, 0, 0, 1)
+    # sarake 'ti'
     Day:
         text: str(root.weekdays[1])
         color:(0, 0, 0, 1)
+    #sarake 'ke'
     Day:
         text: str(root.weekdays[2])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[3])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[4])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[5])
         color:(0, 0, 0, 1)
+
     Day:
         text: str(root.weekdays[6])
         color:(0, 0, 0, 1)
 
 <WeekDays@BoxLayout>:
+#Tekee viikonpäivät-palkin
     Label:
         text: "Ma"
         color:(0, 0, 0, 1)
@@ -110,72 +111,102 @@
 <NavBar@BoxLayout>:
     datepicker:self.parent
     Spinner:
+        # Dropdown spinnereiden tyylit
+        option_cls: Factory.CustomSpinnerOptions
+        # spinnerin sisältö
         values: root.datepicker.months
         text: root.datepicker.months[root.datepicker.month-1]
+
         color:(0, 0, 0, 1)
         background_color: 232/255,123/255,0/255,0.10
+        font_size: "14sp"
+
+        # Mitä tapahtuu kun painetaan spinneristä valintaa
         on_text:
             root.datepicker.month = root.datepicker.months.index(self.text)+1
             
+    # Vuosien alasvetovalikko
     Spinner:
+        option_cls: Factory.CustomSpinnerOptions
+        # vuosi-range
         values: [str(i) for i in range(2020,2031)]
         text: str(root.datepicker.year)
         color:(0, 0, 0, 1)
         background_color: 232/255,123/255,0/255,0.10
+        font_size: "14sp"
         on_text:
             root.datepicker.year = int(self.text)
-    Widget:
+
     Button:
         text: "<"
         color:(0, 0, 0, 1)
         background_color: 232/255,123/255,0/255,0.10
+
+        # Jos tammikuusta vaihdetaan edelliseen kk, mennään "ympäri" ja edelliseen vuoteen etc.
         on_release:
             if root.datepicker.month == 1 and spin.text == "Kuukausi": root.datepicker.year -= 1
             if spin.text == "Kuukausi": root.datepicker.month = 12 if root.datepicker.month == 1 else root.datepicker.month - 1
             if spin.text == "Vuosi": root.datepicker.year -= 1
+
+    # Kuukausi - ja vuosi -spinneri
     Spinner:
+        option_cls: Factory.CustomSpinnerOptions
         id: spin
         values: ["Kuukausi","Vuosi"]
         text: "Kuukausi"
         color:(0, 0, 0, 1)
         background_color: 232/255,123/255,0/255,0.10
+        font_size: "14sp"
 
+    #eteenpäin -nappula
     Button:
         text: ">"
         color:(0, 0, 0, 1)
         background_color: 232/255,123/255,0/255,0.10
-        
+
+        # Jos joulukuu ja edetään seuraavaan kk, mennään tammikuuhun seuraavaan vuoteen
         on_release:
             if root.datepicker.month == 12 and spin.text == "Kuukausi": root.datepicker.year += 1
             if spin.text == "Kuukausi": root.datepicker.month = 1 if root.datepicker.month == 12 else root.datepicker.month + 1
             if spin.text == "Vuosi": root.datepicker.year += 1
 
-<DatePicker@BoxLayout>:
-    id: deitpikker
+# Pääluokka
+<DatePicker>:
+    name: "ylin"
+    id: datepicker
+    # vuosi ja kk voisi olla muuttujat esim app.year / app.month
     year: 2023
     month: 8
+    # alkuasetus valitulle pvm:lle
     picked: ["","",""]
     months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
     calendar: Calendar()
+    
+    #miksi * 14 ??
+    # tekee days listan .. jonka sisältönä on päivän numero; esim.
+    #joss kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else ""), mikä toi loppuroska on?
     days: [(i if i > 0 else "") for i in self.calendar.itermonthdays(self.year, self.month)] + [""] * 14
     orientation: "vertical"
     NavBar:
     WeekDays:
+
+    # Viikon rakennus, tekee tyhjät palikat, joihin sitten sisälle laitetaan mahdollinen päivämäärän numero
     Week:
         weekdays: root.days[0:7]
+    
     Week:
         weekdays: root.days[7:14]
+    
     Week:
         weekdays: root.days[14:21]
+    
     Week:
         weekdays: root.days[21:28]
+    
     Week:
         weekdays: root.days[28:35]
+    
     Week:
         weekdays: root.days[35:]
-    Label:
-        text: "" if root.picked == ["","",""] else "{}/{}-{}".format(root.picked[0], root.picked[1], root.picked[2])
-        color:(0, 0, 0, 1)
-        background_color: 232/255,123/255,0/255,0.10
         
 

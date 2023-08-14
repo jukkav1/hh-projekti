@@ -1,20 +1,26 @@
 #:kivy 2.1.0
-<MainWindow>:
 
+# Pääikkunan määrittelyt
+<MainWindow>:
     MDBoxLayout:
         orientation: "vertical"
         
+        # Yläpalkki
         MDTopAppBar:
             md_bg_color: 189/255, 132/255, 47/255, 1
             specific_text_color: 237/255, 216/255, 174/255, 1
+            #menu-valikko
             left_action_items: [["menu"]]
+            # sovelluksen sammutus
             right_action_items: [["close", lambda x: app.stop()]]
             
+        # Alapalkin toiminta
         MDBottomNavigation:
             id: "bottom_nav"
             panel_color: 189/255, 132/255, 47/255, 1
             text_color_active: 237/255, 216/255, 174/255, 1
 
+            #Navigaationappuloiden toiminta
             MDBottomNavigationItem:
                 name: "main"
                 text: "Koti"
@@ -33,10 +39,9 @@
                 icon: "music"
                 Exercise:
 
+#Pääikkunan taustakuva
 <Home>:
     name:"home"
     Image:
         source:"images/final.png"
-        allow_stretch:True
-        keep_ratio:False
-    
+        fit_mode: "fill"    

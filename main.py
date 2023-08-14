@@ -1,12 +1,10 @@
 from kivy import require
 from exercise import Exercise
-
-# from player import Player
-from skeduler import Skeduler
 from datetime import datetime
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
+from kivy.properties import NumericProperty
 from kivy.clock import Clock
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
@@ -36,18 +34,23 @@ class Home(Screen):
     """Aloitusruutu"""
 
 
-# noudatetaan siis sääntöä, että "perusluokka" periytyy kivyn omasta App -luokasta.
 class HH(MDApp):
     """PääAppi"""
 
+    # Kalenterille hyödyllisiä muuttujia
     time = StringProperty()
     date = StringProperty()
+    month = NumericProperty(datetime.now().month)
+    year = NumericProperty(datetime.now().year)
 
     def update(self, *args):
+        """Ajan ja päiväyksen muunto oikeaan suomalaiseen muotoon"""
         self.time = str(datetime.now().strftime("%H:%M"))
         self.date = str(datetime.now().strftime("%d.%m.%Y"))
 
     def disclaimer(self, dt):
+        """vastuunvapautuslause pop-uppi"""
+        # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten laittaa pop-upin sisällöksi
         layout = BoxLayout(orientation="vertical")
         label = Label(
             text="""            
@@ -80,11 +83,15 @@ class HH(MDApp):
             size_hint=(0.8, 0.8),
             background="images/tausta-lehdet.png",
         )
+        # nappulan toiminnalle funktio
         btn.bind(on_press=popup.dismiss)
+        # näytetään vihdoin pop-up
         popup.open()
 
     def build(self, *args):
+        # päivämäärän päivitys käyntiin, mikä ja montako sekuntia
         Clock.schedule_interval(self.update, 1)
+        # disclaimerin triggeri
         Clock.schedule_once(self.disclaimer, 1)
         return MainWindow()
 

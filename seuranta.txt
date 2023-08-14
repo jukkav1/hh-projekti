@@ -83,5 +83,29 @@ Vko 29 ja 30:
 
 28.7. Saatiin soitinsivu tekemään ero eri äänien välillä, PYSÄYTYS, edistyspalkki ja kello sekä sen nollaus toimii.
 
-2.8. Taru löysi yksinkertaisemman kalenterin, kokeillaan saako siitä käyttökelpoisen.
+2.8. Taru löysi yksinkertaisemman kalenterin, kokeillaan saako siitä käyttökelpoisen helpohkosti
+-Kalle korjasi vanhasta kalenterista päivyrinäkymän, nyt ei pop-up toimi. ai että!
+-Uuden kalenterin logiikka väärin päin, ei värjää päiviä joissa merkintä.
 
+8.8. esitelty luokalle, viimeinen esittely ennen näyttöä 24.8. monkaS
+
+9.8. Mergeilty tarun laajennettuun soittimeen.
+10.8. Ankaraa tappelua kalenterin kanssa;
+     Vihdoinkin päivyrin pop-up:in saa tekstin tulemaan tietokantamerkinnästä, MUTTA sitä ei voi enää muuttaa tai tehdä uusia merkintöjä..
+     Tietokannasta halutaan saada lista merkityistä päivämääristä, koska sen perusteella voisi päivyristä värjätä tietyt
+     pvm:t "sisältämään merkinnän".
+
+-----
+11.8. Taru korjasi kalenterinappuloiden taustavärit ja pop-upin. J sai päivän värit vaihtumaan sen mukaisesti. Yhdessä saatiin pop-up toimimaan niin, että hakee päivän merkinnän tekstikenttään, jos sellainen on.
+
+Käännettiin puhelimelle versio 0.0.7.
+Projekti on viimeistelyä vaille valmis; seuraava homma on saada uusi kalenterimerkintä menemään tietokantaan ;
+testifunktio jo printtaa tehdyn merkinnän tiedot.
+-----
+Viimeistelyjuttuja:
+- Kalenterin päivänappulat saattaa vuotaa "tänään on" -viestin päälle jos 31 päiväinen kuukausi alkaa esim. sunnuntaista.
+- kuukausi/vuosi spinnerin teksti vuotaa nappulasta ulos
+- Playerin play- ja stop -nappulat on turhan lähekkäin toisiaan, ehkä yksi vaihtuva play/stop nappi antaisi ilmavamman vaikutelman?
+- Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
+- Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
+- Kalenteri tuostaa excessive syötettä konsoliin, listan välityksen voisi tehdä vähemmälläkin tietokannan kuormituksella.

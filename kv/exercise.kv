@@ -1,12 +1,13 @@
 #:kivy 2.1.0
+
+# Harjotteille näkymä
 <Exercise>:
     name:"exercise"
 
     Image:
         source:"images/tausta-lehdet.png"
-        allow_stretch:True
-        keep_ratio:False
-
+        fit_mode: "fill"
+        
     MDLabel: # ensimmäsen audion tiedot
         text:"Metsä"
         theme_text_color: "Custom"
@@ -36,6 +37,7 @@
         pos_hint:{"center_x":0.62,"center_y":0.90}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
+        #montako tickausta juuri tässä audiossa on ..
         max:494
         value:root.bar_progress1
 
@@ -86,7 +88,7 @@
     MDLabel:
         text:"07:52" 
         pos_hint:{"x":0.86,"top":1.25}
-    
+        
     MDLabel: # kolmannen audion tiedot
         text:"Sade"
         theme_text_color: "Custom"
@@ -126,4 +128,3 @@
     MDLabel:
         text:"07:54" 
         pos_hint:{"x":0.86,"top":1.10}
-
