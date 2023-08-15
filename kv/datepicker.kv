@@ -184,8 +184,10 @@
     
     #miksi * 14 ??
     # tekee days listan .. jonka sisältönä on päivän numero; esim.
-    #joss kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else ""), mikä toi loppuroska on?
-    days: [(i if i > 0 else "") for i in self.calendar.itermonthdays(self.year, self.month)] + [""] * 14
+    #joss kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else "").
+    # loppuroska ["!"] .. vaikuttaa jonkinlaiselta "ylivuotovaralta" jos kk alkaa ma ja on 28 päivää, kaikki rivit eivät täyty -> index out of range ..
+    days: [(i if i > 0 else "") for i in self.calendar.itermonthdays(self.year, self.month)] + ["!"] * 14
+    #days: [(i) for i in self.calendar.itermonthdays(self.year, self.month)] + ["!"] * 14
     orientation: "vertical"
     NavBar:
     WeekDays:
