@@ -88,3 +88,5 @@ Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja
 
 11.8. Perusosat on saatu lähes valmiiksi. Kunhan kalenterin merkintä saatetaan loppuun,
 seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita tehdä siistimmin / järkevämmin / intuitiivisemmin lyhyellä aikataululla.
+
+16.8. Tarulta saatu siistitty versio soittimesta. Hieno homma. Treenailtu näyttöä varten ja keskusteltu äänien lisenssiasioista.

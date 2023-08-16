@@ -172,7 +172,7 @@
 
 # Pääluokka
 <DatePicker>:
-    name: "ylin"
+    name: "upmost"
     id: datepicker
     # vuosi ja kk voisi olla muuttujat esim app.year / app.month
     year: 2023
@@ -182,12 +182,10 @@
     months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
     calendar: Calendar()
     
-    # tekee days listan .. jonka sisältönä on päivän numero; esim.
-    #joss kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else "").
-    # loppuroska [""]  on ns. ylivuotovara; koska kalenterifunktio palauttaa epäsäännöllisen gridin päivämääriä ja päivämääräkenttiä on kuitenkin varattu kiinteä määrä,
-    # joten saattaa hajota esim. karkauspäivänä tms erikoistilanteessa..
+    # tekee days listan, jonka sisältönä on päivän numero; esim.
+    # jos kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else "").
+    # loppuroska [""]  on ns. ylivuotovara. Kalenterifunktio palauttaa vaihtelevan määrän päivämääriä ja päivämääräkenttiä on kuitenkin varattu kiinteä määrä.
     days: [(i if i > 0 else "") for i in self.calendar.itermonthdays(self.year, self.month)] + [""] * 14
-    #days: [(i) for i in self.calendar.itermonthdays(self.year, self.month)] + ["!"] * 14
     orientation: "vertical"
     NavBar:
     WeekDays:
@@ -207,8 +205,7 @@
     
     Week:
         weekdays: root.days[28:35]
-    
+
+    # ylivuoto-viikko; jos 28 päiväinen viikko alkaa ma, jää alareunan gridiin tyhjiä paikkoja. Tämä täytetään tyhjällä, jotta ei erikoistapauksessakaan päädytä listan ulkopuolelle.
     Week:
         weekdays: root.days[35:]
-        
-

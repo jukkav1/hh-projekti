@@ -12,7 +12,7 @@ Mitä?
 Tehdään hyvinvointisovellus puhelimelle.
 
 # Ohjelma sisältää:
-* Disclaimer: tämä ei ole virallista terapiaa eikä ohjelmaa ei tule käyttää mielenterveyspaveluiden korvikkeena.
+* Vastuunvapautuslause: tämä ei ole virallista terapiaa eikä ohjelmaa ei tule käyttää mielenterveyspaveluiden korvikkeena.
 * Konsultoi hoitokontaktiasi ennen ohjelman käyttöä.
 * rauhoittumis-, hengitys- ja meditaatioharjoituksia sekä ääninäytteitä
 * pitää kirjaa käyttäjän edistymisestä kalenterilla.
@@ -25,9 +25,9 @@ Käyttäjätapauksia
 # Hyväksymiskriteerit
 [x] Ohjelma vastaa käyttäjätarinoiden asettamiin vaatimuksiin.
 [x] Ohjelman väriteema on rauhoittava ja saavutettava myös puna-viher  / viher-puna -värisokeille
-[ ] Ohjelma pitää kirjaa käyttäjän arviota "voinnista", päiväkirjamerkinnät tallentuvat päivyrin muistiin ja niitä voi lukea.
+[x] Ohjelma pitää kirjaa käyttäjän arviota "voinnista", päiväkirjamerkinnät tallentuvat päivyrin muistiin ja niitä voi lukea.
 [x] Toimii android 9+ puhelimella
-[KEKW] Koodi on selkeä ja hallittava
+[/] Koodi on selkeä ja hallittava
 
 Kehittäminen
 -------
