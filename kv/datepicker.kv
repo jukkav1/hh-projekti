@@ -40,7 +40,7 @@
 <Day@Button>:
     # Päivämäärien nappulat
     datepicker: self.parent.datepicker
-    merkintalista: Factory.DatePicker.hae_merkintalista([self.parent.parent.month, self.parent.parent.year])
+    merkintalista: Factory.DatePicker.get_month_entrylist([self.parent.parent.month, self.parent.parent.year])
     background_color: (255/155, 255/255, 0/255,1) if self.text in self.merkintalista else (232/255,123/255,0/255,0.10) # väri vaihtuisi
     text_color:(0, 0, 0, 1)
     disabled: True if self.text == "" else False
@@ -48,7 +48,7 @@
     # Painiketta klikatessa tehdään päivämäärästä lista, joka lähetetään merkintöjen tarkistus- ja pop-up funktioille pythonin puolelle
     on_release:
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
-        root.datepicker.tarkista_merkinta(root.datepicker.picked)
+        root.datepicker.check_single_day(root.datepicker.picked)
         root.datepicker.merkinta_popup(root.datepicker.picked)
 
 
@@ -173,14 +173,17 @@
 # Pääluokka
 <DatePicker>:
     name: "upmost"
-    id: datepicker
-    # vuosi ja kk voisi olla muuttujat esim app.year / app.month
+    #id: datepicker
+    #datetime: Datetime()
+    calendar: Calendar()
+
+    # vuosi ja kk haluttaisiin tulemaan nätisti pääohjelmalta.
     year: 2023
+    #month: # halutaaan tämä tulevan pääohjelmalta
     month: 8
     # alkuasetus valitulle pvm:lle
     picked: ["","",""]
     months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
-    calendar: Calendar()
     
     # tekee days listan, jonka sisältönä on päivän numero; esim.
     # jos kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else "").

@@ -14,26 +14,26 @@ class DatePickerContainer(Screen):
 
 
 class DatePicker(BoxLayout):
-    def merkinta_popup(self, pvmlist: list):
+    def merkinta_popup(self, datelist: list):
         """pop-uppi merkinnän tekemistä varten"""
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten
         # laittaa pop-upin sisällöksi
         layout = GridLayout(cols=1, rows=2)
 
-        # pop-up tarkistelee onko päivässä merkintä. jos on, se näytetään ruudulle.
-        onkomerkinta = DatePicker.onko_merkinta(self, pvmlist)
-        if onkomerkinta:
-            texti = str(DatePicker.onko_merkinta(self, pvmlist)[2])
+        # Tarkista onko päivässä merkintä. jos on, teksti (vastauksessa indeksi 2) näytetään ruudulle.
+        # Parametrin välitystä voi siistiä. Tunnustan.
+        if DatePicker.onko_merkinta(self, datelist):
+            text_str = str(DatePicker.onko_merkinta(self, datelist)[2])
         else:
-            texti = ""
+            text_str = ""
 
         # tekstikenttä
         textbox = TextInput(
-            text=texti,
+            text=text_str,
             size_hint=(0.8, 0.1),
         )
         # tallenna-painike
-        tallenna_btn = Button(
+        save_btn = Button(
             text="Tallenna",
             size_hint=(1, 0.02),
             color=(0, 0, 0, 1),
@@ -41,7 +41,7 @@ class DatePicker(BoxLayout):
         )
         # lisätään textbox ja tallennuspainike layoutiin
         layout.add_widget(textbox)
-        layout.add_widget(tallenna_btn)
+        layout.add_widget(save_btn)
 
         # Tehdään pop-up
         popup = Popup(
@@ -53,52 +53,55 @@ class DatePicker(BoxLayout):
             background="images/tausta-lehdet.png",
         )
 
-        def tallenna(self):
+        def save_helper(self):
             """apufunktio tallennukselle, jotta saadaan muuttujat ja tekstit välitettyä tietokantaa kutsuville funktioille"""
-            DatePicker.tee_merkinta(self, pvmlist, textbox.text)
+            DatePicker.tee_merkinta(self, datelist, textbox.text)
 
         # nappulan toiminnalle funktiot
-        tallenna_btn.bind(on_press=tallenna)
-        tallenna_btn.bind(on_press=popup.dismiss)
+        save_btn.bind(on_press=save_helper)
+        save_btn.bind(on_press=popup.dismiss)
 
         # näytetään vihdoin pop-up
         popup.open()
 
-    def tee_merkinta(self, pvmlist: list, text: str):
+    def tee_merkinta(self, datelist: list, text: str):
         """Tekee merkintöjä päiväkirjaan. text -muuttujalla otetaan päiväkirjamerkintä"""
-        self.pvmlist = pvmlist
+        self.datelist = datelist
 
         # onko tässä järkeä?
-        pvm = pvmlist[0]
-        kk = pvmlist[1]
-        yy = pvmlist[2]
+        day = datelist[0]
+        month = datelist[1]
+        year = datelist[2]
 
         # Tarkistetaan merkintä ja toimitaan sen mukaisesti
-        d = DatePicker.tarkista_merkinta(self, pvmlist)
-        if d:
-            print(f"{pvm} {kk} {yy} on jo merkintä:", d)
+        is_entry_days_list = DatePicker.check_single_day(self, datelist)
+        if is_entry_days_list:
+            print(f"{day} {month} {year} on jo merkintä:", is_entry_days_list)
         else:
             # jos ei ole merkintää, tee semmonen
-            dbase.tee_merkinta(pvmlist[0], pvmlist[1], pvmlist[2], text)
+            dbase.create_entry(datelist[0], datelist[1], datelist[2], text)
 
-    def onko_merkinta(self, pvmlist: list) -> bool:
+    ##### Tässä saattaa olla kaksi samankaltaista funktiota toiminnolle, jonka voi ehkä tehdä yhdelläkin.
+    def onko_merkinta(self, datelist: list) -> bool:
         """Tarkistaa, onko tietokannassa merkintää tietyllä päivämäärällä ja palauttaa listan tai Falsen sen mukaan, oliko."""
-        d = self.tarkista_merkinta(pvmlist)
-        if d:
-            print("oli merkinnät", d)
-            return d[0]
+        day_entry = self.check_single_day(datelist)
+        if day_entry:
+            print("oli merkintä", day_entry)
+            return day_entry[0]
         print("Ei merkintöjä")
         return False
 
-    def tarkista_merkinta(self, pvmlist: list) -> list:
+    def check_single_day(self, datelist: list) -> list:
         """Palauttaa tietokannasta päiväkirjamerkinnät. jos ei ole, tyhjä lista"""
-        merkintalista = dbase.hae_merkinta(pvmlist[0], pvmlist[1], pvmlist[2])
-        return merkintalista
+        entrylist = dbase.get_single_entry(datelist[0], datelist[1], datelist[2])
+        return entrylist
 
-    def hae_merkintalista(kkyylist: list) -> list:
+    #########
+
+    def get_month_entrylist(month_year: list) -> list:
         """Hakee kaikki kuukauden merkinnät ja palauttaa ne listana"""
-        merkintalista = dbase.hae_lista(kkyylist[0], kkyylist[1])
-        return merkintalista
+        entrylist = dbase.get_entry_list(month_year[0], month_year[1])
+        return entrylist
 
 
 # Ladataan Kv file. Miksi pitää olla viimeisenä .. ?
