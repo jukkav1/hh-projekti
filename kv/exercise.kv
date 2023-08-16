@@ -23,7 +23,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
-        on_release:root.Button1("sounds/ambient_forest_new.mp3") #kutsuu def Button1 exercice.py:stä
+        on_release:root.play_audio("sounds/ambient_forest_new.mp3") #kutsuu def Button1 exercice.py:stä
 
     MDIconButton:
         id:stop_one
@@ -38,7 +38,7 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         #montako tickausta juuri tässä audiossa on ..
-        max:494
+        max:492
         value:root.bar_progress1
 
     MDLabel:
@@ -64,7 +64,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.815}
-        on_release:root.Button2("sounds/lehdet.mp3") #kutsuu def Button2 exercice.py:stä
+        on_release:root.play_audio("sounds/lehdet.mp3") #kutsuu def Button2 exercice.py:stä
 
     MDIconButton:
         id:stop_two
@@ -78,7 +78,7 @@
         pos_hint:{"center_x":0.62,"center_y":0.75}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        max:494
+        max:472
         value:root.bar_progress2
 
     MDLabel:
@@ -104,7 +104,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.665}
-        on_release:root.Button3("sounds/sade.mp3") #kutsuu def Button3 exercice.py:stä
+        on_release:root.play_audio("sounds/sade.mp3") #kutsuu def Button3 exercice.py:stä
 
     MDIconButton:
         id:stop_three
@@ -118,7 +118,7 @@
         pos_hint:{"center_x":0.62,"center_y":0.60}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        max:496
+        max:474
         value:root.bar_progress3
 
     MDLabel:

@@ -27,17 +27,27 @@ class Exercise(Screen):
     minutes = NumericProperty()
 
     # apumuuttuja sille, mitä painiketta painettiin jotta voidaan käsitellä oikeaa audioraitaa
-    mika_nappi = 0
+    pressed_button = 0
+    # toimii myös ilman näitä, laitammeko roskiin? onko jotain hyötyä näistä tässä?
+    # def __init__(self, **kwargs):
+    # super().__init__(**kwargs)
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-    # miten saadaan karsittua yhdeksi napiksi, niin että saadaan aina oikea audio päälle, pois?
-    def Button1(self, soundfile: str):
-        """1. nappulan play-nappula kutsuu tätä"""
+    # aloitetaan audio ja asetetaan arvo pressed_button muuttujalle
+    def play_audio(self, soundfile: str):
+        """kivyn puolen napit kutsuu tätä"""
         # ladataan äänitiedosto
         self.sound = SoundLoader.load(soundfile)
-        self.mika_nappi = 1
+        if soundfile == "sounds/ambient_forest_new.mp3":
+            self.pressed_button = 1
+            # print(f"mikä nappi on {self.pressed_button}")
+
+        elif soundfile == "sounds/lehdet.mp3":
+            self.pressed_button = 2
+            # print(f"mikä nappi on {self.pressed_button}")
+
+        elif soundfile == "sounds/sade.mp3":
+            self.pressed_button = 3
+            # print(f"mikä nappi on {self.pressed_button}")
 
         # Jos ääni löytyy ..
         if self.sound:
@@ -48,6 +58,8 @@ class Exercise(Screen):
             self.ids.play_one.disabled = True
             self.ids.play_two.disabled = True
             self.ids.play_three.disabled = True
+
+            # asetetaan arvo muuttujalle
             self.length = self.sound.length
 
             # käynnistetään kello jotta latauspalkki ja ajasti lähtee pyörimään, määritetään kuinka usein päivitetään(tässä sekunnin välein)
@@ -56,41 +68,6 @@ class Exercise(Screen):
         else:
             print("ei ole ääntä")
 
-    def Button2(self, soundfile: str):
-        """2. nappulan toiminta."""
-
-        self.sound = SoundLoader.load(soundfile)
-        self.mika_nappi = 2
-
-        if self.sound:
-            print("äänet löytyy")
-            # käynnistetää audio
-            self.sound.play()
-            self.ids.play_one.disabled = True
-            self.ids.play_two.disabled = True
-            self.ids.play_three.disabled = True
-            # määritetään myöhempää käyttöä varten
-            self.length = self.sound.length
-            self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
-            self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
-
-    def Button3(self, soundfile: str):
-        """3. nappulan funktio"""
-        self.sound = SoundLoader.load(soundfile)
-        self.mika_nappi = 3
-
-        if self.sound:
-            print("äänet löytyy")
-            # käynnistetään audio
-            self.sound.play()
-            self.ids.play_one.disabled = True
-            self.ids.play_two.disabled = True
-            self.ids.play_three.disabled = True
-            # määritetään myöhempää käyttöä varten
-            self.length = self.sound.length
-            self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
-            self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
-
     def stop_audio(self):
         """Pysäyttää audion"""
         # play napit takaisin käyttöön
@@ -98,6 +75,7 @@ class Exercise(Screen):
         self.ids.play_two.disabled = False
         self.ids.play_three.disabled = False
         self.clear_time()
+
         # pysäytetään audio
         self.sound.stop()
         print("ääni pysäytetty")
@@ -127,23 +105,24 @@ class Exercise(Screen):
             self.bar_progress.cancel()
 
         # minne tiedot tallennetaan
-        if self.mika_nappi == 1:
+        if self.pressed_button == 1:
             self.bar_progress1 = self.general_progress
 
-        elif self.mika_nappi == 2:
+        elif self.pressed_button == 2:
             self.bar_progress2 = self.general_progress
 
-        elif self.mika_nappi == 3:
+        elif self.pressed_button == 3:
             self.bar_progress3 = self.general_progress
 
     def string_time(self, dt):
         """ajasta muodostetaan labelille sopiva muoto ja päivitellään sitä"""
         self.update_seconds()
-        # aika muutetaan sellaiseksi minkä kv puolen label ymmärtää
+
+        # time muutetaan sellaiseksi minkä kv puolen label ymmärtää
         seconds = str(self.seconds)
         minutes = str(self.minutes)
 
-        # saadaan aika päivittymään oikean näköisena kv puolelle
+        # saadaan time päivittymään oikean näköisena kv puolelle
         # lisää "puuttuvan" nollan aikamerkintään; 00:00
         if len(seconds) < 2:
             seconds = f"0{seconds}"
@@ -151,15 +130,15 @@ class Exercise(Screen):
         if len(minutes) < 2:
             minutes = f"0{minutes}"
 
-        aika = f"{minutes}:{seconds}"
+        time = f"{minutes}:{seconds}"
 
         # minne aikatieto tallennetaan
-        if self.mika_nappi == 1:
-            self.timer1 = aika
-        elif self.mika_nappi == 2:
-            self.timer2 = aika
-        elif self.mika_nappi == 3:
-            self.timer3 = aika
+        if self.pressed_button == 1:
+            self.timer1 = time
+        elif self.pressed_button == 2:
+            self.timer2 = time
+        elif self.pressed_button == 3:
+            self.timer3 = time
 
     def update_seconds(self):
         """sekunnin päivitys"""
