@@ -31,7 +31,8 @@
         MDLabel:
 		    id: aika_nyt
             pos_hint:{"x":0.23,"top":0.55}
-		    text: app.date
+            # Päiväys haetaan juuriluokalta DatePickerContainer, datepicker.py:14:stä.
+		    text: str(root.date)
             
         #Päivyri siihen containeriin
         DatePicker:

@@ -6,11 +6,21 @@ import db.dbfunc as dbase
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.textinput import TextInput
+from datetime import datetime
+from kivy.properties import StringProperty
 
 
 # Container kuori sisältöä varten, tarvitaan taustakuvaa varten
 class DatePickerContainer(Screen):
-    pass
+    date = StringProperty(str(datetime.now().strftime("%d.%m.%Y")))
+
+    def update(self, *args):  # update kutsutaan kellon päivityksen yhteydessä
+        """Ajan ja päiväyksen muunto oikeaan suomalaiseen muotoon:
+        %H = tunnit 24h, %M: minuutti, %d: päivä, %m: kuukausi nro, %Y: Vuosi neljällä merkillä ( %y kahdella )
+        """
+        # .strftime = muotoile aika/pvm haluttuun muotoon
+        self.time = str(datetime.now().strftime("%H:%M"))
+        self.date = str(datetime.now().strftime("%d.%m.%Y"))
 
 
 class DatePicker(BoxLayout):
