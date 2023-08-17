@@ -90,3 +90,9 @@ Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja
 seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita tehdä siistimmin / järkevämmin / intuitiivisemmin lyhyellä aikataululla.
 
 16.8. Tarulta saatu siistitty versio soittimesta. Hieno homma. Treenailtu näyttöä varten ja keskusteltu äänien lisenssiasioista.
+
+17.8. Treenataan näyttöä varten ja siistitään codebasea. Nyt ei enää tehdä mitään isoja muutoksia, vain siivousta, ettei vain mene mitään rikki.
+
+Päätettiin pitää pe 18.8. etäpäivä, jolloin testataan teamsin äänet ETC kuntoon näyttöä varten; laitetaan  peipon laulu takaisin soittimeen demoamistarkoituksessa. 4 sek pätkä on nopeampi demota kokonaan mm. processbarin, timerin ja nappuloiden nollaus.
+
+- Ensi vko alusta käännetään puhelimelle jälleen uusin valmis apk-paketti, tehdään näyttöä varten main:iin haara, kutsutaan virallinen valvoja githubiin ja jäädytetään kehitys. Toimitetaan dokumentit viimeistään keskiviikkona vastuukouluttajille sekä viralliselle valvojalle.

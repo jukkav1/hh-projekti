@@ -114,3 +114,9 @@ Viimeistelyjuttuja:
 - Käytiin läpi koodia ja lisäiltiin mielekkäitä kommentointeja.
 
 - Alkuperäisellä kalenterilla (datepicker.kv) ei ole lisenssiä, mutta asiasta keskusteltu Kerttulin kanssa. Loppujärkeily on, että koska kalenteri on laitettu githubiin, julkiseen tietoverkkoon, julkisesti esille ja näytille, voidaan olettaa, että henkilö on halunnut sen näytille. Emme kuitenkaan levitä tai hyödynnä koodia kaupallisessa tarkoituksessa, mutta lisäämme toiminnallisuutta ja jatkojalostamme sitä. Hyvien käytöstapojen mukaisesti tietenkin mainitsemme lähteen omassa projektissamme.
+
+17.8.:
+- Muusikko myöntänyt suullisesti luvat äänitteiden käyttöön ja ilmoittanut tutustuvansa CC -lisensseihin.
+- Tarun aloitteesta siirretty päivämäärän haku pääohjelmasta kalenteriin, koska sitä tarvitaan siellä ja vain siellä.
+- Hieman lisää kommentointia.
+-Tietokanta pitäisi suunnitella vielä kerran uusiksi jotta reagoisi vuoden vaihtumiseen, mutta tämä jätetään jatkokehityssuunnitelmaan, koska näyttö. Nyt ei ole oikea aika rikkoa aplikaatiota.
