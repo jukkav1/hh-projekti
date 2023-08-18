@@ -12,7 +12,7 @@ class Exercise(Screen):
     length = NumericProperty(0.0)  # määritetään tyyppi muuttujalle
     general_progress = NumericProperty(0.0)
 
-    # etenemispalkkien arvot, viedään kv:lle
+    # etenemispalkkien arvot, viedään kv:lle (kivy language)
     bar_progress1 = NumericProperty(0.0)
     bar_progress2 = NumericProperty(0.0)
     bar_progress3 = NumericProperty(0.0)
@@ -68,6 +68,7 @@ class Exercise(Screen):
             self.length = self.sound.length
 
             # käynnistetään kello jotta latauspalkki ja ajasti lähtee pyörimään, määritetään kuinka usein päivitetään(tässä sekunnin välein)
+            # tehdään kellosta samalla muuttuja, jolla  kellon toiminnan voi sitten myöhemmin lopettaa (.cancel())
             self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
             self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
         else:
@@ -165,6 +166,7 @@ class Exercise(Screen):
                 self.seconds = 0
 
         else:
+            # nollataan  muuttujat
             self.seconds = 0
             self.minutes = 0
 
