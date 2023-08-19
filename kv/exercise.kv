@@ -14,24 +14,22 @@
         text_color:0,0,0,1
         font_style:"Subtitle2"
         font_size:"20sp"
+        # labelin sijainti sovelluksessa suhteutettuna itse sovellukseen
         pos_hint:{"x":0.40,"top":1.45}
     
     MDIconButton:
         id:play_one
-        name:"play one"
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
-        on_release:root.play_audio("sounds/ambient_forest_new.mp3") #kutsuu def Button1 exercice.py:stä
+        on_release:root.play_audio("sounds/ambient_forest_new.mp3") #kutsuu def play_audiota exercice.py:stä
 
     MDIconButton:
-        id:stop_one
-        name:"stop one"
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.965}
-        on_release:root.stop_audio() #kutsuu def play_stop_audiota exercice.py:stä
+        on_release:root.stop_audio() #kutsuu def stop_audiota exercice.py:stä
     
     MDProgressBar:
         pos_hint:{"center_x":0.62,"center_y":0.90}
@@ -42,11 +40,11 @@
         value:root.bar_progress1
 
     MDLabel:
-        text:root.timer1 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        text:root.timer1 # hakee tiedot exercise.py:n timer1 kohdasta, vaatii string, muodon
         pos_hint:{"x":0.26,"top":1.40}
 
     MDLabel:
-        text:"08:12" # tähän näkyviiin audion pituus
+        text:"08:12" # tähän näkyviiin audion kokonaispituus
         pos_hint:{"x":0.86,"top":1.40}
     
     MDLabel: # toisen audion tiedot
@@ -59,20 +57,17 @@
     
     MDIconButton:
         id:play_two
-        name:"play two"
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.815}
-        on_release:root.play_audio("sounds/lehdet.mp3") #kutsuu def Button2 exercice.py:stä
+        on_release:root.play_audio("sounds/lehdet.mp3") 
 
     MDIconButton:
-        id:stop_two
-        name:"stop two"
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.815}
-        on_release:root.stop_audio() #kutsuu def stop_audiota exercice.py:stä
+        on_release:root.stop_audio() 
     
     MDProgressBar:
         pos_hint:{"center_x":0.62,"center_y":0.75}
@@ -82,7 +77,7 @@
         value:root.bar_progress2
 
     MDLabel:
-        text:root.timer2 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        text:root.timer2 
         pos_hint:{"x":0.26,"top":1.25}
 
     MDLabel:
@@ -99,20 +94,17 @@
     
     MDIconButton:
         id:play_three
-        name:"play two"
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.665}
-        on_release:root.play_audio("sounds/sade.mp3") #kutsuu def Button3 exercice.py:stä
+        on_release:root.play_audio("sounds/sade.mp3") 
 
     MDIconButton:
-        id:stop_three
-        name:"stop three"
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.665}
-        on_release:root.stop_audio() #kutsuu def stop_audiota exercice.py:stä
+        on_release:root.stop_audio() 
     
     MDProgressBar:
         pos_hint:{"center_x":0.62,"center_y":0.60}
@@ -122,9 +114,47 @@
         value:root.bar_progress3
 
     MDLabel:
-        text:root.timer3 # hakee tiedot exercise.py:n timer kohdasta, vaatii string, muodon
+        text:root.timer3 
         pos_hint:{"x":0.26,"top":1.10}
 
     MDLabel:
         text:"07:54" 
         pos_hint:{"x":0.86,"top":1.10}
+    
+    MDLabel: # testi audion tiedot
+        text:"Testi"
+        theme_text_color: "Custom"
+        text_color:0,0,0,1
+        font_style:"Subtitle2"
+        font_size:"20sp"
+        pos_hint:{"x":0.40,"top":1}
+    
+    MDIconButton:
+        id:play_four
+        disabled:False
+        icon:"play-circle-outline"
+        icon_size:"48dp"
+        pos_hint:{"center_x":0.08,"top":0.510}
+        on_release:root.play_audio("sounds/test.ogg")
+
+    MDIconButton:
+        icon:"stop-circle-outline"
+        icon_size:"48dp"
+        pos_hint:{"center_x":0.20,"top":0.510}
+        on_release:root.stop_audio() 
+    
+    MDProgressBar:
+        pos_hint:{"center_x":0.62,"center_y":0.45}
+        size_hint_x: 0.43
+        color: 163/255, 102/255, 28/255, 1
+        max:4
+        value:root.bar_progress4
+
+    MDLabel:
+        text:root.timer4
+        pos_hint:{"x":0.26,"top":0.95}
+
+    MDLabel:
+        text:"00:04" 
+        pos_hint:{"x":0.86,"top":0.95}
+

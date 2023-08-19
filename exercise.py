@@ -12,15 +12,17 @@ class Exercise(Screen):
     length = NumericProperty(0.0)  # määritetään tyyppi muuttujalle
     general_progress = NumericProperty(0.0)
 
-    # etenemispalkkien arvot, viedään kv:lle
+    # etenemispalkkien arvot, viedään kv:lle (kivy language)
     bar_progress1 = NumericProperty(0.0)
     bar_progress2 = NumericProperty(0.0)
     bar_progress3 = NumericProperty(0.0)
+    bar_progress4 = NumericProperty(0.0)
 
     # ajastimen arvot
     timer1 = StringProperty("00:00")
     timer2 = StringProperty("00:00")
     timer3 = StringProperty("00:00")
+    timer4 = StringProperty("00:00")
 
     # sekunnit ja minuutit
     seconds = NumericProperty()
@@ -28,13 +30,10 @@ class Exercise(Screen):
 
     # apumuuttuja sille, mitä painiketta painettiin jotta voidaan käsitellä oikeaa audioraitaa
     pressed_button = 0
-    # toimii myös ilman näitä, laitammeko roskiin? onko jotain hyötyä näistä tässä?
-    # def __init__(self, **kwargs):
-    # super().__init__(**kwargs)
 
     # aloitetaan audio ja asetetaan arvo pressed_button muuttujalle
     def play_audio(self, soundfile: str):
-        """kivyn puolen napit kutsuu tätä"""
+        """kivyn puolen napit kutsuu tätä (on_release:root.play_audio())"""
         # ladataan äänitiedosto
         self.sound = SoundLoader.load(soundfile)
         if soundfile == "sounds/ambient_forest_new.mp3":
@@ -49,6 +48,11 @@ class Exercise(Screen):
             self.pressed_button = 3
             # print(f"mikä nappi on {self.pressed_button}")
 
+        # testiaudio, jotta nähdään nopeasti kaiken toimivan oikein (nollaamiset)
+        elif soundfile == "sounds/test.ogg":
+            self.pressed_button = 4
+            # print(f"mikä nappi on {self.pressed_button}")
+
         # Jos ääni löytyy ..
         if self.sound:
             print("äänet löytyy")
@@ -58,11 +62,13 @@ class Exercise(Screen):
             self.ids.play_one.disabled = True
             self.ids.play_two.disabled = True
             self.ids.play_three.disabled = True
+            self.ids.play_four.disabled = True
 
             # asetetaan arvo muuttujalle
             self.length = self.sound.length
 
             # käynnistetään kello jotta latauspalkki ja ajasti lähtee pyörimään, määritetään kuinka usein päivitetään(tässä sekunnin välein)
+            # tehdään kellosta samalla muuttuja, jolla  kellon toiminnan voi sitten myöhemmin lopettaa (.cancel())
             self.bar_progress = Clock.schedule_interval(self.update_progress_bar, 1.0)
             self.timer_progress = Clock.schedule_interval(self.string_time, 1.0)
         else:
@@ -74,6 +80,7 @@ class Exercise(Screen):
         self.ids.play_one.disabled = False
         self.ids.play_two.disabled = False
         self.ids.play_three.disabled = False
+        self.ids.play_four.disabled = False
         self.clear_time()
 
         # pysäytetään audio
@@ -87,9 +94,11 @@ class Exercise(Screen):
         self.timer1 = "00:00"
         self.timer2 = "00:00"
         self.timer3 = "00:00"
+        self.timer4 = "00:00"
         self.bar_progress1 = 0
         self.bar_progress2 = 0
         self.bar_progress3 = 0
+        self.bar_progress4 = 0
         self.seconds = 0
         self.minutes = 0
         self.general_progress = 0
@@ -99,6 +108,7 @@ class Exercise(Screen):
         if self.general_progress < self.length:
             self.general_progress += 1
 
+        # latauspalkki nollautuu  toistaiseksi sekunnin myöhemmin kuin muut palat
         else:
             self.general_progress = 0
             # lopetaan kellon toiminta
@@ -113,6 +123,9 @@ class Exercise(Screen):
 
         elif self.pressed_button == 3:
             self.bar_progress3 = self.general_progress
+
+        elif self.pressed_button == 4:
+            self.bar_progress4 = self.general_progress
 
     def string_time(self, dt):
         """ajasta muodostetaan labelille sopiva muoto ja päivitellään sitä"""
@@ -139,6 +152,8 @@ class Exercise(Screen):
             self.timer2 = time
         elif self.pressed_button == 3:
             self.timer3 = time
+        elif self.pressed_button == 4:
+            self.timer4 = time
 
     def update_seconds(self):
         """sekunnin päivitys"""
@@ -151,16 +166,18 @@ class Exercise(Screen):
                 self.seconds = 0
 
         else:
+            # nollataan  muuttujat
             self.seconds = 0
             self.minutes = 0
 
             # pysäytetään kello
             self.timer_progress.cancel()
 
-            # asetetaan muuttuja alkutilaan, jos audio soi loppuun
+            # asetetaan play napit takasin käyttöön jos audio soi loppuun
             self.ids.play_one.disabled = False
             self.ids.play_two.disabled = False
             self.ids.play_three.disabled = False
+            self.ids.play_four.disabled = False
 
     def update_minutes(self):
         """minuutin päivitysfunktio"""
