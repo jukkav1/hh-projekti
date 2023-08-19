@@ -2,44 +2,41 @@
 Pohjana taskuterapeutti-tyylinen
 
 Ulkonäkö
-[x] maskotti (taru)
-[x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
-[x] tabit nappuloiden toiminnoille (taru)
-[x] tabit yhdistetään navigointiin
-[x ] värimaailma värisokeille (Taru)
+[x] maskotti (Taru)
+[x] kolme nappulaa alas: pv-kirja, home, harjoitteet (Jukka)
+[x] tabit nappuloiden toiminnoille (Taru)
+[x] tabit yhdistetään navigointiin (Jukka)
+[x] värimaailma värisokeille (Taru)
 
 Toiminnallisuus
-[x] musiikkia / ääniraitoja
-[ ] merkintäsysteemi
-
-
-Pv-kirja alkuun muistiotyyppinen;
+[x] Kutsuva Etusivu (Taru)
+[x] Musiikkisoitin (Taru)
+[x] Kalenteri (Jukka)
+[x] Tietokanta (Jukka)
 
 ##
 Sovittuja käytäntöjä
 
-- koodi Englanniksi ; stringit ja kommentit Suomeksi.
-- muuttujat ja funktion nimet pienellä, monisanaiset underscorella.
-- käytetään yksiselitteisiä muuttuja/funktionimiä.
-- alaviiva (_) ym. yksimerkkiset muuttujat varataan silmukan iteraattoreiksi.
-- luokat ym. Isolla alkukirjaimella. 
-- Käytetään Black Formatter -muotoilijaa, jotta koodi säilyy yhtenäisenä ja luettavana (pep8 standardi, jos kiinnostaa enemmän).
-- Molemmilla omat härväyshaaransa, käytetään develiä "snapshottina" 
-- Raakilekoodi testing -haaraan ja perusteellisemmin testattu lopulta mainiin.
-- jukan main on lukittu.
+- koodi Englanniksi ; ulkoasu ja kommentit Suomeksi.
+- muuttujat ja funktion nimet pienellä, monisanaiset underscorella Englanniksi.
+- pyritään käyttämään yksiselitteisiä muuttuja ja funktionimiä Englanniksi.
+- alaviiva (_) ym. yksimerkkiset muuttujat (i, j etc) varataan silmukan iteraattoreiksi.
+- luokat Isolla alkukirjaimella Kivyssä ja Pythonissa.
+- Käytetään Black Formatter -muotoilijaa, jotta koodi säilyy yhtenäisenä ja luettavana.
+- Molemmilla omat työskentelyhaaransa, käytetään dev-x.x.x -haaroja versiointiin.
+- Näyttökoodi mainiin.
 
 
 Tarulle:
-nappulat, toolbar/navibar hässäkkä, värimaailma
+Visuaalinen suunnittelu, värimaailma, nappulat, navigointi, äänisoitin, vastuuvapautuslauseke
 
 Jukalle:
-Päiväkirjan toiminnallisuus työn alla
+Päiväkirja, tietokanta, versionhallinta, git, paketointi, tekninen suunnittelu.
 
 Palaveri 19.5.
-T. väsää lisää ääniraitoja, sulkunappula
-j koittaa saada päivyriä toimimaan
--Käynnistys etusivulle; tervetuloa-splash ruutu
-
+Taru väsää lisää ääniraitoja, sulkunappula
+Jukka koittaa saada päivyriä toimimaan
+-Käynnistys etusivulle; joku tervetuloa-ruutu?
 -päivän fiilis 1-5 -> seurantaan, statsit ?
 
 nimiä
@@ -48,13 +45,10 @@ Hyvä Henkäys
 [x] kv filejä monta -> omiin hakemistoihinsa
 [x] Aletaan järjestelemään kv ym. filejä
 [x] Sovellus käynnistymään etusivulle
+[x] Jukan haara deviin; päästään samaan vaiheeseen
+paniikkinappulapeli (DLC not available yet)
 
-[x] J:n haara deviin; päästään samaan vaiheeseen
-
-T sulkunappi, ääniraitoja, palkkeja, värimaailmaa, alku splash?
-paniikkinappulapeli :Dee
-
-T:
+Taru:
 -Visuaalista puolta miettiessä pidetään tärkeänä, että värimaailma on paitsi rauhallinen ja positiivisia ajatuksia herättävä, myös huomioi saatavuusasioita
 mahdollisen värisokeuden varalta.
 
@@ -66,7 +60,7 @@ Palaveri 16.6.
 -Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
 
 palaveri 22.6
--taru alkanut häsäämään värimaailman kanssa
+-Taru alkanut häsäämään värimaailman kanssa
 
 Palaveri 29.6.
 - taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
@@ -82,9 +76,17 @@ Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja
 
 - tietokannalta pitäisi kysyä "onko tässä pvm merkintä?" heti, kun kyseisen päivän nappula piirretään ruudulle, jotta nappulan taustaväri voidaan valita.
 
-- Tietokannalta tuleva merkintäteksti päivän pop-upin textbox:iin
+- Tietokannalta tuleva merkintäteksti saadaan päivän pop-upin tekstikenttään
 
 - datepicker.py:ssä merkintöjen haku- ja tekokutsujen logiikka pitää korjata niin, että vasta tallennusnapin painalluksen jälkeen yritetään tosiaan tallentaa tekstikenttään laitettu teksti.
 
 11.8. Perusosat on saatu lähes valmiiksi. Kunhan kalenterin merkintä saatetaan loppuun,
 seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita tehdä siistimmin / järkevämmin / intuitiivisemmin lyhyellä aikataululla.
+
+16.8. Aloitamme treenaamaan näyttöä varten.
+
+17.8. Treenataan näyttöä varten. Nyt ei enää tehdä mitään isoja muutoksia. Korkeintaan pientä siivoustyötä, ettei vain mene mitään rikki.
+
+Päätettiin pitää pe 18.8. etäpäivä, jolloin testataan teamsin äänet ETC kuntoon näyttöä varten; laitetaan  peipon laulu takaisin soittimeen demoamistarkoituksessa. 4 sek pätkä on nopeampi demota kokonaan mm. processbarin, timerin ja nappuloiden nollaus.
+
+- Ensi vko alusta käännetään puhelimelle jälleen uusin valmis apk-paketti, viedään näyttöä varten viimeisin testattu versio main-haaraan, kutsutaan virallinen valvoja githubiin ja jäädytetään kehitys. Toimitetaan dokumentit viimeistään keskiviikkona vastuukouluttajille sekä viralliselle valvojalle.

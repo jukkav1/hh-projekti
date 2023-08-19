@@ -41,11 +41,6 @@ class HH(MDApp):
     month = NumericProperty(datetime.now().month)
     year = NumericProperty(datetime.now().year)
 
-    def update(self, *args):
-        """Ajan ja päiväyksen muunto oikeaan suomalaiseen muotoon"""
-        self.time = str(datetime.now().strftime("%H:%M"))
-        self.date = str(datetime.now().strftime("%d.%m.%Y"))
-
     def disclaimer(self, dt):
         """vastuunvapautuslause pop-uppi"""
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten laittaa pop-upin sisällöksi
@@ -87,8 +82,6 @@ class HH(MDApp):
         popup.open()
 
     def build(self, *args):
-        # päivämäärän päivitys käyntiin, mikä ja montako sekuntia
-        Clock.schedule_interval(self.update, 1)
         # disclaimerin triggeri
         Clock.schedule_once(self.disclaimer, 1)
         return MainWindow()

@@ -1,0 +1,22 @@
+OHJ:
+arvijoija Mikko Sävijärvi, haltu
+
+kerttuli & kalle:
+kertaitot
+kallesillanpaa
+
+pitää olla suunnitelman mukainen
+"mielellään englanninkielinen"
+
+arviointilomake ja materiaalit ->
+mikko@haltu.fi
+kerttuli.ratilainen@taitotalo.fi
+kalle.sillanpaa@taitotalo.fi
+
+projektit githubiin;
+kontribuuttoriksi kalle, kerttuli, mikko(?)
+
+OHK:
+
+Eriytä suunnitelmassa "pakollisia vs. nice to have" -featuret
+Timeline / Vastuualueet

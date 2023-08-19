@@ -5,25 +5,25 @@ from sqlite3 import connect, Error
 from os.path import isfile
 
 # Määritellään kanta ja käytettävä taulu
-kanta = "db/kanta.db"
-taulu = "merkinnat2"
+database = "db/kanta.db"
+table = "merkinnat2"
 
 
-def hae_lista(kk: int, yy: int) -> list:
+def get_entry_list(month: int, year: int) -> list:
     """Hakee listan kuukauden merkinnöistä ja palauttaa sen listana"""
-    merkinnat = []
+    entries = []
 
     # tietokantayhteys
-    conn = connect(kanta)
+    conn = connect(database)
     cursor = conn.cursor()
 
     # jos yhteys onnistuu, kysytään koko kuukauden merkinnät kannasta ja laitetaan päivämäärät listaan.
-    if isfile(kanta):
+    if isfile(database):
         try:
-            x = cursor.execute(f"SELECT * FROM {taulu} WHERE month IS {kk}")
-            for _ in x.fetchall():
-                merkinnat.append(str(_[0]))
-            return merkinnat
+            query = cursor.execute(f"SELECT * FROM {table} WHERE month IS {month}")
+            for _ in query.fetchall():
+                entries.append(str(_[0]))
+            return entries
 
         # joku meni vikaan
         except Error as err:
@@ -38,59 +38,59 @@ def hae_lista(kk: int, yy: int) -> list:
         print("Tiedostoa ei löydy.")
 
 
-def tee_merkinta(paiva: int, kuukausi: int, vuosi: int, teksti: str) -> bool:
+def create_entry(day: int, month: int, year: int, text: str) -> bool:
     """Funktio yrittää tehdä merkinnän päivämäärälle tietokantaan"""
-    conn = connect(kanta)
+    conn = connect(database)
     cursor = conn.cursor()
 
     # Koitetaan lisätä tauluun päivälle ja kuukaudelle tietty teksti
     try:
         cursor.execute(
-            f"INSERT INTO {taulu}(date,month,text) VALUES ('{paiva}', '{kuukausi}', '{teksti}');"
+            f"INSERT INTO {table}(date,month,text) VALUES ('{day}', '{month}', '{text}');"
         )
         conn.commit()
-        r = True
+        ret_value = True
 
     # Jos ei onnistu ..
-    except Error as e:
-        print("Joku meni pieleen: ", e)
-        r = False
+    except Error as err:
+        print("Joku meni pieleen: ", err)
+        ret_value = False
 
     # Lopuksi suljetaan kanta ja annetaan paluuarvo
     finally:
         conn.close()
-        return r
+        return ret_value
 
 
-def hae_merkinta(paiva: int, kuukausi: int, vuosi: int) -> list:
+def get_single_entry(day: int, month: int, year: int) -> list:
     """Hakee yksittäisen merkinnän pop-upia varten"""
-    merkinnat = []
+    entries = []
 
     # yhteys kantaan
-    conn = connect(kanta)
+    conn = connect(database)
     cursor = conn.cursor()
 
     # jos kanta on, katso mitä sisältää
-    if isfile(kanta):
+    if isfile(database):
         try:
-            x = cursor.execute(
-                f"SELECT * FROM {taulu} WHERE month IS {kuukausi} AND date IS {paiva}"
+            query = cursor.execute(
+                f"SELECT * FROM {table} WHERE month IS {month} AND date IS {day}"
             )
 
             # laitetaan listaan ja palautetaan
-            for y in x.fetchall():
-                merkinnat.append(y)
+            for _ in query.fetchall():
+                entries.append(_)
 
         # Joku meni pieleen
-        except Error as e:
-            print(e)
-            merkinnat = -1
+        except Error as err:
+            print(err)
+            entries = -1
 
         finally:
             conn.close()
-            return merkinnat
+            return entries
 
-    # (kanta) ei ole tiedosto
+    # (database) ei ole tiedosto
     else:
         conn.close()
         print("Tiedostoa ei löydy.")
