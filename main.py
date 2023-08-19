@@ -15,7 +15,7 @@ from kivy.uix.boxlayout import BoxLayout
 from datepicker import DatePicker
 
 # vaaditaan tietty kivy -versio
-require("2.1.0")
+require("2.2.0")
 
 # Kokoruutu vai ikkuna
 # Window.fullscreen = True
