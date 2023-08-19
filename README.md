@@ -3,9 +3,11 @@ hh-projekti
 
 Credits
 -------
-Arts by Taru Haapala
-Music by Jani Vähämäki
-Code by Taru Haapala and Jukka Valvanne
+* Arts by Taru Haapala
+* Music by Jani Vähämäki
+* Code by Taru Haapala and Jukka Valvanne
+* Database by Jukka Valvanne
+* Documentation by Taru Haapala and Jukka Valvanne
 
 Mitä?
 -----
@@ -38,5 +40,5 @@ Asennus
 * Koodista ei ole virallisessa levityksessä valmista apk-pakettia; voit rakentaa paketin buildozer-ohjelmalla puhelimellesi.
 * Voit windows- tai linux-käyttöjärjestelmällä kuitenkin ajaa ohjelman seuraavasti: 
 * 1. kloonata tai ladata tämän haaran koneellesi zip:inä
-* 2. asentaa python 3, kivy 2.1 sekä kivymd 1.1-kirjastot vaatimuksineen (pip install -r requirements.txt) koneellesi.
+* 2. asentaa python 3, kivy 2.2 sekä kivymd 1.1-kirjastot vaatimuksineen (pip install -r requirements.txt) koneellesi.
 * 3. käynnistä ohjelma python main.py -käskyllä.
