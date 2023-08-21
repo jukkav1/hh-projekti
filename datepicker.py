@@ -33,7 +33,7 @@ class DatePicker(BoxLayout):
         # Tarkista onko päivässä merkintä. jos on, teksti (vastauksessa indeksi 2) näytetään ruudulle.
         # Parametrin välitystä voi siistiä. Tunnustan.
         if DatePicker.onko_merkinta(self, datelist):
-            text_str = str(DatePicker.onko_merkinta(self, datelist)[2])
+            text_str = str(DatePicker.onko_merkinta(self, datelist)[3])
         else:
             text_str = ""
 

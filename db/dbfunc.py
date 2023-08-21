@@ -6,7 +6,7 @@ from os.path import isfile
 
 # Määritellään kanta ja käytettävä taulu
 database = "db/kanta.db"
-table = "merkinnat2"
+table = "merkinnat3"
 
 
 def get_entry_list(month: int, year: int) -> list:
@@ -20,7 +20,9 @@ def get_entry_list(month: int, year: int) -> list:
     # jos yhteys onnistuu, kysytään koko kuukauden merkinnät kannasta ja laitetaan päivämäärät listaan.
     if isfile(database):
         try:
-            query = cursor.execute(f"SELECT * FROM {table} WHERE month IS {month}")
+            query = cursor.execute(
+                f"SELECT * FROM {table} WHERE year IS {year} AND month IS {month}"
+            )
             for _ in query.fetchall():
                 entries.append(str(_[0]))
             return entries
@@ -40,13 +42,14 @@ def get_entry_list(month: int, year: int) -> list:
 
 def create_entry(day: int, month: int, year: int, text: str) -> bool:
     """Funktio yrittää tehdä merkinnän päivämäärälle tietokantaan"""
+    print(f"tiedot: day: {day}, month: {month}, year: {year}, text: {text}")
     conn = connect(database)
     cursor = conn.cursor()
 
     # Koitetaan lisätä tauluun päivälle ja kuukaudelle tietty teksti
     try:
         cursor.execute(
-            f"INSERT INTO {table}(date,month,text) VALUES ('{day}', '{month}', '{text}');"
+            f"INSERT INTO {table} (date,month,year, text) VALUES ('{day}', '{month}', '{year}', '{text}');"
         )
         conn.commit()
         ret_value = True
@@ -54,7 +57,7 @@ def create_entry(day: int, month: int, year: int, text: str) -> bool:
     # Jos ei onnistu ..
     except Error as err:
         print("Joku meni pieleen: ", err)
-        ret_value = False
+        ret_value = err
 
     # Lopuksi suljetaan kanta ja annetaan paluuarvo
     finally:
@@ -74,7 +77,7 @@ def get_single_entry(day: int, month: int, year: int) -> list:
     if isfile(database):
         try:
             query = cursor.execute(
-                f"SELECT * FROM {table} WHERE month IS {month} AND date IS {day}"
+                f"SELECT * FROM {table} WHERE year IS {year} AND month IS {month} AND date IS {day}"
             )
 
             # laitetaan listaan ja palautetaan
