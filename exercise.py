@@ -38,20 +38,16 @@ class Exercise(Screen):
         self.sound = SoundLoader.load(soundfile)
         if soundfile == "sounds/ambient_forest_new.mp3":
             self.pressed_button = 1
-            # print(f"mikä nappi on {self.pressed_button}")
 
         elif soundfile == "sounds/lehdet.mp3":
             self.pressed_button = 2
-            # print(f"mikä nappi on {self.pressed_button}")
 
         elif soundfile == "sounds/sade.mp3":
             self.pressed_button = 3
-            # print(f"mikä nappi on {self.pressed_button}")
 
         # testiaudio, jotta nähdään nopeasti kaiken toimivan oikein (nollaamiset)
         elif soundfile == "sounds/test.ogg":
             self.pressed_button = 4
-            # print(f"mikä nappi on {self.pressed_button}")
 
         # Jos ääni löytyy ..
         if self.sound:

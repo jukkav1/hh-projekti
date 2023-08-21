@@ -2,50 +2,49 @@
 -aloituspalsu
 -kirjoiteltiin general ideaa muistioon
 -Pystytettiin github hh-projektille
--t suunnitteli grafiikoita
--j tutustui gridlayoutilla nappuloihin
--j sai aikaan ensimmäisen raakileen, missä tekstikenttä, quit, kolme nappulaa ja nappuloista jopa tapahtuu jotain.
+- Taru suunnitteli grafiikoita
+- Jukka tutustui gridlayoutilla nappuloihin
+- Saatiin aikaan ensimmäinen raakile, missä tekstikenttä, quit, kolme nappulaa ja nappuloista jopa tapahtuu jotain.
 
 22.4.
--j väsäili koodikäytäntöjä, kommentteja ja ohjelman peruslayoutin kanssa.
+- Jukka väsäili koodikäytäntöjä, kommentteja ja ohjelman peruslayoutin kanssa.
 
 24.4.
 -Saatiin kallelta ja kerttulilta hyväksyntä projektille ;)
 -saatiin taustakuva näkyviin nykyiseen koodiin
 
 25.4.
--Taru keuli painikkeiden ja siirtymän kanssa
+- Taru keuli painikkeiden ja siirtymän kanssa
 -RIP Jukan convoluted nappulahässäkkä, kivyllä selkeämpi ja erillään pääohjelmasta
 
 26.4.
--J ensimmäinen ääninäytteen toisto
+- Jukka ensimmäinen ääninäytteen toisto
 
 27.4
--T asetteli niitä nappuloisia mukavammin,(mukaanlukien ääninappia) ja laittoi testitaustakuvat muihinkin ruutuihin, lisäksi 
-tehty sovelluksen sulkeminen sulje napista
+- Taru asetteli niitä nappuloisia mukavammin,(mukaanlukien ääninappia) ja laittoi testitaustakuvat muihinkin ruutuihin, lisäksi tehty sovelluksen sulkeminen sulje napista
 
-8.5. J sai splitattua niin että ruutu liukuu, nappulat pysyy paikallaan
-9.5. J repi päivyrin omaan tiedostoonsa ja askarteli ensimmäiset päivyrin nappulat + toiminto templatet
-     T rakenteli hienompaa navigointia omaan haaraansa
+8.5. Jukka sai splitattua niin että ruutu liukuu, nappulat pysyy paikallaan
+9.5. Jukka repi päivyrin omaan tiedostoonsa ja askarteli ensimmäiset päivyrin nappulat + toiminto templatet
+     Taru rakenteli hienompaa navigointia omaan haaraansa
 
 11.5 
--T latasi J:n oksan ja lisäili siihen yläpalkin ja navigaatiopalkin (wuu), samalla heivattu navigaationa olleet napit veks
+- Taru latasi Jukan oksan ja lisäili siihen yläpalkin ja navigaatiopalkin, samalla heivattu navigaationa olleet napit veks
 
 15.5.
--J mergesi Tarun oksan omaansa;
+- Jukka mergesi Tarun oksan omaansa;
 
-16.5. J palautti navibarin omaan haaraansa ja koittaa nyt saada menubarin ja navibarin käskyttämään pääikkunaa..
+16.5. Jukka palautti navibarin omaan haaraansa ja koittaa nyt saada menubarin ja navibarin käskyttämään pääikkunaa..
 
-17.5. J sai jonkinlaisen päivyrinäytön :P
+17.5. Jukka sai jonkinlaisen päivyrinäytön :P
 
-23.5. J Siistitty codebasea
+23.5. Jukka Siisti codebasea
 
-26.5. J Päivyrin popup/tallennus toimii mutta textbox puuttuu vielä
+26.5. Jukka Päivyrin popup/tallennus toimii mutta textbox puuttuu vielä
 
 26.5. Taru nosti esille värimaailman tärkeitä asioita;
 rauhoittava ja saavutettava teema myös värisokeuden varalta
 
-12.6. Projektin aloituspäivä
+12.6. Projektin virallinen aloituspäivä
 
 13.6. Jonkinnäköinen päivyri saatu näkymään, Tarun vika
 
@@ -53,23 +52,30 @@ rauhoittava ja saavutettava teema myös värisokeuden varalta
 
 15.6. Jukka Sai kalenterin ympättyä pääohjelmaan.
 
+Palaveri 16.6.
+-Tilanne todella hyvä.
+-Taru häsää ääninappuloiden, värimaailman ym. kanssa
+-Jukka häsää päivyrin ja puhelin-apin kanssa
+
+-Tietokannan päävastuu annetaan Jukalle
+
 16.6. Jukka sai proton pyörimään puhelimella ensimmäistä kertaa! Woop woop!
 
 15-22.6 välillä Taru lisäilyt harjoitteisiin timerin,väsännyt lisää progress baria, tehnyt play/pause napin ja alkanyt väsäämään sovelluksen värien/taustakuvan kanssa.
 Tehty myös pientä tietopakettia värisokeudesta.
 
 Palaveri 22.6.
--Jukan kalenteri etenee.
--Taru häsännyt värimaailman kanssa:
+- Jukan kalenteri etenee.
+- Taru häsännyt värimaailman kanssa:
      muutama eri versio joista lähteä sitten rakentamaan lopullista väriä (värisokeus huomioiden)
 
-23.6. J sai kalenterin kellon tikittämään, siivosi codebasea ja mergesi Tarun haaran koska LEHDET
+23.6. Jukka sai kalenterin kellon tikittämään, siivosi codebasea ja mergesi Tarun haaran koska LEHDET
 
 26.6. Aletaan väsätä tietokannan kanssa. ladattu appi myös tarun puhelimeen
 
 27.6. Työ esitelty virallisesti luokalle ja kouluttajille.
 
-29.6. Palaveri. Visuaalinen ulkonäkö hyväksytään. Myös kalenterin visuaalinen puoli näyttää hyvältä, myös nappulat ja pop-up osittain läpinäkyviä. taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
+29.6. Palaveri. Visuaalinen ulkonäkö hyväksytetään ulkopuolisella värirajoittuneella käyttäjällä. Myös kalenterin visuaalinen puoli näyttää hyvältä, myös nappulat ja pop-up osittain läpinäkyviä. taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
 Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
 
 Palaveri 18.7.
@@ -78,7 +84,7 @@ Palaveri 18.7.
 
 Vko 29 ja 30:
 - Opiskeltiin olio-ohjelmointia, tapeltiin äänisoittimen sekä kalenterin kanssa.
--Tietokanta täytyy suunnitella hieman uusiksi, jotta tuleva kuukauden perusteella haku (max. 31) onnistuu, eikä täydy käydä kaikkia merkintöjä (365) läpi päivämäärän varalle. Myös varataan tietokantaan tila "päivän fiilistä" varten.
+- Tietokanta täytyy suunnitella hieman uusiksi, jotta tuleva kuukauden perusteella haku (max. 31) onnistuu, eikä täydy käydä kaikkia merkintöjä (365) läpi päivämäärän varalle. Myös varataan tietokantaan tila "päivän fiilistä" varten.
 -Kalenteri värjää näytetyn kuukauden päivänappulan eri värillä, jos "päivässä on merkintä" (tai siis, tarkista_merkinta() -funktio palauttaa true/false (nyt T/F arvotaan randomilla)).
 
 28.7. Saatiin soitinsivu tekemään ero eri äänien välillä, PYSÄYTYS, edistyspalkki ja kello sekä sen nollaus toimii.
@@ -87,9 +93,12 @@ Vko 29 ja 30:
 -Kalle korjasi vanhasta kalenterista päivyrinäkymän, nyt ei pop-up toimi. ai että!
 -Uuden kalenterin logiikka väärin päin, ei värjää päiviä joissa merkintä.
 
-8.8. esitelty luokalle, viimeinen esittely ennen näyttöä 24.8. monkaS
+8.8. esitelty luokalle, viimeinen esittely ennen näyttöä 24.8.
 
 9.8. Mergeilty tarun laajennettuun soittimeen.
+Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja haku onnistuu. Tiedot menee ja tulee kannasta, nyt vielä täytyy saada ohjelmaan välitys toimimaan oikeisiin paikkoihin. Tällä hetkellä menee konsoliin.
+- Tietokannalta tuleva merkintäteksti saadaan päivän pop-upin tekstikenttään
+
 10.8. Ankaraa tappelua kalenterin kanssa;
      Vihdoinkin päivyrin pop-up:in saa tekstin tulemaan tietokantamerkinnästä, MUTTA sitä ei voi enää muuttaa tai tehdä uusia merkintöjä..
      Tietokannasta halutaan saada lista merkityistä päivämääristä, koska sen perusteella voisi päivyristä värjätä tietyt
@@ -103,15 +112,8 @@ Käännettiin puhelimelle versio 0.0.7.
 Projekti on viimeistelyä vaille valmis; seuraava homma on saada uusi kalenterimerkintä menemään tietokantaan ;
 testifunktio jo printtaa tehdyn merkinnän tiedot.
 -----
-Viimeistelyjuttuja:
-- Kalenterin päivänappulat saattaa vuotaa "tänään on" -viestin päälle jos 31 päiväinen kuukausi alkaa esim. sunnuntaista.
-- kuukausi/vuosi spinnerin teksti vuotaa nappulasta ulos
-- Playerin play- ja stop -nappulat on turhan lähekkäin toisiaan, ehkä yksi vaihtuva play/stop nappi antaisi ilmavamman vaikutelman?
-- Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
-- Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
-- Kalenteri tuostaa excessive syötettä konsoliin, listan välityksen voisi tehdä vähemmälläkin tietokannan kuormituksella.
 
-14.8. - Merkintä saatiin menemään tietokantaan, pieni glitch jäi vielä.
+14.8. - Merkintä saatiin menemään tietokantaan, pieni glitch jäi vielä (väri vaihtuu vasta kun kk vaihtuu)
 - Käytiin läpi koodia ja lisäiltiin mielekkäitä kommentointeja.
 
 - Alkuperäisellä kalenterilla (datepicker.kv) ei ole lisenssiä. Asiasta keskusteltu vastuukouluttaja Kerttulin kanssa. Loppujärkeily on, että koska kalenteri on laitettu githubiin, julkiseen tietoverkkoon, julkisesti esille ja näytille, voidaan olettaa, että henkilö on halunnut sen näytille. Emme kuitenkaan levitä tai hyödynnä koodia kaupallisessa tarkoituksessa, mutta lisäämme toiminnallisuutta ja jatkojalostamme sitä. Hyvien käytöstapojen mukaisesti tietenkin mainitsemme lähteen omassa projektissamme.
@@ -126,6 +128,10 @@ Viimeistelyjuttuja:
 - Tarun aloitteesta siirretty päivämäärän haku pääohjelmasta kalenteriin, koska muualla ei käytetä.
 - Hieman lisää kommentointia.
 
-- Tietokanta pitäisi suunnitella vielä kerran uusiksi jotta reagoisi vuoden vaihtumiseen, mutta tämä jätetään jatkokehityssuunnitelmaan lähestyvän näytön vuoksi. Nyt ei ole oikea aika rikkoa aplikaatiota.
+- Tietokanta pitäisi suunnitella vielä kerran uusiksi jotta reagoisi vuoden vaihtumiseen, mutta tämä jätetään jatkokehityssuunnitelmaan lähestyvän näytön vuoksi. Nyt ei ole oikea aika rikkoa aplikaatiota. FIXED
 
 - Virheiden tarkistus ja varautuminen on tosi puutteellista.
+
+21.8.
+- Tietokanta korjattu.
+- Koodin ja dokumenttien viimeisiä siistimisiä.

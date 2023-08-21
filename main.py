@@ -35,12 +35,6 @@ class Home(Screen):
 class HH(MDApp):
     """PääAppi"""
 
-    # Kalenterille hyödyllisiä muuttujia
-    time = StringProperty()
-    date = StringProperty()
-    month = NumericProperty(datetime.now().month)
-    year = NumericProperty(datetime.now().year)
-
     def disclaimer(self, dt):
         """vastuunvapautuslause pop-uppi"""
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten laittaa pop-upin sisällöksi

@@ -7,6 +7,7 @@ Ulkonäkö
 [x] tabit nappuloiden toiminnoille (Taru)
 [x] tabit yhdistetään navigointiin (Jukka)
 [x] värimaailma värisokeille (Taru)
+[x] vastuuvapautuslauseke (Taru)
 
 Toiminnallisuus
 [x] Kutsuva Etusivu (Taru)
@@ -31,13 +32,14 @@ Tarulle:
 Visuaalinen suunnittelu, värimaailma, nappulat, navigointi, äänisoitin, vastuuvapautuslauseke
 
 Jukalle:
-Päiväkirja, tietokanta, versionhallinta, git, paketointi, tekninen suunnittelu.
+Päiväkirja, tietokanta, versionhallinta, git, paketointi
 
 Palaveri 19.5.
 Taru väsää lisää ääniraitoja, sulkunappula
 Jukka koittaa saada päivyriä toimimaan
--Käynnistys etusivulle; joku tervetuloa-ruutu?
--päivän fiilis 1-5 -> seurantaan, statsit ?
+Suunnitelmia:
+    -Käynnistys etusivulle; joku tervetuloa-ruutu?
+    -päivän fiilis 1-5 -> seurantaan, statsit ?
 
 nimiä
 Hyvä Henkäys
@@ -52,35 +54,16 @@ Taru:
 -Visuaalista puolta miettiessä pidetään tärkeänä, että värimaailma on paitsi rauhallinen ja positiivisia ajatuksia herättävä, myös huomioi saatavuusasioita
 mahdollisen värisokeuden varalta.
 
-Palaveri 16.6.
--Tilanne helevetin hyvä.
--Taru häsää ääninappuloiden, värimaailman ym. kanssa
--Jukka häsää päivyrin ja puhelin-apin kanssa
-
--Ruvetaan yhdessä tekemään tietokantapuolta esim koululla tms
-
-palaveri 22.6
--Taru alkanut häsäämään värimaailman kanssa
-
-Palaveri 29.6.
-- taistelu kalenterin kanssa jatkuu ja edistyy pienin askelin. Seuraava palaveri loman jälkeen 17 tai 18.7. riippuen mistä löydetään kokoontumistila.
-- Pidetään palaveri 17. tai 18. ja opiskellaan olio-ohjelmointia.
+29.6.
 - Ensimmäinen ulkopuolinen ääniraita saatu, tilataan pari lisää. Vaikuttaa hyvältä, palautetta jne. Seuraava jo tilauksessa.
 
-Palaveri 18.7.
-- Taru refaktoroi äänisoitinten logiikkaa uudella siistimmällä toteutusidealla
-- Jukka koittaa saada kalenteria hakemaan merkintä kannasta ja nappulat reagoimaan sen mukaisesti..
-
 9.8.
-Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja haku onnistuu. Tiedot menee ja tulee kannasta, nyt vielä täytyy saada ohjelmaan välitys toimimaan oikeisiin paikkoihin. Tällä hetkellä menee konsoliin.
-
 - tietokannalta pitäisi kysyä "onko tässä pvm merkintä?" heti, kun kyseisen päivän nappula piirretään ruudulle, jotta nappulan taustaväri voidaan valita.
 
-- Tietokannalta tuleva merkintäteksti saadaan päivän pop-upin tekstikenttään
 
 - datepicker.py:ssä merkintöjen haku- ja tekokutsujen logiikka pitää korjata niin, että vasta tallennusnapin painalluksen jälkeen yritetään tosiaan tallentaa tekstikenttään laitettu teksti.
 
-11.8. Perusosat on saatu lähes valmiiksi. Kunhan kalenterin merkintä saatetaan loppuun,
+11.8. Kunhan kalenterin merkintä saatetaan loppuun,
 seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita tehdä siistimmin / järkevämmin / intuitiivisemmin lyhyellä aikataululla.
 
 16.8. Aloitamme treenaamaan näyttöä varten.
@@ -90,3 +73,11 @@ seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita te
 Päätettiin pitää pe 18.8. etäpäivä, jolloin testataan teamsin äänet ETC kuntoon näyttöä varten; laitetaan  peipon laulu takaisin soittimeen demoamistarkoituksessa. 4 sek pätkä on nopeampi demota kokonaan mm. processbarin, timerin ja nappuloiden nollaus.
 
 - Ensi vko alusta käännetään puhelimelle jälleen uusin valmis apk-paketti, viedään näyttöä varten viimeisin testattu versio main-haaraan, kutsutaan virallinen valvoja githubiin ja jäädytetään kehitys. Toimitetaan dokumentit viimeistään keskiviikkona vastuukouluttajille sekä viralliselle valvojalle.
+
+Viimeistelyjuttuja:
+- Kalenterin päivänappulat saattaa vuotaa "tänään on" -viestin päälle jos 31 päiväinen kuukausi alkaa esim. sunnuntaista.
+- kuukausi/vuosi spinnerin teksti vuotaa nappulasta ulos
+- Playerin play- ja stop -nappulat on turhan lähekkäin toisiaan, ehkä yksi vaihtuva play/stop nappi antaisi ilmavamman vaikutelman?
+- Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
+- Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
+- Kalenteri tuostaa excessive syötettä konsoliin, listan välityksen voisi tehdä vähemmälläkin tietokannan kuormituksella.

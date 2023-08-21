@@ -14,7 +14,7 @@
         text_color:0,0,0,1
         font_style:"Subtitle2"
         font_size:"20sp"
-        # labelin sijainti sovelluksessa suhteutettuna itse sovellukseen
+        # labelin sijainti sovelluksessa suhteutettuna ohjelman kokoon
         pos_hint:{"x":0.40,"top":1.45}
     
     MDIconButton:
@@ -23,13 +23,13 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
-        on_release:root.play_audio("sounds/ambient_forest_new.mp3") #kutsuu def play_audiota exercice.py:stä
+        on_release:root.play_audio("sounds/ambient_forest_new.mp3") #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.965}
-        on_release:root.stop_audio() #kutsuu def stop_audiota exercice.py:stä
+        on_release:root.stop_audio() #kutsuu stop_audio funktiota exercice.py:stä
     
     MDProgressBar:
         pos_hint:{"center_x":0.62,"center_y":0.90}
