@@ -135,3 +135,6 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 21.8.
 - Tietokanta korjattu.
 - Koodin ja dokumenttien viimeisiä siistimisiä.
+
+28.8.
+- Näytöstä selvitty ja arvosanat saatu. Hyvä, Me \o/
