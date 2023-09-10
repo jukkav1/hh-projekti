@@ -35,6 +35,41 @@ class Home(Screen):
 class HH(MDApp):
     """PääAppi"""
 
+    def credits(self):
+        """Credits pop-up"""
+        layout = BoxLayout(orientation="vertical")
+        label = Label(
+            text="""
+    Artwork:      Taru Haapala
+    Code:           Taru Haapala
+                        Jukka Valvanne
+    Database:   Jukka Valvanne
+    Music:        Jani Vähämäki""",
+            halign="left",
+            valign="middle",
+            size_hint=(0.8, 0.1),
+            color=(0, 0, 0, 1),
+        )
+        btn = Button(
+            text="selvä",
+            size_hint=(1, 0.02),
+            color=(0, 0, 0, 1),
+            background_color=(232 / 255, 123 / 255, 0 / 255, 0.10),
+        )
+        layout.add_widget(label)
+        layout.add_widget(btn)
+        popup = Popup(
+            title="Credits",
+            title_color=(0, 0, 0, 1),
+            content=layout,
+            size_hint=(0.8, 0.8),
+            background="images/tausta-lehdet.png",
+        )
+        # nappulan toiminnalle funktio
+        btn.bind(on_press=popup.dismiss)
+        # näytetään vihdoin pop-up
+        popup.open()
+
     def disclaimer(self, dt):
         """vastuunvapautuslause pop-uppi"""
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten laittaa pop-upin sisällöksi

@@ -10,7 +10,7 @@
             md_bg_color: 189/255, 132/255, 47/255, 1
             specific_text_color: 237/255, 216/255, 174/255, 1
             # Krediittejä varten, lisätään myöhemmin
-            # left_action_items: [["menu"]]
+            left_action_items: [["information-variant", lambda x: app.credits()]]
 
             # sovelluksen sammutus
             right_action_items: [["close", lambda x: app.stop()]]
