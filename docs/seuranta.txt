@@ -141,4 +141,5 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 
 10.9.
 - Lisättiin tekijöiden krediitit.
-- GitHubiin kirjailtiin tehtyjä ja nykyisiä bugeja
+- GitHubiin kirjailtiin tehtyjä ja nykyisiä bugeja ja tehtäviä.
+- 009 apk.
