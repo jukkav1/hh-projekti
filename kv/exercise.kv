@@ -23,7 +23,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
-        on_release:root.play_audio("sounds/ambient_forest_new.mp3") #kutsuu play_audio funktiota exercice.py:stä
+        on_release:root.play_audio("sounds/ambient_forest_new.mp3",1) #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
         icon:"stop-circle-outline"
@@ -61,7 +61,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.815}
-        on_release:root.play_audio("sounds/lehdet.mp3") 
+        on_release:root.play_audio("sounds/lehdet.mp3",2) 
 
     MDIconButton:
         icon:"stop-circle-outline"
@@ -98,7 +98,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.665}
-        on_release:root.play_audio("sounds/sade.mp3") 
+        on_release:root.play_audio("sounds/sade.mp3",3) 
 
     MDIconButton:
         icon:"stop-circle-outline"
@@ -135,7 +135,7 @@
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.510}
-        on_release:root.play_audio("sounds/test.ogg")
+        on_release:root.play_audio("sounds/test.ogg",4)
 
     MDIconButton:
         icon:"stop-circle-outline"

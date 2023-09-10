@@ -32,26 +32,15 @@ class Exercise(Screen):
     pressed_button = 0
 
     # aloitetaan audio ja asetetaan arvo pressed_button muuttujalle
-    def play_audio(self, soundfile: str):
+    def play_audio(self, soundfile: str, pressed_btn: int):
         """kivyn puolen napit kutsuu tätä (on_release:root.play_audio())"""
         # ladataan äänitiedosto
         self.sound = SoundLoader.load(soundfile)
-        if soundfile == "sounds/ambient_forest_new.mp3":
-            self.pressed_button = 1
-
-        elif soundfile == "sounds/lehdet.mp3":
-            self.pressed_button = 2
-
-        elif soundfile == "sounds/sade.mp3":
-            self.pressed_button = 3
-
-        # testiaudio, jotta nähdään nopeasti kaiken toimivan oikein (nollaamiset)
-        elif soundfile == "sounds/test.ogg":
-            self.pressed_button = 4
+        self.pressed_button = pressed_btn
 
         # Jos ääni löytyy ..
         if self.sound:
-            print("äänet löytyy")
+            print(f"ääni {soundfile} napista {pressed_btn} löytyy")
             self.sound.play()
 
             # otetaan play napit pois käytöstä jos jokin ääni ON JO KÄYNNISSÄ
