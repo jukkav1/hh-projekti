@@ -1,18 +1,14 @@
+# external libs
 from kivy import require
-from exercise import Exercise
-from datetime import datetime
-from kivy.properties import StringProperty
-from kivy.properties import NumericProperty
+from kivymd.app import MDApp
+from kivy.core.window import Window
 from kivy.clock import Clock
+from kivy.lang import Builder
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.label import Label
-from kivymd.app import MDApp
-from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
-from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from datepicker import DatePicker
 
 # vaaditaan tietty kivy -versio
 require("2.2.0")
