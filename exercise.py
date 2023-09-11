@@ -33,7 +33,7 @@ class Exercise(Screen):
 
     # aloitetaan audio ja asetetaan arvo pressed_button muuttujalle
     def play_audio(self, soundfile: str, pressed_btn: int):
-        """kivyn puolen napit kutsuu tätä (on_release:root.play_audio())"""
+        """kivyn puolen napit kutsuu tätä (on_release:root.play_audio(x,y))"""
         # ladataan äänitiedosto
         self.sound = SoundLoader.load(soundfile)
         self.pressed_button = pressed_btn
@@ -59,13 +59,17 @@ class Exercise(Screen):
         else:
             print("ei ole ääntä")
 
-    def stop_audio(self):
-        """Pysäyttää audion"""
-        # play napit takaisin käyttöön
+    def enable_play_buttons(self):
+        """Disabloi play-nappulat"""
         self.ids.play_one.disabled = False
         self.ids.play_two.disabled = False
         self.ids.play_three.disabled = False
         self.ids.play_four.disabled = False
+
+    def stop_audio(self):
+        """Pysäyttää audion"""
+        # play napit takaisin käyttöön
+        self.enable_play_buttons()
         self.clear_time()
 
         # pysäytetään audio
@@ -159,10 +163,7 @@ class Exercise(Screen):
             self.timer_progress.cancel()
 
             # asetetaan play napit takasin käyttöön jos audio soi loppuun
-            self.ids.play_one.disabled = False
-            self.ids.play_two.disabled = False
-            self.ids.play_three.disabled = False
-            self.ids.play_four.disabled = False
+            self.enable_play_buttons()
 
     def update_minutes(self):
         """minuutin päivitysfunktio"""
