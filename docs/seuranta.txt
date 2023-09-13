@@ -143,3 +143,7 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 - Lisättiin tekijöiden krediitit.
 - GitHubiin kirjailtiin tehtyjä ja nykyisiä bugeja ja tehtäviä.
 - 009 apk.
+
+13.9.
+- Kalenteri syyskuulle. Eka aloitusikoni ja latausruutu
+- 0.1.0

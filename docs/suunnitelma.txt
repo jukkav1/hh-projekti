@@ -81,3 +81,6 @@ Viimeistelyjuttuja:
 - Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
 - Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
 - Kalenteri tuostaa excessive syötettä konsoliin, listan välityksen voisi tehdä vähemmälläkin tietokannan kuormituksella.
+
+13.9.
+Tarulta tilattu animoitu latauskuva ja tyylikkäämpi ikoni :)
