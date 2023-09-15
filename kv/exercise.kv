@@ -26,9 +26,11 @@
         on_release:root.play_audio("sounds/ambient_forest_new.mp3",1) #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
+        id: stop_one
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.965}
+        disabled: True
         on_release:root.stop_audio() #kutsuu stop_audio funktiota exercice.py:stä
     
     MDProgressBar:
@@ -64,9 +66,11 @@
         on_release:root.play_audio("sounds/lehdet.mp3",2) 
 
     MDIconButton:
+        id: stop_two
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.815}
+        disabled: True
         on_release:root.stop_audio() 
     
     MDProgressBar:
@@ -101,9 +105,11 @@
         on_release:root.play_audio("sounds/sade.mp3",3) 
 
     MDIconButton:
+        id: stop_three
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.665}
+        disabled: True
         on_release:root.stop_audio() 
     
     MDProgressBar:
@@ -138,9 +144,11 @@
         on_release:root.play_audio("sounds/test.ogg",4)
 
     MDIconButton:
+        id: stop_four
         icon:"stop-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.20,"top":0.510}
+        disabled: True
         on_release:root.stop_audio() 
     
     MDProgressBar:

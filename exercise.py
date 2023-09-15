@@ -40,14 +40,11 @@ class Exercise(Screen):
 
         # Jos ääni löytyy ..
         if self.sound:
-            print(f"ääni {soundfile} napista {pressed_btn} löytyy")
+            print(f"ääni {soundfile} napista {self.pressed_button} löytyy")
             self.sound.play()
 
-            # otetaan play napit pois käytöstä jos jokin ääni ON JO KÄYNNISSÄ
-            self.ids.play_one.disabled = True
-            self.ids.play_two.disabled = True
-            self.ids.play_three.disabled = True
-            self.ids.play_four.disabled = True
+            # togletaan play:disable / stop:enable,  jos jokin ääni ON JO KÄYNNISSÄ
+            self.toggle_buttons()
 
             # asetetaan arvo muuttujalle
             self.length = self.sound.length
@@ -59,17 +56,30 @@ class Exercise(Screen):
         else:
             print("ei ole ääntä")
 
-    def enable_play_buttons(self):
-        """Disabloi play-nappulat"""
-        self.ids.play_one.disabled = False
-        self.ids.play_two.disabled = False
-        self.ids.play_three.disabled = False
-        self.ids.play_four.disabled = False
+    def toggle_buttons(self):
+        """Toggles wether the play / stop buttons are enabled or disabled. based on play_one value"""
+        setting = self.ids.play_one.disabled
+        self.set_play_buttons(not setting)
+        self.set_stop_buttons(setting)
+
+    def set_play_buttons(self, setting: bool):
+        """Toggle play buttons by bool"""
+        self.ids.play_one.disabled = setting
+        self.ids.play_two.disabled = setting
+        self.ids.play_three.disabled = setting
+        self.ids.play_four.disabled = setting
+
+    def set_stop_buttons(self, setting: bool):
+        """Toggle stop buttons by bool"""
+        self.ids.stop_one.disabled = setting
+        self.ids.stop_two.disabled = setting
+        self.ids.stop_three.disabled = setting
+        self.ids.stop_four.disabled = setting
 
     def stop_audio(self):
         """Pysäyttää audion"""
         # play napit takaisin käyttöön
-        self.enable_play_buttons()
+        self.toggle_buttons()
         self.clear_time()
 
         # pysäytetään audio
@@ -102,6 +112,9 @@ class Exercise(Screen):
             self.general_progress = 0
             # lopetaan kellon toiminta
             self.bar_progress.cancel()
+
+            # stop audio heti jos timer käy loppuun
+            self.stop_audio()
 
         # minne tiedot tallennetaan
         if self.pressed_button == 1:
@@ -151,7 +164,7 @@ class Exercise(Screen):
 
             # update_minutes() kutsutaan jos sekunnit enemmän kuin 60, samalla nollataaan sekunnit
             if self.seconds == 60:
-                self.update_minutes()
+                self.minutes += 1
                 self.seconds = 0
 
         else:
@@ -162,9 +175,6 @@ class Exercise(Screen):
             # pysäytetään kello
             self.timer_progress.cancel()
 
-            # asetetaan play napit takasin käyttöön jos audio soi loppuun
-            self.enable_play_buttons()
-
-    def update_minutes(self):
-        """minuutin päivitysfunktio"""
-        self.minutes += 1
+            # asetetaan play napit takasin käyttöön jos audio soi loppuun ja nollataan aika
+            self.toggle_buttons()
+            self.clear_time()
