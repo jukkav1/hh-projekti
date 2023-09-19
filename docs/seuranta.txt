@@ -145,5 +145,9 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 - 009 apk.
 
 13.9.
-- Kalenteri syyskuulle. Eka aloitusikoni ja latausruutu
+- Kalenteri syyskuulle. Eka aloitusikoni ja latausruutu;
 - 0.1.0
+- artistilta tilattu tyylikkäämpi animaatio ja logo :)
+
+17.9.
+- testilammas-aloitusanimaatio saatu toimimaan.

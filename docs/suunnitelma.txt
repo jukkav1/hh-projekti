@@ -78,7 +78,6 @@ Viimeistelyjuttuja:
 - Kalenterin päivänappulat saattaa vuotaa "tänään on" -viestin päälle jos 31 päiväinen kuukausi alkaa esim. sunnuntaista.
 - kuukausi/vuosi spinnerin teksti vuotaa nappulasta ulos
 - Playerin play- ja stop -nappulat on turhan lähekkäin toisiaan, ehkä yksi vaihtuva play/stop nappi antaisi ilmavamman vaikutelman?
-- Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
 - Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
 - Kalenteri tuostaa excessive syötettä konsoliin, listan välityksen voisi tehdä vähemmälläkin tietokannan kuormituksella.
 
