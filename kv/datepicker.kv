@@ -8,7 +8,7 @@
 #Dropdown valikkojen väriteema-asioita
 <CustomSpinnerOptions@SpinnerOption>:
     # Buttonin tausta on oletuksena harmaa ja vuotaa läpi, ellei explisiitisesti laiteta "tyhjäksi"
-    background_normal:""
+    background_normal: ""
     background_color: 189/255, 132/255, 47/255, 1
     color: 0,0,0,1
     font_size: "14sp"
@@ -20,23 +20,16 @@
             source: "images/tausta-lehdet.png"
             fit_mode: "fill"
 
-        # Label missä tänään on ..
-    	MDLabel:
-		    id: aika
-		    text: "Tänään on:"
-            text_color:0,0,0,1
-            pos_hint:{"x":0,"top":0.55}
-        
-        # Labeliin tämänhetkinen aika
-        MDLabel:
-		    id: aika_nyt
-            pos_hint:{"x":0.23,"top":0.55}
-            # Päiväys haetaan juuriluokalta DatePickerContainer, datepicker.py:14:stä.
-		    text: str(root.date)
-            
-        #Päivyri siihen containeriin
-        DatePicker:
-
+        GridLayout:
+            cols:1
+            rows:2
+            DatePicker:
+                size_hint_y: None
+                height: root.height * 0.9
+            MDLabel:
+                id: aika
+                text: "Tänään on: " + str(root.date)
+                text_color: (0, 0, 0, 1)
 
 <Day@Button>:
     # Päivämäärien nappulat
