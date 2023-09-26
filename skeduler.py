@@ -22,6 +22,7 @@ from kivy.uix.screenmanager import Screen
 from db.dbfunc import *
 from random import randint
 from kivy.uix.widget import Widget
+from kivy.uix.label import Label
 
 # loaderit kivy-fileille
 Builder.load_file("skeduler/months.kv")  # kuukaudet
@@ -82,19 +83,24 @@ class Reminder(BoxLayout):
             self.background_color = (232 / 255, 123 / 255, 0, 0.5)
 
             # Tämä rakentaa pop-upin
+        layout = BoxLayout(orientation="vertical")
+        label = TextInput(text="fdafdsa")
+        btn = Button(text="Tallenna", size_hint=(1, 0.02), color=(0, 0, 0, 1))
+        layout.add_widget(label)
+        layout.add_widget(btn)
+
         popup = Popup(
-            title="Tee merkintä",
+            title="Tallenna merkintä",
             title_color=(0, 0, 0, 1),
-            title_align="center",
+            content=layout,
+            size_hint=(0.8, 0.8),
             background="images/tausta-lehdet.png",
-            content=Reminder(),
-            size_hint=(None, None),
-            size=(self.width * 3 / 4, self.height),
         )
-        # avaa se popup
+
+        btn.bind(on_press=popup.dismiss)
         popup.open()
 
-    def tarkista_merkinta(day, month):
+    def tarkista_merkinta(day, month, year=2023):
         kakka = randint(0, 1)
         if kakka:
             return True
