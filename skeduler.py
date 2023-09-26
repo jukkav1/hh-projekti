@@ -91,9 +91,6 @@ class Reminder(BoxLayout):
             size_hint=(None, None),
             size=(self.width * 3 / 4, self.height),
         )
-        # Jos popup escataan, mene on_dismiss -funktioon.
-        popup.bind(on_dismiss=popup.on_dismiss)
-
         # avaa se popup
         popup.open()
 
