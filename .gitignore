@@ -2,7 +2,6 @@
 .buildozer/
 bin/
 db/kanta.db
-*.mp3
 
 #sqlite browser crap
 *.sqbpro
