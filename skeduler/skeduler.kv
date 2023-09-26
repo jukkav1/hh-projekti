@@ -7,20 +7,13 @@
 	orientation:'vertical'
 	Image:
 		source:"images/tausta-lehdet.png"
-        allow_stretch:True
-        keep_ratio:False
-	# canvas.before:
-	#	Color:
-	#		rgba: 237/255,216/255,174/255,1
-	#	Rectangle:
-	#		pos: self.pos
-	#		size: self.size
+        fit_mode:"fill"
 		
 	BoxLayout:
 		Months:
 		BoxLayout:
 			orientation: 'vertical'
-			Days:
+			DayLabels:
 			Dates:
 			BoxLayout:
 				size_hint:1,.15

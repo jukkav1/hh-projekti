@@ -27,16 +27,7 @@ from kivy.uix.widget import Widget
 Builder.load_file("skeduler/months.kv")  # kuukaudet
 Builder.load_file("skeduler/dates.kv")  # päivämäärät
 Builder.load_file("skeduler/status.kv")  # tila-aika-jatkumo
-Builder.load_file("skeduler/days.kv")  # viikonpäivät
-
-
-# Skeleton luokat
-# ---------------------------#
-# class Calendar(BoxLayout):
-#     """Kalenterin pääluokka"""
-
-#     def __init__(self, **kwargs):
-#         super(Calendar, self).__init__(**kwargs)
+Builder.load_file("skeduler/daylabels.kv")  # viikonpäivät
 
 date_layout = None
 
@@ -62,9 +53,6 @@ class Months(BoxLayout):
         Dates.push_widget(layout)
 
 
-# ------------------------------------------------------------------------------------------------#
-
-
 class Reminder(BoxLayout):
     """Luokka merkinnän tekoa varten; tekstikenttä ja tallennusnappula"""
 
@@ -76,15 +64,8 @@ class Reminder(BoxLayout):
         self.add_widget(self.textbox)
         self.add_widget(self.boxlayout)
         self.boxlayout.add_widget(
-            Button(on_release=self.on_release, text="Tallenna", color=(0, 0, 0, 1))
+            Button(on_release=Reminder.on_release, text="Tallenna", color=(0, 0, 0, 1))
         )
-
-    def on_release(self, event):
-        """Tallennusta painettu, pitäisi kutsua tallennusfunktiota ja sulkea pop-up!"""
-        # print("Yritetty tallentaa", self.textbox.text)
-
-        # Logics on pielessä, ei pitäisi välittää tätä päivää, vaan valitun päivän date.
-        self.tallenna_merkinta(self.textbox.text, Dates.now.month, Dates.now)
 
     def tallenna_merkinta(text, month, now):
         # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
@@ -94,14 +75,14 @@ class Reminder(BoxLayout):
         test_connection()
 
     # Tänne tullaan, jos
-    def on_release(self, event):
+    def on_release(self):
         """Kun valitaan joku päivä, tee popup"""
-        print("Valittu päivä: ", event.text, self.now.month, self.now.year)
-        if self.tarkista_merkinta(event.text, self.now.month):
-            event.background_color = (232 / 255, 123 / 255, 0, 0.5)
+        print("Valittu päivä: ", self.text, Skeduler.now.month, Skeduler.now.year)
+        if Reminder.tarkista_merkinta(self.text, Skeduler.now.month):
+            self.background_color = (232 / 255, 123 / 255, 0, 0.5)
 
             # Tämä rakentaa pop-upin
-        self.popup = Popup(
+        popup = Popup(
             title="Tee merkintä",
             title_color=(0, 0, 0, 1),
             title_align="center",
@@ -111,10 +92,10 @@ class Reminder(BoxLayout):
             size=(self.width * 3 / 4, self.height),
         )
         # Jos popup escataan, mene on_dismiss -funktioon.
-        self.popup.bind(on_dismiss=self.on_dismiss)
+        popup.bind(on_dismiss=popup.on_dismiss)
 
         # avaa se popup
-        self.popup.open()
+        popup.open()
 
     def tarkista_merkinta(day, month):
         kakka = randint(0, 1)
@@ -122,7 +103,7 @@ class Reminder(BoxLayout):
             return True
         return False
 
-    def on_dismiss(self, event):
+    def on_dismiss(self):
         """Tähän tullaan, jos pop-up hylätään"""
         print("Dismissed :(")
 
