@@ -4,9 +4,7 @@
 
     Image:
         source:"images/tausta-lehdet.png"
-        allow_stretch:True
-        keep_ratio:False
-
+        fit_mode: "fill"
     MDLabel: # ensimmäinen raita
         text:"Metsä"
         theme_text_color: "Custom"
@@ -47,7 +45,7 @@
         pos_hint:{"x":0.86,"top":1.40}
     
     MDLabel: # ensimmäinen raita
-        text:"Lehdet"
+        text:"Lintuääni"
         theme_text_color: "Custom"
         text_color:0,0,0,1
         font_style:"Subtitle2"
