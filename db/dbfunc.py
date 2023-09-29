@@ -7,6 +7,32 @@ kanta = "db/kanta.db"
 taulu = "merkinnat2"
 
 
+<<<<<<< HEAD
+=======
+def hae_lista(kk, yy) -> list:
+    print("kk", kk, "yy:", yy)
+
+    merkinnat = []
+    conn = sqlite3.connect(kanta)
+    cursor = conn.cursor()
+    if isfile(kanta):
+        try:
+            x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kk}")
+            for y in x.fetchall():
+                merkinnat.append(str(y[0]))
+            print("merkinnät kannassa:", merkinnat)
+            return merkinnat
+
+        except Error as e:
+            print(e)
+            return -1
+    else:
+        print("kakkaa täh?")
+
+    conn.close()
+
+
+>>>>>>> dev-0.0.7
 def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> bool:
     print(f"Koitetaan tehdä merkintä '{teksti}' päivälle {paiva}.{kuukausi}.")
     conn = sqlite3.connect(kanta)
@@ -24,13 +50,19 @@ def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> boo
         conn.close()
 
 
+<<<<<<< HEAD
 def hae_merkinta(paiva: int, kuukausi: int) -> list:
+=======
+def hae_merkinta(paiva: int, kuukausi: int, vuosi: int) -> list:
+>>>>>>> dev-0.0.7
     merkinnat = []
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
     if isfile(kanta):
         try:
-            x = cursor.execute(f"SELECT * from {taulu} WHERE month IS {kuukausi}")
+            x = cursor.execute(
+                f"SELECT * from {taulu} WHERE month IS {kuukausi} and date IS {paiva}"
+            )
             for y in x.fetchall():
                 merkinnat.append(y)
             return merkinnat

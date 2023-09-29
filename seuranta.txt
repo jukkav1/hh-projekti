@@ -82,3 +82,17 @@ Vko 29 ja 30:
 -Kalenteri värjää näytetyn kuukauden päivänappulan eri värillä, jos "päivässä on merkintä" (tai siis, tarkista_merkinta() -funktio palauttaa true/false (nyt T/F arvotaan randomilla)).
 
 28.7. Saatiin soitinsivu tekemään ero eri äänien välillä, PYSÄYTYS, edistyspalkki ja kello sekä sen nollaus toimii.
+
+2.8.
+-Kalle korjasi vanhasta kalenterista päivyrinäkymän, nyt ei pop-up toimi. ai että!
+
+8.8. esitelty luokalle, viimeinen esittely ennen näyttöä 24.8. monkaS
+
+9.8. Mergeilty tarun laajennettuun soittimeen.
+11.8. Käännettiin puhelimelle versio 0.0.7.
+-----
+Viimeistelyjuttuja:
+- Playerin play- ja stop -nappulat on turhan lähekkäin toisiaan, ehkä yksi vaihtuva play/stop nappi antaisi ilmavamman vaikutelman?
+- Burgerivalikon ikoni voisi olla (i) josta saisi krediitit ja tekijöiden nimet esille.
+- Sormella vieritys välilehdille ja kalenteriin olisi "kiva feature".
+- Kalenteri tuostaa excessive syötettä konsoliin voisi tehdä vähemmälläkin tietokannan kuormituksella.

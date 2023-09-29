@@ -6,7 +6,7 @@ Ulkonäkö
 [x] kolme nappulaa alas pv-kirja, home, harjoitteet (jukka)
 [x] tabit nappuloiden toiminnoille (taru)
 [x] tabit yhdistetään navigointiin
-[ ] värimaailma värisokeille (Taru)
+[x] värimaailma värisokeille (Taru)
 
 Toiminnallisuus
 [x] musiikkia / ääniraitoja
@@ -76,3 +76,13 @@ Palaveri 29.6.
 Palaveri 18.7.
 - Taru refaktoroi äänisoitinten logiikkaa uudella siistimmällä toteutusidealla
 - Jukka koittaa saada kalenteria hakemaan merkintä kannasta ja nappulat reagoimaan sen mukaisesti..
+
+9.8.
+Tietokanta liittymä alkaa olla käyttövalmis sikäli, että merkinnän teko ja haku onnistuu. Tiedot menee ja tulee kannasta, nyt vielä täytyy saada ohjelmaan välitys toimimaan oikeisiin paikkoihin. Tällä hetkellä menee konsoliin.
+
+- tietokannalta pitäisi kysyä "onko tässä pvm merkintä?" heti, kun kyseisen päivän nappula piirretään ruudulle, jotta nappulan taustaväri voidaan valita.
+
+- Tietokannalta tuleva merkintäteksti päivän pop-upin textbox:iin
+
+11.8. Perusosat on saatu lähes valmiiksi. Kunhan kalenterin merkintä saatetaan loppuun,
+seuraavaksi ruvetaan tutkimaan koodia ja selvitetään voisiko jotain asioita tehdä siistimmin / järkevämmin / intuitiivisemmin lyhyellä aikataululla.
