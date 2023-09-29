@@ -1,6 +1,4 @@
 # tilaa varattu tietokantafunktioille
-
-# from dbconn import *
 import sqlite3
 from sqlite3 import Error
 from os.path import isfile
@@ -9,7 +7,7 @@ kanta = "db/kanta.db"
 taulu = "merkinnat2"
 
 
-def tee_merkinta(paiva, kuukausi, teksti):
+def tee_merkinta(paiva, kuukausi, vuosi, teksti="Jotain outoa tapahtui!") -> bool:
     print(f"Koitetaan tehdä merkintä '{teksti}' päivälle {paiva}.{kuukausi}.")
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
@@ -26,7 +24,7 @@ def tee_merkinta(paiva, kuukausi, teksti):
         conn.close()
 
 
-def hae_merkinta(paiva, kuukausi):
+def hae_merkinta(paiva: int, kuukausi: int) -> list:
     merkinnat = []
     conn = sqlite3.connect(kanta)
     cursor = conn.cursor()
