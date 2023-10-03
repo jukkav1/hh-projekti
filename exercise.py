@@ -1,3 +1,6 @@
+# Copyrighted under the MIT license, See LICENSE.
+# Copyright (c) 2023 Jukka Valvanne & Taru Haapala
+
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivy.core.audio import SoundLoader
