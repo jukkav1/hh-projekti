@@ -1,6 +1,9 @@
+# Copyrighted under the MIT license, See LICENSE.
+# Copyright (c) 2023 Jukka Valvanne & Taru Haapala
+
 #:kivy 2.2.0
 #:import Excercise exercise
-#:import DatePickerContainer datepicker
+#:import Skeduler skeduler
 
 # Pääikkunan määrittelyt
 <MainWindow>:
@@ -34,7 +37,7 @@
                 name: "diary"
                 text: "Päiväkirja"
                 icon: "notebook"
-                DatePickerContainer:
+                Skeduler:
 
             MDBottomNavigationItem:
                 name: "excercise"
