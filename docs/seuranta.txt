@@ -151,3 +151,8 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 
 17.9.
 - testilammas-aloitusanimaatio saatu toimimaan.
+
+2.10.
+- MIT lisensoitu kalenteri sovitettu 0.1.0 koodiin.
+- MIT / Copyright rivejä koodiin; artwork/music lisenssit vielä puuttuu.
+- Kalenteriin eteen/taakse napit sekä spinnerit; toiminta vaiheessa.
