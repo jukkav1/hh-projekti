@@ -115,6 +115,7 @@ class HH(MDApp):
         Clock.schedule_once(self.disclaimer, 1)
         self.date = str(datetime.now().date().strftime("%d.%m.%Y"))
         self.year = datetime.now().year
+        self.month = datetime.now().month
         return MainWindow()
 
 

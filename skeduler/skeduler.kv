@@ -20,8 +20,10 @@
 
 <YearSpinner@Spinner>:
 	values: [str(_) for _ in range(app.year - 5, app.year + 5)]
+	text: str(app.year)
 <MonthSpinner@Spinner>:
 	values: [_ for _ in ["tammi", "helmi", "maalis", "huhti", "touko","kesä","heinä","elo","syys","loka","marras","joulu"]]
+	text: str(self.values[app.month -1])
 	
 <Skeduler>:
 	orientation:'vertical'
@@ -40,13 +42,13 @@
 				MDIconButton:
 					icon: "arrow-left"
 					text_color: 0,0,0,1
-					on_press: root.set_month(root.month+1)
+					on_press: root.set_month(root.month-1)
 				YearSpinner:
 				MonthSpinner:
 				MDIconButton:
 					icon: "arrow-right"
 					text_color: 0,0,0,1
-					on_press: root.set_month(root.month-1)
+					on_press: root.set_month(root.month+1)
 			DayLabels:
 			Dates:
 			BoxLayout:

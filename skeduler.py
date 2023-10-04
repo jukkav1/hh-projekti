@@ -17,7 +17,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import Screen
-from db.dbfunc import *
+import db.dbfunc as db
 from random import randint
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
@@ -46,7 +46,7 @@ class Months(BoxLayout):
         self.layout = None
 
     def valitse_kuukausi(self, mo):
-        print("Valitsit kuukauden ", mo)
+        print("Jou Valitsit kuukauden ", mo)
         Skeduler.set_month(Skeduler, mo)
         layout = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
         Dates.push_widget(layout)
@@ -67,23 +67,23 @@ class Reminder(BoxLayout):
         )
 
     def tallenna_merkinta(text, month, now):
-        # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
         """Tallentaa (yrittää) merkinnän"""
+        # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
+
         print("yritetty tallentaa", now, month, text)
         tee_merkinta(now, month, text)
         test_connection()
 
-    # Tänne tullaan, jos
     def on_release(self):
         """Kun valitaan joku päivä, tee popup"""
-        print("Valittu päivä: ", self.text, Skeduler.now.month, Skeduler.now.year)
-        if Reminder.tarkista_merkinta(self.text, Skeduler.now.month):
+        print("Valittu päivä: ", self.text, Skeduler.month, Skeduler.year)
+        if Reminder.tarkista_merkinta(self.text, Skeduler.month, Skeduler.year):
             self.background_color = (232 / 255, 123 / 255, 0, 0.5)
 
             # Tämä rakentaa pop-upin
         layout = BoxLayout(orientation="vertical")
         label = TextInput(text="fdafdsa")
-        btn = Button(text="Tallenna", size_hint=(1, 0.02), color=(0, 0, 0, 1))
+        btn = Button(text="Tallenna", size_hint=(1, 0.20), color=(0, 0, 0, 1))
         layout.add_widget(label)
         layout.add_widget(btn)
 
@@ -95,16 +95,28 @@ class Reminder(BoxLayout):
             background="images/tausta-lehdet.png",
         )
 
-        btn.bind(on_press=popup.dismiss)
+        def tallenna_helper(self):
+            self.rtext = label.text
+            Reminder.tallenna(self.rtext)
+
+        btn.bind(on_press=tallenna_helper)
+
         popup.open()
 
-    def tarkista_merkinta(day, month, year=2023):
-        kakka = randint(0, 1)
+    def tarkista_merkinta(day: int, month: int, year=-1) -> bool:
+        if year == -1:
+            year = int(datetime.datetime.now().year)
+            print("y:? ", year, end=" ")
+        """Tarkistaa kalenterilta, onko päivämäärällä merkintää"""
+        kakka = db.get_single_entry(day, month, year)
         if kakka:
             return True
         return False
 
-    def on_dismiss(self):
+    def tallenna(text):
+        print("Yritetty tallentaa", text, "db ei triggeröidä vielä.")
+
+    def closed(self, **kw):
         """Tähän tullaan, jos pop-up hylätään"""
         print("Dismissed :(")
 
@@ -116,14 +128,25 @@ class Skeduler(Screen):
     now = datetime.datetime.now()  # Nyt on nyt.
     kk_nyt = calendar.monthcalendar(now.year, now.month)
     month = now.month
+    year = now.year
 
     def __init__(self, **kw):
         super(Skeduler, self).__init__(**kw)
 
     def set_month(self, month):
         self.month = month
+        if self.month < 1:
+            self.year -= 1
+            self.month = 12
+            print("ylivuoto < ")
+        elif self.month > 12:
+            self.year += 1
+            self.month = 1
+            print("ylivuoto >")
+
         print("month set to", self.month)
-        Skeduler.draw_month(Dates, self.month)
+        layout = Skeduler.draw_month(Skeduler.now.year, self.month)
+        Dates.push_widget(layout)
 
     def get_month(self):
         return self.month
@@ -139,7 +162,7 @@ class Skeduler(Screen):
                     layout.add_widget(Button(text=""))
                 else:
                     ## !!! Jos päivällä on merkintä, niin vaihda myös taustaväri
-                    if Reminder.tarkista_merkinta(day, month):
+                    if Reminder.tarkista_merkinta(day, month, Skeduler.year):
                         layout.add_widget(
                             Button(
                                 text=str(day),
