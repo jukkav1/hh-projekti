@@ -1,4 +1,4 @@
-#:kivy 2.1.0
+#:kivy 2.2.0
 
 <Months>:
 	orientation: 'vertical'
@@ -7,8 +7,6 @@
 		id:btn_jan
 		text:"Tammi"
 		color:0,0,0,1
-		#on_release: self.background_color = (232 / 255, 123 / 255, 0, 0.5)
-		# kutsutaan kuukauden valintaan reagoivaa funktiota
 		on_release: root.valitse_kuukausi(1)
 	Button:
 		id: btn_feb
@@ -65,4 +63,3 @@
 		text: "Joulu"
 		color:0,0,0,1
 		on_release: root.valitse_kuukausi(12)
-		

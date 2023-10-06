@@ -113,6 +113,8 @@ class HH(MDApp):
     def build(self, *args):
         # disclaimerin triggeri
         Clock.schedule_once(self.disclaimer, 1)
+
+        # Näitä nyt ei oikeastaan tarvittaisi kuin skedulerissa, turha täällä, sitten voi "app." -viittaukset korjata skedulerin kv:hen
         self.date = str(datetime.now().date().strftime("%d.%m.%Y"))
         self.year = datetime.now().year
         self.month = datetime.now().month

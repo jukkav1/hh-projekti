@@ -48,7 +48,7 @@ class Months(BoxLayout):
     def valitse_kuukausi(self, mo):
         print("Jou Valitsit kuukauden ", mo)
         Skeduler.set_month(Skeduler, mo)
-        layout = Skeduler.draw_month(Skeduler.now.year, Skeduler.month)
+        layout = Skeduler.draw_month(Skeduler.year, Skeduler.month)
         Dates.push_widget(layout)
 
 
@@ -66,13 +66,11 @@ class Reminder(BoxLayout):
             Button(on_release=Reminder.on_release, text="Tallenna", color=(0, 0, 0, 1))
         )
 
-    def tallenna_merkinta(text, month, now):
+    def tallenna_merkinta(day, month, year, text):
         """Tallentaa (yrittää) merkinnän"""
         # Logics on pielessä. Ei pitäisi välittää tätä päivää, vaan valitun päivän date.
-
-        print("yritetty tallentaa", now, month, text)
-        tee_merkinta(now, month, text)
-        test_connection()
+        print("yritetty tallentaa", day, month, year, text)
+        # db.tee_merkinta(day, month, year, text)
 
     def on_release(self):
         """Kun valitaan joku päivä, tee popup"""
@@ -96,6 +94,7 @@ class Reminder(BoxLayout):
         )
 
         def tallenna_helper(self):
+            print("helper gets text:", label.text, self.text)
             self.rtext = label.text
             Reminder.tallenna(self.rtext)
 
@@ -114,14 +113,13 @@ class Reminder(BoxLayout):
         return False
 
     def tallenna(text):
-        print("Yritetty tallentaa", text, "db ei triggeröidä vielä.")
+        print("merkintä:", text, "pvm:")
 
     def closed(self, **kw):
         """Tähän tullaan, jos pop-up hylätään"""
         print("Dismissed :(")
 
 
-# mainApp class
 class Skeduler(Screen):
     """Päivyrin pääluokka"""
 
@@ -145,7 +143,7 @@ class Skeduler(Screen):
             print("ylivuoto >")
 
         print("month set to", self.month)
-        layout = Skeduler.draw_month(Skeduler.now.year, self.month)
+        layout = Skeduler.draw_month(self.year, self.month)
         Dates.push_widget(layout)
 
     def get_month(self):
