@@ -1,4 +1,4 @@
-#:kivy 2.1.0
+#:kivy 2.2.0
 #:import Factory kivy.factory.Factory
 
 <CustomSpinnerOptions@SpinnerOption>:
@@ -12,6 +12,7 @@
 	background_color: (232/255, 123/255, 0/255, 0.10)
 
 <Spinner>:
+	skeduler: Factory.Skeduler
 	option_cls: Factory.CustomSpinnerOptions
     background_normal: ""
 	background_color: 232/255,123/255,0/255,0.10
@@ -19,11 +20,11 @@
     font_size: "14sp"
 
 <YearSpinner@Spinner>:
-	values: [str(_) for _ in range(app.year - 5, app.year + 5)]
-	text: str(app.year)
+	values: [str(_) for _ in range(self.skeduler.year - 5, self.skeduler.year + 5)]
+	text: str(self.skeduler.year)
 <MonthSpinner@Spinner>:
 	values: [_ for _ in ["tammi", "helmi", "maalis", "huhti", "touko","kesä","heinä","elo","syys","loka","marras","joulu"]]
-	text: str(self.values[app.month -1])
+	text: str(self.values[self.skeduler.month -1])
 	
 <Skeduler>:
 	orientation:'vertical'

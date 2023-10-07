@@ -1,4 +1,6 @@
-#:kivy 2.1.0
+#:kivy 2.2.0
+#:import Factory kivy.factory.Factory
+
 <Status>:
 	canvas.before:
 		Color:
@@ -6,6 +8,7 @@
 		Rectangle:
 			pos: self.pos
 			size: self.size
+
 	MDLabel:
 		id: yo
 		text:'Tänään on:'
@@ -13,5 +16,4 @@
 
 	MDLabel:
 		id: _tnd
-		text: app.date
-	
+		text: Factory.Skeduler.date
