@@ -156,3 +156,5 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 - MIT lisensoitu kalenteri sovitettu 0.1.0 koodiin.
 - MIT / Copyright rivejä koodiin; artwork/music lisenssit vielä puuttuu.
 - Kalenteriin eteen/taakse napit sekä spinnerit; toiminta vaiheessa.
+12.10.
+- myös el3:n kalenteri lisensoitu MIT:n alle - saa siis käyttää ja kehittää vapaasti.
