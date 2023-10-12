@@ -16,7 +16,7 @@ Tehdään hyvinvointisovellus puhelimelle.
 # Ohjelma sisältää:
 * Vastuunvapautuslause: tämä ei ole virallista terapiaa eikä ohjelmaa ei tule käyttää mielenterveyspaveluiden korvikkeena.
 * Konsultoi hoitokontaktiasi ennen ohjelman käyttöä.
-* rauhoittumis-, hengitys- ja meditaatioharjoituksia sekä ääninäytteitä
+* Ääninäytteitä rauhottumista varten.
 * pitää kirjaa käyttäjän edistymisestä kalenterilla.
 
 Käyttäjätapauksia
@@ -47,9 +47,10 @@ Käyttöoikeudet [fin]
 --------------
 Ohjelmakoodi on lisensoitu MIT:n alle, eli ohjelmakoodia saa käyttää, kopioida, muokata sekä levittää vapaasti haluamallaan tavalla sillä edellytyksellä, että ohjelman ja/tai sen osan tekijät mainitaan nimeltä. Kts. LICENSE.
 
-Ohjelman sisältämät kuvat ja äänipätkät kansioissa `images` sekä `sounds` ovat osa tätä ohjelmaprojektia, eikä niitä saa käyttää muussa yhteydessä ilman tekijöiden lupaa. Saat kuitenkin korvata ne halutessasi omilla tiedostoilla, mikäli kyseisten tiedostojen käyttöoikeudet niin sallivat.
+Ohjelman sisältämät kuvat ja äänipätkät kansioissa `images` sekä `sounds` ovat osa tätä ohjelmaprojektia, eikä niitä saa muuttaa tai käyttää muussa yhteydessä ilman tekijöiden lupaa. Saat kuitenkin korvata ne halutessasi omilla tiedostoilla, mikäli kyseisten tiedostojen käyttöoikeudet niin sallivat.
 
 Licencing [eng]
+-------
 This software is licensed under MIT, meaning you are free to use, copy, modify and redistribute it by any means, given you attribute the code to its original author. See LICENSE.
 
-The pictures and sounds in `images` and `sounds` folders belong to this specific project, and may NOT be used elsewhere without permission granted by their authors. How ever, you are free to replace them with any other piece of work, given the licence of replacement permits this.
+The pictures and sounds in `images` and `sounds` folders belong to this specific project, and may NOT be modified or used elsewhere without permission granted by their authors. How ever, you are free to replace them with any other piece of work, given the licence of replacement permits this.
