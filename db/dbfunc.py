@@ -1,5 +1,7 @@
 # Tietokantamoduuli
 
+# Copyright (c) 2023 Jukka Valvanne
+
 # Otetaan tärkeät kirjastot mukaan
 from sqlite3 import connect, Error
 from os.path import isfile

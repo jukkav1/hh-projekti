@@ -1,3 +1,6 @@
+# Copyright (c) 2023 Taru Haapala
+# Copyright (c) 2023 Jukka Valvanne
+
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivy.core.audio import SoundLoader

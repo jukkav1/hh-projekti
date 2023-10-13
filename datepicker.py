@@ -1,3 +1,6 @@
+# Copyright (c) 2023 Taru Haapala
+# Copyright (c) 2023 Jukka Valvanne
+
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
@@ -8,7 +11,6 @@ from kivy.uix.popup import Popup
 from kivy.uix.textinput import TextInput
 from datetime import datetime
 from kivy.properties import StringProperty
-
 
 # Container kuori sisältöä varten, tarvitaan taustakuvaa varten
 class DatePickerContainer(Screen):

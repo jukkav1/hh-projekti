@@ -3,11 +3,12 @@ hh-projekti
 
 Credits
 -------
-* Arts by Taru Haapala
-* Music by Jani Vähämäki
-* Code by Taru Haapala and Jukka Valvanne
-* Database by Jukka Valvanne
-* Documentation by Taru Haapala and Jukka Valvanne
+* Arts  &copy; Taru Haapala
+* Music &copy; Jani Vähämäki
+* Code  &copy; Taru Haapala &amp; Jukka Valvanne
+* Database &copy; Jukka Valvanne
+* Documentation &copy; Taru Haapala &amp; Jukka Valvanne
+* datepicker.kv &copy; el3 &amp; Jukka Valvanne, MIT.
 
 Mitä?
 -----
