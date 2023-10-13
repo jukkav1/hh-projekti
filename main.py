@@ -1,5 +1,5 @@
-# Copyright: MIT license, See LICENSE.
-# Copyright (c) 2023 Jukka Valvanne & Taru Haapala
+# Copyright (c) 2023 Taru Haapala
+# Copyright (c) 2023 Jukka Valvanne
 
 # external libs
 from kivy import require

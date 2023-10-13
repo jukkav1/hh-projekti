@@ -1,7 +1,6 @@
-# Copyrighted under the MIT license, See LICENSE.
+
 # Copyright (c) 2023 Jukka Valvanne & Taru Haapala
 
-# Tietokantamoduuli
 # Otetaan tärkeät kirjastot mukaan
 from sqlite3 import connect, Error
 from os.path import isfile

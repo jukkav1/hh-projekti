@@ -3,11 +3,12 @@ hh-projekti
 
 Credits
 -------
-* Arts by Taru Haapala
-* Music by Jani Vähämäki
-* Code by Taru Haapala and Jukka Valvanne
-* Database by Jukka Valvanne
-* Documentation by Taru Haapala and Jukka Valvanne
+* Arts  &copy; Taru Haapala
+* Music &copy; Jani Vähämäki
+* Code  &copy; Taru Haapala &amp; Jukka Valvanne
+* Database &copy; Jukka Valvanne
+* Documentation &copy; Taru Haapala &amp; Jukka Valvanne
+* datepicker.kv &copy; el3 &amp; Jukka Valvanne, MIT.
 
 Mitä?
 -----
@@ -42,15 +43,3 @@ Asennus
 * 1. kloonata tai ladata tämän haaran koneellesi zip:inä
 * 2. asentaa python 3, kivy 2.2 sekä kivymd 1.1-kirjastot vaatimuksineen (pip install -r requirements.txt) koneellesi.
 * 3. käynnistä ohjelma python main.py -käskyllä.
-
-Käyttöoikeudet [fin]
---------------
-Ohjelmakoodi on lisensoitu MIT:n alle, eli ohjelmakoodia saa käyttää, kopioida, muokata sekä levittää vapaasti haluamallaan tavalla sillä edellytyksellä, että ohjelman ja/tai sen osan tekijät mainitaan nimeltä. Kts. LICENSE.
-
-Ohjelman sisältämät kuvat ja äänipätkät kansioissa `images` sekä `sounds` ovat osa tätä ohjelmaprojektia, eikä niitä saa muuttaa tai käyttää muussa yhteydessä ilman tekijöiden lupaa. Saat kuitenkin korvata ne halutessasi omilla tiedostoilla, mikäli kyseisten tiedostojen käyttöoikeudet niin sallivat.
-
-Licencing [eng]
--------
-This software is licensed under MIT, meaning you are free to use, copy, modify and redistribute it by any means, given you attribute the code to its original author. See LICENSE.
-
-The pictures and sounds in `images` and `sounds` folders belong to this specific project, and may NOT be modified or used elsewhere without permission granted by their authors. How ever, you are free to replace them with any other piece of work, given the licence of replacement permits this.

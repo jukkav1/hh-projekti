@@ -1,0 +1,200 @@
+
+# This piece of software is Licensed under MIT; See kv/LICENSE-MIT.
+
+# Original calendar base code:
+# Copyright (c) el3; https://github.com/el3/Kivy-datepicker
+
+# adaptation and further development by:
+# Copyright (c) 2023 Jukka Valvanne
+# -----
+
+#:kivy 2.2.0
+#:import Calendar calendar.Calendar
+#:import Factory kivy.factory.Factory
+
+#Dropdown valikkojen väriteema-asioita
+<CustomSpinnerOptions@SpinnerOption>:
+    # Buttonin tausta on oletuksena harmaa ja vuotaa läpi, ellei explisiitisesti laiteta "tyhjäksi"
+    background_normal: ""
+    background_color: (189/255, 132/255, 47/255, 1)
+    color: (0, 0, 0, 1)
+    font_size: "14sp"
+
+#Container kuori päivyriä ja taustakuvaa varten
+<DatePickerContainer>:
+    FloatLayout:
+        Image:
+            source: "images/tausta-lehdet.png"
+            fit_mode: "fill"
+
+        GridLayout:
+            cols: 1
+            rows: 2
+            DatePicker:
+                size_hint_y: None
+                height: root.height * 0.9
+            Label:
+                id: aika
+                text: "Tänään on: " + str(root.date)
+                color: (0, 0, 0, 1)
+
+<Day@Button>:
+    # Päivämäärien nappulat
+    datepicker: self.parent.datepicker
+    merkintalista: Factory.DatePicker.get_month_entrylist([self.parent.parent.month, self.parent.parent.year])
+    background_color: (255/155, 255/255, 0/255, 1) if self.text in self.merkintalista else (232/255, 123/255, 0/255, 0.10)
+    color: (0, 0, 0, 1)
+    disabled: True if self.text == "" else False
+    
+    # Painiketta klikatessa tehdään päivämäärästä lista, joka lähetetään merkintöjen tarkistus- ja pop-up funktioille pythonin puolelle
+    on_release:
+        root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
+        root.datepicker.check_single_day(root.datepicker.picked)
+        root.datepicker.merkinta_popup(root.datepicker.picked)
+
+
+<Week@BoxLayout>:
+    datepicker: root.parent
+    weekdays: ["", "", "", "", "", "", ""]
+    # Päivien numerot pystysarakkeina; 'ma'
+    Day:
+        text: str(root.weekdays[0])
+    # 'ti'
+    Day:
+        text: str(root.weekdays[1])
+    # 'ke'
+    Day:
+        text: str(root.weekdays[2])
+    # 'to'
+    Day:
+        text: str(root.weekdays[3])
+    # 'pe'
+    Day:
+        text: str(root.weekdays[4])
+    # 'la'
+    Day:
+        text: str(root.weekdays[5])
+    # 'su'
+    Day:
+        text: str(root.weekdays[6])
+
+<DayLabel@Label>:
+    color: (0, 0, 0, 1)
+
+<WeekDays@BoxLayout>:
+#Tekee viikonpäivät-palkin
+    DayLabel:
+        text: "Ma"
+    DayLabel:
+        text: "Ti"
+    DayLabel:
+        text: "Ke"
+    DayLabel:
+        text: "To"
+    DayLabel:
+        text: "Pe"
+    DayLabel:
+        text: "La"
+    DayLabel:
+        text: "Su"
+
+<NavBar@BoxLayout>:
+    datepicker: self.parent
+
+    # Kuukausien alasvetovalikko
+    Spinner:
+        # Dropdown spinnereiden tyylit
+        option_cls: Factory.CustomSpinnerOptions
+        # spinnerin sisältö
+        values: root.datepicker.months
+        text: root.datepicker.months[root.datepicker.month - 1]
+
+        color: (0, 0, 0, 1)
+        background_color: (232/255, 123/255, 0/255, 0.10)
+        font_size: "14sp"
+
+        # Mitä tapahtuu kun painetaan spinneristä valintaa
+        on_text: root.datepicker.month = root.datepicker.months.index(self.text) + 1
+            
+    # Vuosien alasvetovalikko
+    Spinner:
+        option_cls: Factory.CustomSpinnerOptions
+        # vuosi-range
+        year_range: root.datepicker.year_range
+        values: [str(_) for _ in range(root.datepicker.year - self.year_range, root.datepicker.year + self.year_range + 1)]
+        text: str(root.datepicker.year)
+        color: (0, 0, 0, 1)
+        background_color: (232/255, 123/255, 0/255, 0.10)
+        font_size: "14sp"
+        on_text: root.datepicker.year = int(self.text)
+
+    Button:
+        text: "<-"
+        color: (0, 0, 0, 1)
+        background_color: (232/255, 123/255, 0/255, 0.10)
+
+        # Jos tammikuusta vaihdetaan edelliseen kk, mennään "ympäri" ja edelliseen vuoteen etc.
+        on_release:
+            if root.datepicker.month == 1 and spin.text == "Kuukausi": root.datepicker.year -= 1
+            if spin.text == "Kuukausi": root.datepicker.month = 12 if root.datepicker.month == 1 else root.datepicker.month - 1
+            if spin.text == "Vuosi": root.datepicker.year -= 1
+
+    # Kuukausi - ja vuosi -spinneri
+    Spinner:
+        option_cls: Factory.CustomSpinnerOptions
+        id: spin
+        values: ["Kuukausi", "Vuosi"]
+        text: "Kuukausi"
+        color: (0, 0, 0, 1)
+        background_color: (232/255, 123/255, 0/255, 0.10)
+        font_size: "14sp"
+
+    #eteenpäin -nappula
+    Button:
+        text: "->"
+        color: (0, 0, 0, 1)
+        background_color: (232/255, 123/255, 0/255, 0.10)
+
+        # Jos joulukuu ja edetään seuraavaan kk, mennään tammikuuhun seuraavaan vuoteen
+        on_release:
+            if root.datepicker.month == 12 and spin.text == "Kuukausi": root.datepicker.year += 1
+            if spin.text == "Kuukausi": root.datepicker.month = 1 if root.datepicker.month == 12 else root.datepicker.month + 1
+            if spin.text == "Vuosi": root.datepicker.year += 1
+
+# Pääluokka
+<DatePicker>:
+    name: "upmost"
+    calendar: Calendar()
+
+    # vuosi ja kk haluttaisiin tulemaan nätisti pääohjelmalta.
+    year: 2023
+    #month: # halutaaan tämä tulevan pääohjelmalta
+    month: 9
+    year_range: 5
+    # alkuasetus valitulle pvm:lle
+    picked: ["", "", ""]
+    months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
+    
+    # tekee days listan, jonka sisältönä on päivän numero; esim.
+    # jos kuukausi alkaa tiistaista, on maanantain arvo 0, mutta ehtolause estää 0 tulostumasta kenttään, ts. kenttä on tyhjä (else "").
+    # loppuroska [""]  on ns. ylivuotovara. Kalenterifunktio palauttaa vaihtelevan määrän päivämääriä ja päivämääräkenttiä on kuitenkin varattu kiinteä määrä.
+    days: [(_ if _ > 0 else "") for _ in self.calendar.itermonthdays(self.year, self.month)] + [""] * 14
+    orientation: "vertical"
+    NavBar:
+    WeekDays:
+
+    # Viikon rakennus, tekee tyhjät palikat, joihin sitten sisälle laitetaan mahdollinen päivämäärän numero
+    Week:
+        weekdays: root.days[0:7]
+    Week:
+        weekdays: root.days[7:14]
+    Week:
+        weekdays: root.days[14:21]
+    Week:
+        weekdays: root.days[21:28]
+    Week:
+        weekdays: root.days[28:35]
+
+    # ylivuoto-viikko; jos 28 päiväinen viikko alkaa ma, jää alareunan gridiin tyhjiä paikkoja. Tämä täytetään tyhjällä, jotta ei erikoistapauksessakaan päädytä listan ulkopuolelle.
+    Week:
+        weekdays: root.days[35:]
