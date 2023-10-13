@@ -1,4 +1,3 @@
-
 # Copyright (c) 2023 Jukka Valvanne & Taru Haapala
 
 # Otetaan tärkeät kirjastot mukaan
