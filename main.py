@@ -12,7 +12,6 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen
 from kivy.uix.boxlayout import BoxLayout
-from datetime import datetime
 
 # vaaditaan tietty kivy -versio
 require("2.2.0")
