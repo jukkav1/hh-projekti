@@ -71,6 +71,7 @@
     
     # Painiketta klikatessa tehdään päivämäärästä lista, joka lähetetään merkintöjen tarkistus- ja pop-up funktioille pythonin puolelle
     on_release:
+        self.background_color = (255/155, 255/255, 0/255, 1)
         root.datepicker.picked = [int(self.text), root.datepicker.month, root.datepicker.year]
         root.datepicker.check_single_day(root.datepicker.picked)
         root.datepicker.merkinta_popup(root.datepicker.picked)
@@ -192,8 +193,8 @@
     # vuosi ja kk haluttaisiin tulemaan nätisti pääohjelmalta.
     year: 2023
     #month: # halutaaan tämä tulevan pääohjelmalta
-    month: 9
-    year_range: 5
+    month: 11
+    year_range: 3
     # alkuasetus valitulle pvm:lle
     picked: ["", "", ""]
     months: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"]
