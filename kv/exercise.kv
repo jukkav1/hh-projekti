@@ -12,7 +12,8 @@
         fit_mode: "fill"
         
     MDLabel: # ensimmäsen audion tiedot
-        text:"Metsä"
+        player_num: 1
+        text: root.sdict[self.player_num - 1]['name']
         theme_text_color: "Custom"
         text_color:0,0,0,1
         font_style:"Subtitle2"
@@ -21,12 +22,13 @@
         pos_hint:{"x":0.40,"top":1.45}
     
     MDIconButton:
+        player_num: 1
         id:play_one
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.965}
-        on_release:root.play_audio("sounds/ambient_forest_new.mp3",1) #kutsuu play_audio funktiota exercice.py:stä
+        on_release:root.play_audio(self.player_num) #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
         id: stop_one
@@ -37,11 +39,11 @@
         on_release:root.stop_audio() #kutsuu stop_audio funktiota exercice.py:stä
     
     MDProgressBar:
+        player_num: 1
         pos_hint:{"center_x":0.62,"center_y":0.90}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        #montako tickausta juuri tässä audiossa on ..
-        max:492
+        max: root.sdict[self.player_num-1]['length']
         value:root.bar_progress1
 
     MDLabel:
@@ -49,11 +51,13 @@
         pos_hint:{"x":0.26,"top":1.40}
 
     MDLabel:
-        text:"08:12" # tähän näkyviiin audion kokonaispituus
+        player_num: 1
+        text: root.sdict[self.player_num-1]['time']
         pos_hint:{"x":0.86,"top":1.40}
     
     MDLabel: # toisen audion tiedot
-        text:"Lehdet"
+        player_num: 2
+        text: root.sdict[self.player_num - 1]['name']
         theme_text_color: "Custom"
         text_color:0,0,0,1
         font_style:"Subtitle2"
@@ -61,12 +65,13 @@
         pos_hint:{"x":0.40,"top":1.30}
     
     MDIconButton:
+        player_num: 2
         id:play_two
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.815}
-        on_release:root.play_audio("sounds/lehdet.mp3",2) 
+        on_release:root.play_audio(self.player_num) #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
         id: stop_two
@@ -77,10 +82,11 @@
         on_release:root.stop_audio() 
     
     MDProgressBar:
+        player_num: 2
         pos_hint:{"center_x":0.62,"center_y":0.75}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        max:472
+        max: root.sdict[self.player_num-1]['length']
         value:root.bar_progress2
 
     MDLabel:
@@ -88,11 +94,13 @@
         pos_hint:{"x":0.26,"top":1.25}
 
     MDLabel:
-        text:"07:52" 
+        player_num: 2
+        text: root.sdict[self.player_num-1]['time']
         pos_hint:{"x":0.86,"top":1.25}
         
     MDLabel: # kolmannen audion tiedot
-        text:"Sade"
+        player_num: 3
+        text: root.sdict[self.player_num - 1]['name']
         theme_text_color: "Custom"
         text_color:0,0,0,1
         font_style:"Subtitle2"
@@ -100,12 +108,13 @@
         pos_hint:{"x":0.40,"top":1.15}
     
     MDIconButton:
+        player_num: 3
         id:play_three
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.665}
-        on_release:root.play_audio("sounds/sade.mp3",3) 
+        on_release:root.play_audio(self.player_num) #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
         id: stop_three
@@ -116,10 +125,11 @@
         on_release:root.stop_audio() 
     
     MDProgressBar:
+        player_num: 3
         pos_hint:{"center_x":0.62,"center_y":0.60}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        max:474
+        max: root.sdict[self.player_num-1]['length']
         value:root.bar_progress3
 
     MDLabel:
@@ -127,11 +137,13 @@
         pos_hint:{"x":0.26,"top":1.10}
 
     MDLabel:
-        text:"07:54" 
+        player_num: 3
+        text: root.sdict[self.player_num-1]['time']
         pos_hint:{"x":0.86,"top":1.10}
     
     MDLabel: # testi audion tiedot
-        text:"Testi"
+        player_num: 4
+        text: root.sdict[self.player_num - 1]['name']
         theme_text_color: "Custom"
         text_color:0,0,0,1
         font_style:"Subtitle2"
@@ -139,12 +151,13 @@
         pos_hint:{"x":0.40,"top":1}
     
     MDIconButton:
+        player_num: 4
         id:play_four
         disabled:False
         icon:"play-circle-outline"
         icon_size:"48dp"
         pos_hint:{"center_x":0.08,"top":0.510}
-        on_release:root.play_audio("sounds/test.ogg",4)
+        on_release:root.play_audio(self.player_num) #kutsuu play_audio funktiota exercice.py:stä
 
     MDIconButton:
         id: stop_four
@@ -155,10 +168,11 @@
         on_release:root.stop_audio() 
     
     MDProgressBar:
+        player_num: 4
         pos_hint:{"center_x":0.62,"center_y":0.45}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        max:4
+        max: root.sdict[self.player_num-1]['length']
         value:root.bar_progress4
 
     MDLabel:
@@ -166,6 +180,7 @@
         pos_hint:{"x":0.26,"top":0.95}
 
     MDLabel:
-        text:"00:04" 
+        player_num: 4
+        text: root.sdict[self.player_num-1]['time']
         pos_hint:{"x":0.86,"top":0.95}
 

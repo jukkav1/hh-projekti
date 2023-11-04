@@ -11,8 +11,18 @@ Builder.load_file("kv/exercise.kv")
 
 
 class Exercise(Screen):
+    s = "sounds"
+
+    # fmt: off
+    sdict = [
+        {"name": "Metsä", "file": f"{s}/ambient_forest_new.mp3", "time": "08:12", "length": 492},
+        {"name": "Lehdet", "file": f"{s}/lehdet.mp3", "time": "07:52", "length": 472},
+        {"name": "Sade", "file": f"{s}/sade.mp3", "time": "07:54", "length": 474},
+        {"name": "Lintuääni", "file": f"{s}/test.ogg", "time": "00:04", "length": 4}
+        ]
+    # fmt: on
+
     # määritetään tarvittavia muuttujia
-    length = NumericProperty(0.0)  # määritetään tyyppi muuttujalle
     general_progress = NumericProperty(0.0)
 
     # etenemispalkkien arvot, viedään kv:lle (kivy language)
@@ -35,22 +45,22 @@ class Exercise(Screen):
     pressed_button = 0
 
     # aloitetaan audio ja asetetaan arvo pressed_button muuttujalle
-    def play_audio(self, soundfile: str, pressed_btn: int):
+    def play_audio(self, pressed_btn: int):
         """kivyn puolen napit kutsuu tätä (on_release:root.play_audio(x,y))"""
         # ladataan äänitiedosto
+        soundfile = self.sdict[pressed_btn - 1]["file"]
         self.sound = SoundLoader.load(soundfile)
         self.pressed_button = pressed_btn
 
         # Jos ääni löytyy ..
+        # fmt: off
         if self.sound:
             print(f"ääni {soundfile} napista {self.pressed_button} löytyy")
             self.sound.play()
+            #fmt: on
 
             # togletaan play:disable / stop:enable,  jos jokin ääni ON JO KÄYNNISSÄ
             self.toggle_buttons()
-
-            # asetetaan arvo muuttujalle
-            self.length = self.sound.length
 
             # käynnistetään kello jotta latauspalkki ja ajasti lähtee pyörimään, määritetään kuinka usein päivitetään(tässä sekunnin välein)
             # tehdään kellosta samalla muuttuja, jolla  kellon toiminnan voi sitten myöhemmin lopettaa (.cancel())
@@ -107,7 +117,7 @@ class Exercise(Screen):
 
     def update_progress_bar(self, dt):
         """Etenemispalkin päivitystoiminnot"""
-        if self.general_progress < self.length:
+        if self.general_progress < self.sound.length:
             self.general_progress += 1
 
         # latauspalkki nollautuu  toistaiseksi sekunnin myöhemmin kuin muut palat
@@ -162,7 +172,7 @@ class Exercise(Screen):
 
     def update_seconds(self):
         """sekunnin päivitys"""
-        if self.general_progress < self.length:
+        if self.general_progress < self.sound.length:
             self.seconds += 1
 
             # update_minutes() kutsutaan jos sekunnit enemmän kuin 60, samalla nollataaan sekunnit
