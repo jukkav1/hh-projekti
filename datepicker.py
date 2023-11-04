@@ -78,7 +78,6 @@ class DatePicker(BoxLayout):
 
     def tee_merkinta(self, datelist: list, text: str):
         """Tekee merkintöjä päiväkirjaan. text -muuttujalla otetaan päiväkirjamerkintä"""
-        self.datelist = datelist
 
         # onko tässä järkeä?
         day = datelist[0]
@@ -91,7 +90,7 @@ class DatePicker(BoxLayout):
             print(f"{day} {month} {year} on jo merkintä:", is_entry_days_list)
         else:
             # jos ei ole merkintää, tee semmonen
-            dbase.create_entry(datelist[0], datelist[1], datelist[2], text)
+            dbase.create_entry(day, month, year, text)
 
     ##### Tässä saattaa olla kaksi samankaltaista funktiota toiminnolle, jonka voi ehkä tehdä yhdelläkin.
     def onko_merkinta(self, datelist: list) -> bool:
@@ -105,14 +104,20 @@ class DatePicker(BoxLayout):
 
     def check_single_day(self, datelist: list) -> list:
         """Palauttaa tietokannasta päiväkirjamerkinnät. jos ei ole, tyhjä lista"""
-        entrylist = dbase.get_single_entry(datelist[0], datelist[1], datelist[2])
+        day = datelist[0]
+        month = datelist[1]
+        year = datelist[2]
+
+        entrylist = dbase.get_single_entry(day, month, year)
         return entrylist
 
     #########
 
     def get_month_entrylist(month_year: list) -> list:
         """Hakee kaikki kuukauden merkinnät ja palauttaa ne listana"""
-        entrylist = dbase.get_entry_list(month_year[0], month_year[1])
+        month = month_year[0]
+        year = month_year[1]
+        entrylist = dbase.get_entry_list(month, year)
         return entrylist
 
 
