@@ -44,10 +44,11 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max: root.sdict[self.player_num-1]['length']
-        value:root.bar_progress1
+        value: root.bar_progresses[self.player_num - 1]
 
     MDLabel:
-        text:root.timer1 # hakee tiedot exercise.py:n timer1 kohdasta, vaatii string, muodon
+        player_num: 1
+        text:root.timers[self.player_num - 1]
         pos_hint:{"x":0.26,"top":1.40}
 
     MDLabel:
@@ -87,10 +88,11 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max: root.sdict[self.player_num-1]['length']
-        value:root.bar_progress2
+        value: root.bar_progresses[self.player_num - 1]
 
     MDLabel:
-        text:root.timer2 
+        player_num: 2
+        text:root.timers[self.player_num - 1]
         pos_hint:{"x":0.26,"top":1.25}
 
     MDLabel:
@@ -130,15 +132,16 @@
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
         max: root.sdict[self.player_num-1]['length']
-        value:root.bar_progress3
+        value: root.bar_progresses[self.player_num - 1]
 
     MDLabel:
-        text:root.timer3 
+        player_num: 3
+        text: root.timers[self.player_num - 1]
         pos_hint:{"x":0.26,"top":1.10}
 
     MDLabel:
         player_num: 3
-        text: root.sdict[self.player_num-1]['time']
+        text: root.sdict[self.player_num - 1]['time']
         pos_hint:{"x":0.86,"top":1.10}
     
     MDLabel: # testi audion tiedot
@@ -172,15 +175,16 @@
         pos_hint:{"center_x":0.62,"center_y":0.45}
         size_hint_x: 0.43
         color: 163/255, 102/255, 28/255, 1
-        max: root.sdict[self.player_num-1]['length']
-        value:root.bar_progress4
+        max: root.sdict[self.player_num - 1]['length']
+        value: root.bar_progresses[self.player_num - 1]
 
     MDLabel:
-        text:root.timer4
+        player_num: 4
+        text:root.timers[self.player_num - 1]
         pos_hint:{"x":0.26,"top":0.95}
 
     MDLabel:
         player_num: 4
-        text: root.sdict[self.player_num-1]['time']
+        text: root.sdict[self.player_num - 1]['time']
         pos_hint:{"x":0.86,"top":0.95}
 

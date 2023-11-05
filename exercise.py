@@ -4,16 +4,21 @@
 from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 from kivy.core.audio import SoundLoader
-from kivy.properties import NumericProperty, StringProperty
+from kivy.properties import NumericProperty, ListProperty
 from kivy.clock import Clock
 
 Builder.load_file("kv/exercise.kv")
+
+# TODO:
+# set_stop_buttons ja set_play_buttons riippuu edelleen kovakoodatun nappuloiden määrästä kv:n puolella (self.ids..); voiko for-loopilla käydä läpi?
 
 
 class Exercise(Screen):
     s = "sounds"
 
     # fmt: off
+    # tämä sanakirja sisältää äänitiedostojen tiedot:
+    # nimi | suhteellinen polku | aika | aika sekunteina
     sdict = [
         {"name": "Metsä", "file": f"{s}/ambient_forest_new.mp3", "time": "08:12", "length": 492},
         {"name": "Lehdet", "file": f"{s}/lehdet.mp3", "time": "07:52", "length": 472},
@@ -21,28 +26,16 @@ class Exercise(Screen):
         {"name": "Lintuääni", "file": f"{s}/test.ogg", "time": "00:04", "length": 4}
         ]
     # fmt: on
+    sdlength = len(sdict)
+
+    # ajastimet ja etenemispalkit audioraidoille
+    bar_progresses = ListProperty([0] * sdlength)
+    timers = ListProperty(["00:00"] * sdlength)
 
     # määritetään tarvittavia muuttujia
     general_progress = NumericProperty(0.0)
-
-    # etenemispalkkien arvot, viedään kv:lle (kivy language)
-    bar_progress1 = NumericProperty(0.0)
-    bar_progress2 = NumericProperty(0.0)
-    bar_progress3 = NumericProperty(0.0)
-    bar_progress4 = NumericProperty(0.0)
-
-    # ajastimen arvot
-    timer1 = StringProperty("00:00")
-    timer2 = StringProperty("00:00")
-    timer3 = StringProperty("00:00")
-    timer4 = StringProperty("00:00")
-
-    # sekunnit ja minuutit
     seconds = NumericProperty()
     minutes = NumericProperty()
-
-    # apumuuttuja sille, mitä painiketta painettiin jotta voidaan käsitellä oikeaa audioraitaa
-    pressed_button = 0
 
     # aloitetaan audio ja asetetaan arvo pressed_button muuttujalle
     def play_audio(self, pressed_btn: int):
@@ -100,17 +93,20 @@ class Exercise(Screen):
         print("ääni pysäytetty")
 
     def clear_time(self):
-        """Palautetaan muuttujat alkutilaan"""
+        """Nollaa kellot, ajat, palkit ja muuttujat"""
+        # nollaa kellot
         self.timer_progress.cancel()
         self.bar_progress.cancel()
-        self.timer1 = "00:00"
-        self.timer2 = "00:00"
-        self.timer3 = "00:00"
-        self.timer4 = "00:00"
-        self.bar_progress1 = 0
-        self.bar_progress2 = 0
-        self.bar_progress3 = 0
-        self.bar_progress4 = 0
+
+        # ajastimet
+        for _ in range(len(self.timers)):
+            self.timers[_] = "00:00"
+
+        # palkit
+        for _ in range(len(self.bar_progresses)):
+            self.bar_progresses[_] = 0
+
+        # muuttujat
         self.seconds = 0
         self.minutes = 0
         self.general_progress = 0
@@ -120,33 +116,20 @@ class Exercise(Screen):
         if self.general_progress < self.sound.length:
             self.general_progress += 1
 
-        # latauspalkki nollautuu  toistaiseksi sekunnin myöhemmin kuin muut palat
         else:
+            # jos aika on täysi, nollaa ja pysäytä äänet ja palkit.
             self.general_progress = 0
-            # lopetaan kellon toiminta
             self.bar_progress.cancel()
-
-            # stop audio heti jos timer käy loppuun
             self.stop_audio()
 
-        # minne tiedot tallennetaan
-        if self.pressed_button == 1:
-            self.bar_progress1 = self.general_progress
-
-        elif self.pressed_button == 2:
-            self.bar_progress2 = self.general_progress
-
-        elif self.pressed_button == 3:
-            self.bar_progress3 = self.general_progress
-
-        elif self.pressed_button == 4:
-            self.bar_progress4 = self.general_progress
+        # joka tapauksessa päivitä palkki
+        self.bar_progresses[self.pressed_button - 1] = self.general_progress
 
     def string_time(self, dt):
         """ajasta muodostetaan labelille sopiva muoto ja päivitellään sitä"""
         self.update_seconds()
 
-        # time muutetaan sellaiseksi minkä kv puolen label ymmärtää
+        # Kivyn label hyväksyy vain merkkijonoja.
         seconds = str(self.seconds)
         minutes = str(self.minutes)
 
@@ -161,30 +144,19 @@ class Exercise(Screen):
         time = f"{minutes}:{seconds}"
 
         # minne aikatieto tallennetaan
-        if self.pressed_button == 1:
-            self.timer1 = time
-        elif self.pressed_button == 2:
-            self.timer2 = time
-        elif self.pressed_button == 3:
-            self.timer3 = time
-        elif self.pressed_button == 4:
-            self.timer4 = time
+        self.timers[self.pressed_button - 1] = time
 
     def update_seconds(self):
         """sekunnin päivitys"""
         if self.general_progress < self.sound.length:
             self.seconds += 1
 
-            # update_minutes() kutsutaan jos sekunnit enemmän kuin 60, samalla nollataaan sekunnit
+            # jos sekunnit 60, lisää minuutti ja nollaa sekunnit
             if self.seconds == 60:
                 self.minutes += 1
                 self.seconds = 0
 
         else:
-            # nollataan  muuttujat
-            self.seconds = 0
-            self.minutes = 0
-
             # pysäytetään kello
             self.timer_progress.cancel()
 
