@@ -116,8 +116,6 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 14.8. - Merkintä saatiin menemään tietokantaan, pieni glitch jäi vielä (väri vaihtuu vasta kun kk vaihtuu)
 - Käytiin läpi koodia ja lisäiltiin mielekkäitä kommentointeja.
 
-- Alkuperäisellä kalenterilla (datepicker.kv) ei ole lisenssiä. Asiasta keskusteltu vastuukouluttaja Kerttulin kanssa. Loppujärkeily on, että koska kalenteri on laitettu githubiin, julkiseen tietoverkkoon, julkisesti esille ja näytille, voidaan olettaa, että henkilö on halunnut sen näytille. Emme kuitenkaan levitä tai hyödynnä koodia kaupallisessa tarkoituksessa, mutta lisäämme toiminnallisuutta ja jatkojalostamme sitä. Hyvien käytöstapojen mukaisesti tietenkin mainitsemme lähteen omassa projektissamme.
-
 16.8. Tarulta saatu siistitty versio soittimesta. Hieno homma. Treenailtu näyttöä varten ja keskusteltu äänien lisenssiasioista.
 
 
