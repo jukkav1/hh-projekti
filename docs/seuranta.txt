@@ -118,7 +118,6 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 
 16.8. Tarulta saatu siistitty versio soittimesta. Hieno homma. Treenailtu näyttöä varten ja keskusteltu äänien lisenssiasioista.
 
-
 17.8.
 - Siistitään hieman codebasea.
 - Muusikko myöntänyt suullisesti luvat äänitteiden käyttöön ja ilmoittanut tutustuvansa CC -lisensseihin.
