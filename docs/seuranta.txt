@@ -116,8 +116,6 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 14.8. - Merkintä saatiin menemään tietokantaan, pieni glitch jäi vielä (väri vaihtuu vasta kun kk vaihtuu)
 - Käytiin läpi koodia ja lisäiltiin mielekkäitä kommentointeja.
 
-- Alkuperäisellä kalenterilla (datepicker.kv) ei ole lisenssiä. Asiasta keskusteltu vastuukouluttaja Kerttulin kanssa. Loppujärkeily on, että koska kalenteri on laitettu githubiin, julkiseen tietoverkkoon, julkisesti esille ja näytille, voidaan olettaa, että henkilö on halunnut sen näytille. Emme kuitenkaan levitä tai hyödynnä koodia kaupallisessa tarkoituksessa, mutta lisäämme toiminnallisuutta ja jatkojalostamme sitä. Hyvien käytöstapojen mukaisesti tietenkin mainitsemme lähteen omassa projektissamme.
-
 16.8. Tarulta saatu siistitty versio soittimesta. Hieno homma. Treenailtu näyttöä varten ja keskusteltu äänien lisenssiasioista.
 
 
@@ -151,10 +149,3 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 
 17.9.
 - testilammas-aloitusanimaatio saatu toimimaan.
-
-2.10.
-- MIT lisensoitu kalenteri sovitettu 0.1.0 koodiin.
-- MIT / Copyright rivejä koodiin; artwork/music lisenssit vielä puuttuu.
-- Kalenteriin eteen/taakse napit sekä spinnerit; toiminta vaiheessa.
-12.10.
-- myös el3:n kalenteri lisensoitu MIT:n alle - saa siis käyttää ja kehittää vapaasti.
