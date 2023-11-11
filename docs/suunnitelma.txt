@@ -83,3 +83,9 @@ Viimeistelyjuttuja:
 
 13.9.
 Tarulta tilattu animoitu latauskuva ja tyylikkäämpi ikoni :)
+
+2.10.
+Palautetaan alkuperäinen MIT -lisensoitu kalenteri projektiin ja ryhdytään työstämään se toimivaksi.
+
+12.10.
+Nyt on saatavilla useita kalenteriehdokkaita, kun el3 myönsi myös MIT lisenssin omalle työlleen.

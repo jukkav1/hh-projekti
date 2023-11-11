@@ -1,6 +1,4 @@
-# Tietokantamoduuli
-
-# Copyright (c) 2023 Jukka Valvanne
+# Copyright (c) 2023 Jukka Valvanne & Taru Haapala
 
 # Otetaan tärkeät kirjastot mukaan
 from sqlite3 import connect, Error
