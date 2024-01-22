@@ -189,11 +189,8 @@
 <DatePicker>:
     name: "upmost"
     calendar: Calendar()
-
-    # vuosi ja kk haluttaisiin tulemaan nätisti pääohjelmalta.
-    year: 2023
-    #month: # halutaaan tämä tulevan pääohjelmalta
-    month: 11
+    year: root.year
+    month: root.month
     year_range: 3
     # alkuasetus valitulle pvm:lle
     picked: ["", "", ""]

@@ -11,6 +11,8 @@ from kivy.uix.popup import Popup
 from kivy.uix.textinput import TextInput
 from datetime import datetime
 from kivy.properties import StringProperty
+from kivy.properties import NumericProperty
+
 
 # Container kuori sisältöä varten, tarvitaan taustakuvaa varten
 class DatePickerContainer(Screen):
@@ -22,10 +24,12 @@ class DatePickerContainer(Screen):
         """
         # .strftime = muotoile aika/pvm haluttuun muotoon
         self.time = str(datetime.now().strftime("%H:%M"))
-        self.date = str(datetime.now().strftime("%d.%m.%Y"))
 
 
 class DatePicker(BoxLayout):
+    year = NumericProperty(datetime.now().year)
+    month = NumericProperty(datetime.now().month)
+
     def merkinta_popup(self, datelist: list):
         """pop-uppi merkinnän tekemistä varten"""
         # rakennetaan ensin layout content-muuttujaa varten, joka muuttuja voidaan sitten

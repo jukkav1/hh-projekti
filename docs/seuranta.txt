@@ -149,10 +149,12 @@ testifunktio jo printtaa tehdyn merkinnän tiedot.
 17.9.
 - testilammas-aloitusanimaatio saatu toimimaan.
 
-0.1.1 - 0.1.5:
+Versiot 0.1.1 - 0.1.5:
 - flipataan kalenterimerkinnän toiminta toisinpäin:
      päivä-nappi merkataan klikkauksesta, mutta koska lista haetaan aina piirron yhteydessä uusiksi, tekemätön merkintä "poistuu" jos kk vaihdetaan.
 - Soittimen kaatuminen korjattu (rumasti)
 - siistittiin soitinkoodia: ajastimet ja progressbarit listassa; voi nollata for-loopilla.
 - kasattiin hard-coded audiotiedot sanakirjaan py:n puolelle; nyt voi muokata helpommin yhdestä paikasta jatkokehitystä varten.
-- 
+
+22.1.2024
+- Saatiin vihdoin päivät ja kuukaudet dynaamisiksi. Koodisokeutta.
