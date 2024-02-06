@@ -1,6 +1,10 @@
 Hyvä Henkäys
 ===========
 
+![Main view](docs/home.png)
+![Calendar](docs/calendar.png)
+![Player](docs/player.png)
+
 Credits
 -------
 * Arts  &copy; Taru Haapala
