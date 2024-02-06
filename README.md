@@ -1,9 +1,7 @@
 Hyvä Henkäys
 ===========
 
-![Main view](docs/home.png)
-![Calendar](docs/calendar.png)
-![Player](docs/player.png)
+<img alt="a lamb holding a thumb up" src="docs/home.png" width="150" /> <img alt="a calendar page" src="docs/calendar.png" width="150" /> <img alt="a player with four sample audios" src="docs/player.png" width="150" />
 
 Credits
 -------
